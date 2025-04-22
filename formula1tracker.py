@@ -229,7 +229,6 @@ elif option == "Current Leaderboard":
 
     combined = combined[["Position", "Driver", "Points"]]
     
-    st.markdown(f"<h3 style='text-align: center;'>Projected World Drivers Championship</h3>", unsafe_allow_html=True)
     render_leaderboard(combined)
 
     #CC_retry
