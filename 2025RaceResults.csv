@@ -1,0 +1,102 @@
+Track ,Team,Driver,No,Pos,Gap,Points,Track
+Australia,Average,Average,Average,,,,Australia
+Australia,McLaren,Lando Norris,4,1,0.000,25,Australia
+Australia,Red Bull Racing,Max Verstappen,1,2,0.895,18,Australia
+Australia,Mercedes,George Russell,63,3,8.481,15,Australia
+Australia,Mercedes,Kimi Antonelli,12,4,10.135,12,Australia
+Australia,Williams,Alexander Albon,23,5,12.773,10,Australia
+Australia,Aston Martin,Lance Stroll,18,6,17.413,8,Australia
+Australia,Kick Sauber,Nico Hulkenberg,27,7,18.423,6,Australia
+Australia,Ferrari,Charles Leclerc,16,8,19.826,4,Australia
+Australia,McLaren,Oscar Piastri,81,9,20.448,2,Australia
+Australia,Ferrari,Lewis Hamilton,44,10,22.473,1,Australia
+Australia,Alpine,Pierre Gasley,10,11,26.502,0,Australia
+Australia,Racing Bulls,Yuki Tsunoda,22,12,29.884,0,Australia
+Australia,Haas,Esteban Ocon,31,13,33.161,0,Australia
+Australia,Haas,Oliver Bearman,87,14,40.351,0,Australia
+Australia,Williams,Carlos Sainz,55,NC,DNF,0,Australia
+Australia,Racing Bulls,Isack Hadjar,6,NC,DNF,0,Australia
+Australia,Aston Martin,Fernando Alonso,14,NC,DNF,0,Australia
+Australia,Alpine,Jack Doohan,7,NC,DNF,0,Australia
+Australia,Kick Sauber,Gabriel Bortoleto,5,NC,DNF,0,Australia
+Australia,Red Bull Racing,Liam Lawson,30,NC,DNF,0,Australia
+China,McLaren,Oscar Piastri,81,1,,25,China
+China,McLaren,Lando Norris,4,2,,18,China
+China,Mercedes,George Russell,63,3,,15,China
+China,Red Bull Racing,Max Verstappen,1,4,,12,China
+China,Haas,Esteban Ocon,31,5,,10,China
+China,Mercedes,Kimi Antonelli,12,6,,8,China
+China,Williams,Alexander Albon,23,7,,6,China
+China,Haas,Oliver Bearman,87,8,,4,China
+China,Aston Martin,Lance Stroll,18,9,,2,China
+China,Williams,Carlos Sainz,55,10,,1,China
+China,Racing Bulls,Isack Hadjar,6,11,,0,China
+China,Red Bull Racing,Liam Lawson,30,12,,0,China
+China,Alpine,Jack Doohan,7,13,,0,China
+China,Kick Sauber,Gabriel Bortoleto,5,14,,0,China
+China,Kick Sauber,Nico Hulkenberg,27,15,,0,China
+China,Racing Bulls,Yuki Tsunoda,22,16,,0,China
+China,Aston Martin,Fernando Alonso ,14,17,NC,0,China
+China,Ferrari,Charles Leclerc,16,18,DQ,0,China
+China,Ferrari ,Lewis Hamilton,44,19,DQ,0,China
+China,Alpine,Pierre Gasley,10,20,DQ,0,China
+Japan,Red Bull Racing,Max Verstappen,1,1,,25,Japan
+Japan,McLaren,Lando Norris,4,2,,18,Japan
+Japan,McLaren,Oscar Piastri,81,3,,15,Japan
+Japan,Ferrari,Charles Leclerc,16,4,,12,Japan
+Japan,Mercedes,George Russell,63,5,,10,Japan
+Japan,Mercedes,Kimi Antonelli,12,6,,8,Japan
+Japan,Ferrari,Lewis Hamilton,44,7,,6,Japan
+Japan,Racing Bulls,Isack Hadjar,6,8,,4,Japan
+Japan,Williams,Alexander Albon,23,9,,2,Japan
+Japan,Haas,Oliver Bearman,87,10,,1,Japan
+Japan,Aston Martin,Fernando Alonso,14,11,,0,Japan
+Japan,Red Bull Racing,Yuki Tsunoda,22,12,,0,Japan
+Japan,Alpine,Pierre Gasley,10,13,,0,Japan
+Japan,Williams,Carlos Sainz,55,14,,0,Japan
+Japan,Alpine,Jack DOohan,7,15,,0,Japan
+Japan,Kick Sauber,Nico Hulkenberg,27,16,,0,Japan
+Japan,Racing Bulls,Liam Lawson,30,17,,0,Japan
+Japan,Haas,Esteban Ocon,31,18,,0,Japan
+Japan,Kick Sauber,Gabriel Bortoleto,5,19,,0,Japan
+Japan,Aston Martin,Lance Stroll,18,20,,0,Japan
+Bahrain,McLaren,Oscar Piastri,81,1,,25,Bahrain
+Bahrain,Mercedes,George Russell,63,2,,18,Bahrain
+Bahrain,McLaren,Lando Norris,4,3,,15,Bahrain
+Bahrain,Ferrari,Charles Leclerc,16,4,,12,Bahrain
+Bahrain,Ferrari,Lewis  Hamilton,44,5,,10,Bahrain
+Bahrain,Red Bull Racing,Max Verstappen,1,6,,8,Bahrain
+Bahrain,Alpine,Pierre Gasley,10,7,,6,Bahrain
+Bahrain,Haas,Esteban Ocon,31,8,,4,Bahrain
+Bahrain,Red Bull Racing,Yuki Tsunoda,22,9,,2,Bahrain
+Bahrain,Haas,Oliver Bearman,87,10,,1,Bahrain
+Bahrain,Mercedes,Kimi Antonelli,12,11,,0,Bahrain
+Bahrain,Williams,Alexander Albon,23,12,,0,Bahrain
+Bahrain,Racing Bulls,Isack Hadjar,6,13,,0,Bahrain
+Bahrain,Alpine,Jack Doohan,7,14,,0,Bahrain
+Bahrain,Aston Martin ,Fernando Alonso,14,15,,0,Bahrain
+Bahrain,Racing Bulls,Liam Lawson,30,16,,0,Bahrain
+Bahrain,Aston Martin,Lance Stroll,18,17,,0,Bahrain
+Bahrain,Kick Sauber,Gabriel Bortoleto,5,18,,0,Bahrain
+Bahrain,Williams,Carlos Sainz,55,19,,0,Bahrain
+Bahrain,Kick Sauber,Nico Hulkenberg,27,20,,0,Bahrain
+Saudi Arabia,McLaren,Oscar Piastri,81,1,,25,Saudi Arabia
+Saudi Arabia,Red Bull Racing,Max Verstappen,1,2,,18,Saudi Arabia
+Saudi Arabia,Ferrari,Charles Leclerc,16,3,,15,Saudi Arabia
+Saudi Arabia,McLaren,Lando Norris,4,4,,12,Saudi Arabia
+Saudi Arabia,Mercedes,George Russell,63,5,,10,Saudi Arabia
+Saudi Arabia,Mercedes,Kimi Antonelli,12,6,,8,Saudi Arabia
+Saudi Arabia,Ferrari,Lewis Hamilton,44,7,,6,Saudi Arabia
+Saudi Arabia,Williams,Carlos Sainz,55,8,,4,Saudi Arabia
+Saudi Arabia,Williams,Alexander Albon,23,9,,2,Saudi Arabia
+Saudi Arabia,Racing Bulls,Isack Hadjar,6,10,,1,Saudi Arabia
+Saudi Arabia,Aston Martin,Fernando Alonso,14,11,,0,Saudi Arabia
+Saudi Arabia,Racing Bulls,Liam Lawson,30,12,,0,Saudi Arabia
+Saudi Arabia,Haas,Oliver Bearman,87,13,,0,Saudi Arabia
+Saudi Arabia,Haas,Esteban Ocon,31,14,,0,Saudi Arabia
+Saudi Arabia,Kick Sauber,Nico Hulkenberg,27,15,,0,Saudi Arabia
+Saudi Arabia,Aston Martin,Lance Stroll,18,16,,0,Saudi Arabia
+Saudi Arabia,Alpine,Jack Doohan,7,17,,0,Saudi Arabia
+Saudi Arabia,Kick Sauber,Gabriel Bortoleto,5,18,,0,Saudi Arabia
+Saudi Arabia,Red Bull Racing,Yuki Tsunoda,22,19,,0,Saudi Arabia
+Saudi Arabia,Alpine,Pierre Gasley,10,20,,0,Saudi Arabia
