@@ -378,7 +378,7 @@ elif option == "Hypothetical Chaos Mode":
     full_leaderboard = full_leaderboard[["Position", "Driver", "Points", "Track"]]
 
     # Create an editable table for 10 positions
-    pos_labels = [f"{i+1}{'st' if i+1 == 1 else "nd" if i+1 == 2 else 'rd' if i+1 == 3 else 'th'}" for i in range(10)]
+    pos_labels = [f"{i+1}{'st' if i+1 == 1 else 'nd' if i+1 == 2 else 'rd' if i+1 == 3 else 'th'}" for i in range(10)]
     hypothetical_input = pd.DataFrame({"Position": pos_labels, "Driver": [""] * 10})
     edited_data = st.data_editor(hypothetical_input, num_rows="fixed", use_container_width=True, hide_index=True)
 
@@ -1101,7 +1101,7 @@ if option == "Track Information":
     if track in ["Australia", "China", "Japan", "Bahrain"]:
         st.write("we already passed this before i made it so i snooze you lose")
     elif track == "Saudi Arabia":
-        st.image("/Users/kileytrombly/Desktop/Coding/formula-1-2025-tracker/Saudi_Arabia_Circuit.png")
+        st.image("Saudi_Arabia_Circuit.png")
         st.subheader("**Lap Record:** 1:30.734")
         st.subheader(f"**2024 Winner:** Max Verstappen")
         st.write("**Important Notes:**")
