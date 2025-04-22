@@ -106,8 +106,8 @@ if option == "Home":
 
 
 #Main Race
-gp = pd.read_csv('/workspaces/formula1forthegirlies/2025RaceResults.csv')
-sprint = pd.read_csv('/workspaces/formula1forthegirlies/2025SprintResults.csv')
+gp = pd.read_csv('https://raw.githubusercontent.com/Rooniford/formula1forthegirlies/refs/heads/main/2025RaceResults.csv')
+sprint = pd.read_csv('https://raw.githubusercontent.com/Rooniford/formula1forthegirlies/refs/heads/main/2025SprintResults.csv')
 season = pd.concat([gp, sprint])
 
 ##GRAND PRIX POSITIONS
