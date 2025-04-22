@@ -120,8 +120,8 @@ williams_drivers = ("Carlos Sainz", "Alexander Albon")
 
 
 #Main Race
-gp = pd.read_csv('/Users/kileytrombly/Desktop/Coding/formula-1-2025-tracker/2025RaceResults.csv')
-sprint = pd.read_csv('/Users/kileytrombly/Desktop/Coding/formula-1-2025-tracker/2025SprintResults.csv')
+gp = pd.read_csv('https://raw.githubusercontent.com/Rooniford/formula1forthegirlies/refs/heads/main/2025RaceResults.csv')
+sprint = pd.read_csv('https://raw.githubusercontent.com/Rooniford/formula1forthegirlies/refs/heads/main/2025SprintResults.csv')
 season = pd.concat([gp, sprint])
 
 ##GRAND PRIX POSITIONS
@@ -1101,7 +1101,7 @@ if option == "Track Information":
     if track in ["Australia", "China", "Japan", "Bahrain"]:
         st.write("we already passed this before i made it so i snooze you lose")
     elif track == "Saudi Arabia":
-        st.image("Saudi_Arabia_Circuit.png")
+        st.image("https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Saudi_Arabia_Circuit")
         st.subheader("**Lap Record:** 1:30.734")
         st.subheader(f"**2024 Winner:** Max Verstappen")
         st.write("**Important Notes:**")
