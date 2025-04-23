@@ -100,7 +100,7 @@ if option == "Home":
 
 ##HOME
 if option == "Home":
-    st.write("version 1.0.1")
+    st.write("version 1.0.2")
 
 ##File Uploads
 alpine_drivers = ("Pierre Gasley", "Jack Doohan")
