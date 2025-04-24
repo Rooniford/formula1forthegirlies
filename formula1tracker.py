@@ -92,16 +92,13 @@ def render_leaderboard(df):
 
 
 
-option = st.sidebar.radio("Pages",["Home", "Grand Prix Positions", "Current Leaderboard", "Hypothetical Chaos Mode", "Interesting Factoid", "Construction Information", "Track Information"])
+option = st.sidebar.radio("Pages",["**Home**", "**Grand Prix Positions**", "**Current Leaderboard**", "**Hypothetical Chaos Mode**", "**Interesting Factoid**", "**Construction Information**", "**Track Information**", "**Words of Wisdom**  ***NEW***", "Patch Notes"])
 
-if option == "Home":
+if option == "**Home**":
     st.title("kiley's f1 2025 season track: for the girls by the girls")
-
-
-##HOME
-if option == "Home":
-    st.write("version 1.0.2")
-
+    st.image("https://steamuserimages-a.akamaihd.net/ugc/1914618053679846010/5E74EF96A5A44D3DD1266F77DFA85ED77770D675/")
+    st.write("version 1.0.3")
+    
 ##File Uploads
 alpine_drivers = ("Pierre Gasley", "Jack Doohan")
 aston_martin_drivers = ("Fernando Alonso", "Lance Stroll")
@@ -128,7 +125,7 @@ season = pd.concat([gp, sprint])
 gp_clean = gp.dropna(subset=["Track", "Pos"])
 tracks = gp_clean["Track"].unique()
 
-if option == "Grand Prix Positions":
+if option == "**Grand Prix Positions**":
     for track in tracks:
         race_data = gp_clean[gp_clean["Track"] == track] 
 
@@ -147,10 +144,12 @@ if option == "Grand Prix Positions":
         results_df = pd.DataFrame(race_results, columns = ["Position", "Driver"])
 
         render_leaderboard(results_df)
+        st.divider()
+    st.caption("six people did not complete the Australia GP, I have tried so hard to fix the file and havent done it yet so their names aren't listed...soz")
 
 ##STANDINGS
 
-elif option == "Current Leaderboard":
+elif option == "**Current Leaderboard**":
 
     #WDC
     st.markdown(f"<h2 style='text-align: center;'>World Drivers Championship</h2>", unsafe_allow_html=True)
@@ -308,7 +307,7 @@ elif option == "Current Leaderboard":
 
 ##Hypothetical Chaos Mode
 
-elif option == "Hypothetical Chaos Mode":
+elif option == "**Hypothetical Chaos Mode**":
     st.markdown(f"<h2 style='text-align: center;'>Hypothetical Chaos Mode</h2>", unsafe_allow_html=True)
 
 
@@ -990,7 +989,7 @@ driver_info = {
         """,
 }
 
-if option == "Interesting Factoid":
+if option == "**Interesting Factoid**":
     text_input = st.text_input("enter a driver")
     driverstats = None
     AA23_valid_names = ("Alex Albon", "Albon", "alex albon", "albon", "23")
@@ -1068,7 +1067,7 @@ if option == "Interesting Factoid":
         
 ##TRACK INFORMATION
 
-if option == "Track Information":
+if option == "**Track Information**":
 
     track = st.selectbox("Choose a Circuit",
                  ["Australia",
@@ -1109,6 +1108,17 @@ if option == "Track Information":
         st.write("With three DRS zones and many high speed corners, there are many overtaking opportunities.")
         st.write("**Fun Moments:**")
         st.write("Ollie Bearman's 2024 F1 Debut: Ollie filled in for Carlos Sainz on Ferrari and placed p7 ahead of Lando Norris and Lewis Hamilton")
+    elif track == "Miami":
+        st.image("https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Miami_Circuit")
+        st.subheader("**Lap Record: 1:29.708**")
+        st.text("Max Verstappen, 2023")
+        st.subheader("**2024 Main Race Winner:** Lando Norris")
+        st.subheader("**2024 Sprint Race Winner:** Max Verstappen")
+        st.write("**Important Notes**")
+        st.write("The track is considered a street circuit. So far in the 2025 season, Red bull has had advantages on street circuts")
+        st.write("It's often compared to the Melbourne circuit because of their similarities, which Lando Norris won. Oscar Piastri exhibited great pace but a rain storm took him out of the running, and Max Verstappen put up a valiant effort for first place")
+        st.write("Miami 2024 marks Lando Norris' first F1 race win, ending his streak as Lando 'No Wins' Norris")
+
     else:
         st.write("be patient")
 
@@ -1147,10 +1157,24 @@ constructor_info = {
         """,
 }
 
-if option == "Construction Information":
+if option == "**Construction Information**":
     text_input = st.text_input("enter a constructor")
     if text_input in constructor_info:
         st.markdown(constructor_info[text_input], unsafe_allow_html=True)
     else:
         st.write("")
 
+##WORDS OF WISDOM
+if option == "**Words of Wisdom**  ***NEW***":
+    st.write("you jumped the gun a bit, i'm getting there")
+
+##PATCH NOTES
+if option == "Patch Notes":
+    st.subheader("1.0.4")
+    st.text("""
+            Added an image to the homepage
+             
+            Updated the format of the different pages, including bolding the letters and adding a new page 'Words of Wisdom', which will include quotes from drivers or engineers.
+            
+            Updated the Miami circuit page under Track Information
+        """)
