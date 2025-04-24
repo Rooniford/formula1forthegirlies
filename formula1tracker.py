@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import random
 
 
 #Site formatting
@@ -115,6 +116,29 @@ racing_bulls_australia_drivers = ("Yuki Tsunoda", "Isack Hadjar")
 racing_bulls_japan_drivers = ("Liam Lawson", "Isack Hadjar")
 williams_drivers = ("Carlos Sainz", "Alexander Albon")
 
+#driver photos
+driver_photos = {
+    "Pierre Gasly": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png",
+    "Jack Doohan": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/J/JACDOO01_Jack_Doohan/jacdoo01.png",
+    "Fernando Alonso": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png",
+    "Lance Stroll": "https://media.formula1.com/d_default_fallback_image.png/content/dam/fom-website/2018-redesign-assets/drivers/number-logos/LANSTR01.png",
+    "Charles Leclerc": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png",
+    "Lewis Hamilton": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png",
+    "Oliver Bearman": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OLIBEA01_Oliver_Bearman/olibea01.png",
+    "Esteban Ocon": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/E/ESTOCO01_Esteban_Ocon/estoco01.png",
+    "Nico Hulkenberg": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png",
+    "Gabriel Bortoleto": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GABBOR01_Gabriel_Bortoleto/gabbor01.png",
+    "Lando Norris": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png",
+    "Oscar Piastri": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2172131554-copy.jpg?c=original",
+    "George Russell": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png",
+    "Kimi Antonelli": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/ANDANT01_Kimi_Antonelli/andant01.png",
+    "Max Verstappen": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png",
+    "Yuki Tsunoda": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png",
+    "Isack Hadjar": "https://www.formulaonehistory.com/wp-content/uploads/2024/12/Isack-Hadjar-F1-2024-RB.webp",
+    "Liam Lawson": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png",
+    "Alexander Albon": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png",
+    "Carlos Sainz": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png"
+}
 
 #Main Race
 gp = pd.read_csv('https://raw.githubusercontent.com/Rooniford/formula1forthegirlies/main/2025RaceResults.csv')
@@ -529,11 +553,6 @@ elif option == "**Hypothetical Chaos Mode**":
         st.write("")
 
             
-
-
-
-
-
 
 
 ##Interesting Factoid
@@ -975,7 +994,7 @@ driver_info = {
         - Red Bull Racing principal Christian Horner has said he regrets not signing Piastri while he was running in Formula 4
         - McLaren and Alpine went to court fighting over Piastri after he was both a reserve driver for McLaren and a test driver for Alpine in 2022
         """,
-    "Pierre Gasley": """
+    "Pierre Gasly": """
         **Current Team**: Alpine
         **Previous Teams**: Redbull Jr Team, Racing Bulls, Red Bull
         
@@ -1043,53 +1062,94 @@ if option == "**Interesting Factoid**":
     NH27_valid_names = ("Nico Hulkenberg", "Hulkenberg", "nico hulkenberg", "hulkenberg", "27")
     OB87_valid_names = ("Oliver Bearman", "oliver bearman", "Ollie Bearman", "ollie bearman", "Ollie in the Wallie", "ollie in the wallie", "87")
     OP81_valid_names = ("Oscar Piastri", "oscar piastri", "Piastri", "piastri", "Pastry", "pastry", "Great Barrier Chief", "great barrier chief", "Wizard of Aus", "wizard of aus", "81")
-    PG10_valid_names = ("Pierre Gasley", "pierre gasley", "Gasley", "gasley", "10")
+    PG10_valid_names = ("Pierre Gasley", "pierre gasley", "Gasley", "gasley", "10", "Pierre Gasly", "pierre gasly", "gasly")
     YT22_valid_names = ("Yuki Tsunoda", "Tsunoda", "yuki tsunoda", "tsunoda", "22")
     valid_driver_names = set(AA23_valid_names + AKA12_valid_names + CL16_valid_names + CS55_valid_names + EO31_valid_names + FA14_valid_names + GB5_valid_names + GR63_valid_names + IH6_valid_names + JD7_valid_names + LH44_valid_names + LL30_valid_names + LN4_valid_names + LS18_valid_names + MV33_valid_names + NH27_valid_names + OB87_valid_names + OP81_valid_names + PG10_valid_names + YT22_valid_names)
     invalid_driver_names = set()
+
 
     if text_input is None:
         st.write("")
     if text_input in AA23_valid_names:
         driverstats = "Alex Albon"
+        driver_name = "Alexander Albon"
+        st.image(driver_photos[driver_name], width=200)
     elif text_input in AKA12_valid_names:
         driverstats = "Andrea Kimi Antonelli"
+        driver_name = "Kimi Antonelli"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in CL16_valid_names:
         driverstats = "Charles Leclerc"
+        driver_name = "Charles Leclerc"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in CS55_valid_names:
         driverstats = "Carlos Sainz"
+        driver_name = "Carlos Sainz"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in EO31_valid_names:
         driverstats = "Esteban Ocon"
+        driver_name = "Esteban Ocon"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in FA14_valid_names:
         driverstats = "Fernando Alonso"
+        driver_name = "Fernando Alonso"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in GB5_valid_names:
         driverstats = "Gabriel Bortoleto"
+        driver_name = "Gabriel Bortoleto"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in GR63_valid_names:
         driverstats = "George Russell"
+        driver_name = "George Russell"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in IH6_valid_names:
         driverstats = "Isack Hadjar"
+        driver_name = "Isack Hadjar"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in JD7_valid_names:
         driverstats = "Jack Doohan"
+        driver_name = "Jack Doohan"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in LH44_valid_names:
         driverstats = "Lewis Hamilton"
+        driver_name = "Lewis Hamilton"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in LL30_valid_names:
         driverstats = "Liam Lawson"
+        driver_name = "Liam Lawson"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in LN4_valid_names:
         driverstats = "Lando Norris" 
+        driver_name = "Lando Norris"
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in LS18_valid_names:
         driverstats = "Lance Stroll"
+        driver_name = driverstats
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in MV33_valid_names:
         driverstats = "Max Verstappen"
+        driver_name = driverstats
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in NH27_valid_names:
         driverstats = "Nico Hulkenberg"
+        driver_name = driverstats
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in OB87_valid_names:
         driverstats = "Oliver Bearman"
+        driver_name = driverstats
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in OP81_valid_names:
         driverstats = "Oscar Piastri"
+        driver_name = driverstats
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in PG10_valid_names:
-        driverstats = "Pierre Gasley"
+        driverstats = "Pierre Gasly"
+        driver_name = driverstats
+        st.image(driver_photos[driver_name], width= 200)
     elif text_input in YT22_valid_names:
         driverstats = "Yuki Tsunoda"
+        driver_name = driverstats
+        st.image(driver_photos[driver_name], width= 200)
 
         
     if driverstats in driver_info:
@@ -1199,7 +1259,25 @@ if option == "**Construction Information**":
 
 ##WORDS OF WISDOM
 if option == "**Words of Wisdom**  ***NEW***":
-    st.write("you jumped the gun a bit, i'm getting there")
+    st.write("wouldnt this look nicer centered? im not that smart, but just pretend it is")
+
+    quotes = [
+        "I have a seat, fULL of water. like- full of water",
+        "Must be the water",
+        "LANDO WE CAN BE WORLD CHAMPION I SAID",
+        "Oh my god... I have never looked so good...",
+        "noo NOOOOOO.... i destroyed ze CAAA NOOO",
+        "its friday then.... saturday sunday what? iTS FRIDAY THEEENN-"
+
+    ]
+
+    words_of_wisdom = st.button("click for some words of wisdom")
+    if words_of_wisdom:
+        random_quote = random.choice(quotes)
+        st.markdown(
+            f"<h2 style='text-align: center;'>{random_quote}</h2>",
+            unsafe_allow_html=True
+        )
 
 ##PATCH NOTES
 if option == "Patch Notes":
@@ -1212,4 +1290,6 @@ if option == "Patch Notes":
             Updated the Miami circuit page under Track Information
 
             Added alternate names to "Hypothetical Chaos Mode" to allow for lowercase spelling and nicknames, including some fun nicknames ;)
+
+            Added photos to drivers in interesting factoid section
         """)
