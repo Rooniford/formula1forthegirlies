@@ -1267,8 +1267,30 @@ if option == "**Words of Wisdom**  ***NEW***":
         "LANDO WE CAN BE WORLD CHAMPION I SAID",
         "Oh my god... I have never looked so good...",
         "noo NOOOOOO.... i destroyed ze CAAA NOOO",
-        "its friday then.... saturday sunday what? iTS FRIDAY THEEENN-"
-
+        "its friday then.... saturday sunday what? iTS FRIDAY THEEENN-",
+        "Slippery in the wet",
+        "I wasn't even trying to race max, I was just trying to cut the grass. I didn't even know he was there honestly",
+        "'Honestly, you guys make absolutely no sense' 'OK'",
+        "So I unlocked a new problem",
+        "If you want to drive the car give it a go - I think you're going to poop your pants",
+        "THANK YOU BRYAN",
+        "I value my life and my limbs...he says as hes a formula one driver",
+        "Oh no.. I've caused a scene",
+        "'How do you manage to stay calm when max is right behind you?' 'I dont know, i dont'",
+        "ok mate, we got a few hard ons today. we got kyvat and the two willies have gone hard. everybody else with a free choice is medium apart from giovinazzi, whos gone soft",
+        "like a winner",
+        "'he's been told to give back the position' 'maybe try in spanish'",
+        "There's something loose between my legs. Apart from the obvious. Something is flying around my feet. I'd be proud if it was what you think it is, but it's not",
+        "smooth operaatoooorrrrrrr",
+        "the mistake was running the zero pod concept",
+        "wait a minute- are we both cheating?",
+        "It’s more like a hobby for me. So obviously I don’t need to do it if I don’t want to",
+        "k1 available",
+        "im a high performance athelete, athletes sweat. sweat baby, sweat sweat kiki ru ru",
+        "'i cheated a little bit' 'oh you jumped the start?' 'no i pushed the other guy into a bush'",
+        "my dad did that once to a mechanic with a fork",
+        "nothing just an inchident on the race",
+        "BRAAAAAKE"
     ]
 
     words_of_wisdom = st.button("click for some words of wisdom")
@@ -1292,4 +1314,6 @@ if option == "Patch Notes":
             Added alternate names to "Hypothetical Chaos Mode" to allow for lowercase spelling and nicknames, including some fun nicknames ;)
 
             Added photos to drivers in interesting factoid section
+
+            Added "Words of Wisdom", a random quote generator
         """)
