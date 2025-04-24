@@ -98,7 +98,6 @@ option = st.sidebar.radio("Pages",["**Home**", "**Grand Prix Positions**", "**Cu
 if option == "**Home**":
     st.title("kiley's f1 2025 season track: for the girls by the girls")
     st.image("https://steamuserimages-a.akamaihd.net/ugc/1914618053679846010/5E74EF96A5A44D3DD1266F77DFA85ED77770D675/")
-    st.write("version 1.0.3")
     
 ##File Uploads
 alpine_drivers = ("Pierre Gasley", "Jack Doohan")
@@ -1303,7 +1302,7 @@ if option == "**Words of Wisdom**  ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.1.1")
+    st.subheader("1.1.4")
     st.text("""
             Added an image to the homepage
              
