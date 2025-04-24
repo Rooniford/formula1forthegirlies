@@ -311,6 +311,35 @@ elif option == "**Hypothetical Chaos Mode**":
     st.markdown(f"<h2 style='text-align: center;'>Hypothetical Chaos Mode</h2>", unsafe_allow_html=True)
 
 
+    name_input = {
+        "Pierre Gasly": ["pierre gasley", "gasley", "gasly", "pierre gasly", "Pierre Gasley", "Pedo Pierre", "pedo pierre", "Pierre", "Gasly"],
+        "Jack Doohan": ["jack doohan", "jack", "doohan", "Jack", "Doohan", "jack doohan"],
+        "Fernando Alonso": ["fernando alonso", "the rookie", "The Rookie", "Alonso", "alonso", "fernando", "Fernando"],
+        "Lance Stroll": ["lance stroll", "Lance", "lance", "Stroll", "stroll", "Daddy's Money", "daddy's money"],
+        "Charles Leclerc": ["Charles", "charles", "Leclerc", "leclerc", "charles leclerc"],
+        "Lewis Hamilton": ["lewis hamilton", "lewis", "Lewis", "Hamilton", "hamilton"],
+        "Esteban Ocon": ["Estie Bestie", "estie bestie", "esteban ocon", "Ocon", "ocon", "Esteban", "esteban"],
+        "Oliver Bearman": ["oliver bearman", "Ollie Bearman", "ollie bearman", "Ollie", "ollie", "Oliver", "oliver", "Bearman", "bearman", "ollie in the wallie", "Ollie in the Wallie"],
+        "Nico Hulkenberg": ["nico hulkenberg", "Hulkenberg", "hulkenberg", "Nico", "nico"],
+        "Gabriel Bortoleto": ["gabriel bortoleto", "gabi bortoleto", "Gabi Bortoleto", "Gabriel", "gabriel", "Gabi", "gabi", "Bortoleto", "bortoleto"],
+        "Lando Norris": ["lando norris", "Lando", "lando", "Norris", "norris"],
+        "Oscar Piastri": ["oscar piastri", "oscar", "piastri", "Oscar", "Piastri", "Great Barrier Chief", "great barrier chief"],
+        "George Russell": ["george russell", "George", "george", "Russell", "russell"],
+        "Kimi Antonelli": ["Andrea Kimi Antonelli", "andrea kimi antonelli", "Antonelli", "antonelli", "kimi antonelli", "Kimi", "kimi"],
+        "Max Verstappen": ["max verstappen", "max", "Max", "Verstappen", "verstappen"],
+        "Yuki Tsunoda": ["yuki tsunoda", "Yuki", "yuki", "Tsunoda", "tsunoda"],
+        "Isack Hadjar": ["isack hadjar", "Isack", "isack", "Hadjar", "hadjar"],
+        "Liam Lawson": ["liam lawson", "liam", "Liam", "Lawson", "lawson"],
+        "Carlos Sainz": ["carlos sainz", "carlos seinz", "Carlos Seinz", "Carlos", "carlos", "Sainz", "sainz", "Seinz", "seinz"],
+        "Alexander Albon": ["alexander albon", "Alex Albon", "alex albon", "Alexander", "alexander", "Alex", "alex", "Albon", "albon"]
+    }
+
+    name_alias_map = {}
+    for official_name, aliases in name_input.items():
+        for alias in aliases:
+            name_alias_map[alias.strip().lower()] = official_name
+
+
     st.write("Type the name of drivers in the Grand Prix positions as they appear in the Leaderboard")
     #Leaderboard
     gp_points_table = {
@@ -383,15 +412,19 @@ elif option == "**Hypothetical Chaos Mode**":
     #hypothetical entries wdc
     hypothetical_entries = []
     for idx, row in edited_data.iterrows():
-        driver_name = row["Driver"].strip()
-        if driver_name:
-            position_number = str(idx + 1) #positions are 1-indexed
-            if position_number in gp_points_table:
-                hypothetical_entries.append({
-                    "Driver": driver_name,
-                    "Points": gp_points_table[position_number]
-                })
-                
+        driver_name_input = row["Driver"].strip().lower()
+        if driver_name_input:
+            normalized_name = name_alias_map.get(driver_name_input, None)
+            if normalized_name:
+                position_number = str(idx + 1)
+                if position_number in gp_points_table:
+                    hypothetical_entries.append({
+                        "Driver": normalized_name,
+                        "Points": gp_points_table[position_number]
+                    })
+            else:
+                st.warning(f"Unrecognized driver name: {row['Driver']}")
+
     if hypothetical_entries:
         hypothetical_df = pd.DataFrame(hypothetical_entries)
 
@@ -1170,11 +1203,13 @@ if option == "**Words of Wisdom**  ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.0.4")
+    st.subheader("1.1.1")
     st.text("""
             Added an image to the homepage
              
             Updated the format of the different pages, including bolding the letters and adding a new page 'Words of Wisdom', which will include quotes from drivers or engineers.
             
             Updated the Miami circuit page under Track Information
+
+            Added alternate names to "Hypothetical Chaos Mode" to allow for lowercase spelling and nicknames, including some fun nicknames ;)
         """)
