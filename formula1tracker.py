@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import random
+import streamlit.components.v1 as components
 
 
 #Site formatting
@@ -1216,45 +1217,95 @@ if option == "**Track Information**":
 
 ##CONSTRUCTION INFORMATION
 
-constructor_info = {
-    "Alpine": """
-        info coming soon
-        """,
-    "Aston Martin": """
-        info coming soon
-        """,
-    "Ferrari": """
-        info coming soon
-        """,
-    "Haas": """
-        info coming soon
-        """,
-    "Kick Sauber": """
-        info coming soon
-        """,
-    "McLaren": """
-        info coming soon
-        """,
-    "Mercedes": """
-        info coming soon
-        """,
-    "Racing Bulls": """
-        info coming soon
-        """,
-    "Red Bull Racing": """
-        info coming soon
-        """,
-    "Williams": """
-        info coming soon
-        """,
-}
+alpine_valid_names = ("Alpine", "alpine", "renault")
+mclaren_valid_names = ("McLaren", "mclaren", "Mclaren", "McLaren Mercedes", "mclaren mercedes")
 
 if option == "**Construction Information**":
     text_input = st.text_input("enter a constructor")
-    if text_input in constructor_info:
-        st.markdown(constructor_info[text_input], unsafe_allow_html=True)
-    else:
+    if text_input == "":
+        st.write("pls enter a constructor")
+    elif text_input in mclaren_valid_names:
+        st.markdown("**McLaren Mercedes**")
+        st.markdown('''
+                    Constructor: Mclaren  
+                    Engine: Mercedes  
+                    2025 Car Name: MCL39
+            ''')
+        st.markdown('''
+                    :red-background[2024 Car]  
+                    The McLaren car sported what was called "mini DRS", a flexible rear wing that allowed the car to gain an aerodynamic advantage in non-DRS zones such as high speed corners or short straightaways. 
+                    This allowed them to easily gain an advantage against other cars.
+                    While legal in 2024, it was eventually banned due to safety concerns, with strict restrictions on the flexibility of the rear wing being in place for 2025 and onward.  
+                    The system worked by making an extremely flexible rear wing, which flexed downwards in top speeds, opening small spaces between the wing and the edge to allow more air flow beneath the wing, reducing drag and giving the car a few mph advantage.
+            ''')
+        st.image("https://autoracer.it/wp-content/uploads/2024/12/McLaren-mini-DRS-1024x705.webp")
+        st.caption("image render of the mini DRS system used by McLaren in 2024")
+        st.markdown("In 2024, the McLaren also famously sported a spike on the front wing, which was meant to discourage close quarter battles with passing cars as it threatened easy tire punctures." \
+        "This was seen as too aggressive and heavier regulations were put in place by the FIA to prevent these spikes.")
+        with st.container():
+            st.markdown("""
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://cdn-5.motorsport.com/images/amp/Y99DgD8Y/s6/mclaren-mcl38-front-wing-endpl.jpg" width="100%">
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmUWcPxLvZgie5rKpi_kmmmZycfHXjXDoYIA&s" width="37.5%">
+                    </div>
+                </div>
+            """, unsafe_allow_html=True) 
         st.write("")
+        st.write("")
+        st.markdown('''
+                :red-background[2025 Car]  
+                The MCL39 chassis includes the same overbite side pod design used in the MCL38 and used by most constructors in 2025.
+                Their overbite has a sharp, p-shaped inlet for more a more aggressive undercut. It directs the air quickly onto the floor of the car to increase downforce. This is only also seen on the Ferrari car for the 2025 season.  
+                Both cars have pushed the inlet right inside the overbite, which allows for a midwing that is more available for utilization. However, these changes make the ride-height of the car incredibly important, meaning any excessive damage to the skid block of the car could greatly affect the side-pod aerodynamics.
+            ''')
+        st.image("https://preview.redd.it/mcl38-vs-mcl39-sidepods-comparison-v0-8k7nppezxwie1.jpeg?auto=webp&s=4cbcbc03d9f4cdf84d03022eac69e3cfe8a8e7ae")
+        st.caption("The inlet is highlighted in green. This is the 'stealth livery' used in Bahrain testing for the 2025 McLaren, which is why it's difficult to see")
+        st.markdown('''
+                    Despite the loss of mini DRS, the McLaren car has started the season with a clear advantage over other cars.  
+                      
+                    While the regulations around rear wing flexing were tightened during the 2025 season, teams were allowed rear wing flexing up to 2mm until the Suzuka grand prix, where it was limited to 0.5mm due to exploiting by teams. McLaren claims to have not needed to change their rear wing due to this regulation change.
+                    However, the flow vis demonstrated during testing appeared to show altered aerodynamics around the rear wing, which appear similar to that seen with a flexi-wing system.
+            ''')
+        st.image("https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/02/26140009/McLaren-MCL39-flo-viz-rear-end.jpg")
+        st.caption("Green flow vis paint patterns on the McLaren car in Bahrain preseason testing, used to visualize aerodynamics")
+        st.markdown(''''
+                    However, this could also be explained by the slightly raised main-plane trailing edge, which would not be flexible but still exhibit similar effects as mini-DRS. It is not the same part of the car that would flex in a traditional mini-DRS system, and is technically legal for the 2025 season.
+            ''')
+        with st.container():
+            st.markdown("""
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/03/11142959/McLaren-MCL39-rear-wing-tip.jpg" width="100%">
+                        <p style="font-size: 0.9em;">MCL39 Rear Wing System</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/03/14092909/RED-BULL-RB21-REAR-WING-COMPARISON.jpg" width="100%">
+                        <p style="font-size: 0.9em;">RB21 Rear Wing System</p>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+        st.markdown('''
+                    Other improvements higlighted in the image below include:  
+                    Anti-diving front wing suspension to prevent the car diving forward under braking (blue).  
+                    A changed vane on the sidepod of the car, meant to change how the aerodynamics work surrounding the cockpit. Oftentimes these will help create low pressure zones close to the car (purple).  
+                    Changes to the sidepod inlet, brake ducts, and airbox (yellow)
+            ''')
+        st.markdown("**Differences between MCL38 (2024) and MCL39**")
+        st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/2025-preseason-tech/2024-mclaren-vs-2025-mclaren-f1-car.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.markdown('''      
+                    Due to some problems with the water system (Piastri in Bahrain), there is speculation that McLaren has moved their drink system to sit in front of the driver in the nose of the car rather than behind, a move they would have copied from Redbull.
+                    The advantage to this is that throughout the race, the weight of the drink will move back out of the nose further into the rear of the car, allowing for real time weight adjustment throughout the race, which typically is not allowed due to Park Ferme rules. 
+                    At the beginning of the race, the drink is in the front of the car, pushing the front nose and wing downwards to improve downforce early on. Later, as the drink is used and the weight is shifted to the back of the car, it can add downforce to the rear, improving rear tyre grip. It also brings the weight away from the front tyres, which will deteriorate quicker with added weight.
+                    It also just keeps their drink colder since it is further away from the engine, as the cockpit of the car can get as high as 140oF
+            ''')
+    elif text_input not in mclaren_valid_names: 
+        st.write("as maxy boy said: 'I dont know, and I don't care'")
+        st.caption("jk coming soon")
+        
+
 
 ##WORDS OF WISDOM
 if option == "**Words of Wisdom**  ***NEW***":
@@ -1289,30 +1340,30 @@ if option == "**Words of Wisdom**  ***NEW***":
         "'i cheated a little bit' 'oh you jumped the start?' 'no i pushed the other guy into a bush'",
         "my dad did that once to a mechanic with a fork",
         "nothing just an inchident on the race",
-        "BRAAAAAKE"
+        "BRAAAAAKE",
+        "Yabba dabba doo!",
+        "ive just had a little scream in my helmet. well done",
+        "https://pbs.twimg.com/media/Gn1KCVAWMAAXxQd?format=png&name=medium",
+        "https://x.com/i/status/1914042712644333629"
     ]
 
     words_of_wisdom = st.button("click for some words of wisdom")
     if words_of_wisdom:
         random_quote = random.choice(quotes)
-        st.markdown(
-            f"<h2 style='text-align: center;'>{random_quote}</h2>",
-            unsafe_allow_html=True
+        if random_quote.startswith("http"):
+            video_url = random_quote
+            st.video(video_url)
+        else:
+            st.markdown(
+                f"<h2 style='text-align: center;'>{random_quote}</h2>",
+                unsafe_allow_html=True
         )
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.1.4")
-    st.text("""
-            Added an image to the homepage
-             
-            Updated the format of the different pages, including bolding the letters and adding a new page 'Words of Wisdom', which will include quotes from drivers or engineers.
-            
-            Updated the Miami circuit page under Track Information
-
-            Added alternate names to "Hypothetical Chaos Mode" to allow for lowercase spelling and nicknames, including some fun nicknames ;)
-
-            Added photos to drivers in interesting factoid section
-
-            Added "Words of Wisdom", a random quote generator
+    st.subheader("1.1.5")
+    st.markdown("""
+            Added more quotes under "words of wisdom"  
+            Included constructor information for the McLaren 2025 car  
+            Added alternate name spelling for hypothetical chaos mode, so names no longer have to be typed exactly as they appear in the datafile.
         """)
