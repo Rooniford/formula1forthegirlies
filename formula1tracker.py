@@ -660,6 +660,10 @@ driver_info = {
         
         **Hometown**: Oviedo, Asturias, Spain
         
+        **Championships**:
+        - 2005 World Drivers Champion
+        - 2006 World Drivers Champion
+
         **Championships Prior to Formula 1**:
         - 1999 Euro Open by Nissan
 
@@ -777,6 +781,15 @@ driver_info = {
         **Previous Teams**: Mercedes, McLaren, McLaren-Mercedes Young Driver Programme
         
         **Hometown**: Stevenage, Hertfordshire, England
+
+        **Championships**:
+        - 2008 World Drivers Champion
+        - 2014 World Drivers Champion
+        - 2015 World Drivers Champion
+        - 2017 World Drivers Champion
+        - 2018 World Drivers Champion
+        - 2019 World Drivers Champion
+        - 2020 World Drivers Champion
         
         **Championships Prior to Formula 1**:
         - Formula 3 Euro Series Champion
@@ -877,6 +890,12 @@ driver_info = {
         
         **Hometown**: Hasselt, Flanders, Belgium
         
+        **Championships**:
+        - 2021 World Drivers Champion
+        - 2022 World Drivers Champion
+        - 2023 World Drivers Champion
+        - 2024 World Drivers Champion
+
         **Championships Prior to Formula 1**:
         A lot of karting
         - 2014 Zandvoort Masters
@@ -1223,6 +1242,7 @@ if option == "**Track Information**":
 
 alpine_valid_names = ("Alpine", "alpine", "renault")
 ferrari_valid_names = ("Ferrari", "ferrari", "Scuderia Ferrari", "scuderia ferrari", "SF25")
+haas_valid_names = ("Haas", "haas")
 mclaren_valid_names = ("McLaren", "mclaren", "Mclaren", "McLaren Mercedes", "mclaren mercedes", "MCL39", "MCL38")
 mercedes_valid_names = ("Mercedes", "mercedes", "Merc", "merc", "F1 W16", "W16")
 redbull_valid_names = ("Red Bull", "Redbull", "redbull", "Red bull", "red bull", "RB21")
@@ -1238,13 +1258,19 @@ if option == "**Construction Information**":
                     Engine: Ferrari  
                     2025 Car Name: SF25
             ''')
-        st.markdown("**Summary Information**")
         st.markdown('''
                     :gray[Suspension Configuration: Pullrod-pullrod]  
                     :gray[Sidepod Configuration: Overbite]  
                     :gray[Sidepod Inlet: P shape]  
                     :gray[Nose Configuration: Second-element]
             ''')
+        st.image("https://cdn.ferrari.com/cms/network/media/img/resize/67c83837d12cab001f5ef82d-ferrari-sf-25-social-card-esp?width=1080")
+        st.markdown('''
+                    :red-background[Significant Changes to the 2025 Car:]  
+                    :gray[Changed from a pushrod-pullrod to a dual pullrod suspension]  
+                    :gray[Altered the floor and venturi-channel design]
+            ''')
+        st.divider()
         st.markdown('''
                 :red-background[2025 Car]  
                 The SF25 chassis includes the same overbite side pod design used in the second half of 2024 and used by most constructors in 2025.
@@ -1287,9 +1313,19 @@ if option == "**Construction Information**":
         st.markdown('''
             :gray[Suspension Configuration: Pullrod-pushrod]  
             :gray[Sidepod Configuration: Overbite]  
-            :gray[Sidepod Inlet: P shape]
+            :gray[Sidepod Inlet: P shape]  
             :gray[Nose Configuration: Second-element]
             ''')
+        st.image("https://mclaren.bloomreach.io/cdn-cgi/image/format=webp,quality=80/delivery/resources/content/gallery/mclaren-racing/formula-1/2025/nsr/f1-75-live-m/web/mcl39-papaya-pr-inline-7.jpg")
+        st.caption("MCL39 livery as presented by McLaren")
+        st.markdown('''
+            :red-background[Significant Changes to the 2025 Car:]  
+            :gray[Changed the traditional overbite inlet to a P shaped inlet and raised the overbite]
+            :gray[Loss of the flexi-wing mini-DRS system]
+            :gray[Minor changes in vaning to conduct low pressure zones]
+            :gray[Changes to brake cooling]
+            ''')
+        st.divider()
         st.markdown('''
                     :red-background[2024 Car]  
                     The McLaren car sported what was called "mini DRS", a flexible rear wing that allowed the car to gain an aerodynamic advantage in non-DRS zones such as high speed corners or short straightaways. 
@@ -1357,8 +1393,8 @@ if option == "**Construction Information**":
                     A changed vane on the sidepod of the car, meant to change how the aerodynamics work surrounding the cockpit. Oftentimes these will help create low pressure zones close to the car (purple).  
                     Changes to the sidepod inlet, brake ducts, and airbox (yellow)
             ''')
-        st.markdown("**Differences between MCL38 (2024) and MCL39**")
         st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/2025-preseason-tech/2024-mclaren-vs-2025-mclaren-f1-car.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.caption("Differences between MCL38 (2024) and MCL39")
         st.markdown('''      
                     Due to some problems with the water system (Piastri in Bahrain), there is speculation that McLaren has moved their drink system to sit in front of the driver in the nose of the car rather than behind, a move they would have copied from Redbull.
                     The advantage to this is that throughout the race, the weight of the drink will move back out of the nose further into the rear of the car, allowing for real time weight adjustment throughout the race, which typically is not allowed due to Park Ferme rules. 
