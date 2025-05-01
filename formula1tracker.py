@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 import random
 import streamlit.components.v1 as components
+import warnings
+warnings.filterwarnings("ignore", category=pd.errors.SettingWithCopyWarning)
+
 
 
 #Site formatting
@@ -333,7 +336,9 @@ elif option == "**Current Leaderboard**":
 
 elif option == "**Hypothetical Chaos Mode**":
     st.markdown(f"<h2 style='text-align: center;'>Hypothetical Chaos Mode</h2>", unsafe_allow_html=True)
-
+    race_type = st.selectbox("Choose a Race Type",
+                 ["","Sprint", "Main Race"
+        ])
 
     name_input = {
         "Pierre Gasly": ["pierre gasley", "gasley", "gasly", "pierre gasly", "Pierre Gasley", "Pedo Pierre", "pedo pierre", "Pierre", "Gasly"],
@@ -363,8 +368,6 @@ elif option == "**Hypothetical Chaos Mode**":
         for alias in aliases:
             name_alias_map[alias.strip().lower()] = official_name
 
-
-    st.write("Type the name of drivers in the Grand Prix positions as they appear in the Leaderboard")
     #Leaderboard
     gp_points_table = {
         "1": 25,
@@ -427,130 +430,257 @@ elif option == "**Hypothetical Chaos Mode**":
     )
 
     full_leaderboard = full_leaderboard[["Position", "Driver", "Points", "Track"]]
+    if race_type == "Sprint":
+        st.write("Type the names of 2025 drivers in the position you predict they'll finish in")
+        # Create an editable table for 10 positions
+        pos_labels = [f"{i+1}{'st' if i+1 == 1 else 'nd' if i+1 == 2 else 'rd' if i+1 == 3 else 'th'}" for i in range(10)]
+        hypothetical_input = pd.DataFrame({"Position": pos_labels, "Driver": [""] * 10})
+        edited_data = st.data_editor(hypothetical_input, num_rows="fixed", use_container_width=True, hide_index=True)
 
-    # Create an editable table for 10 positions
-    pos_labels = [f"{i+1}{'st' if i+1 == 1 else 'nd' if i+1 == 2 else 'rd' if i+1 == 3 else 'th'}" for i in range(10)]
-    hypothetical_input = pd.DataFrame({"Position": pos_labels, "Driver": [""] * 10})
-    edited_data = st.data_editor(hypothetical_input, num_rows="fixed", use_container_width=True, hide_index=True)
+        #hypothetical entries wdc
+        hypothetical_entries = []
+        for idx, row in edited_data.iterrows():
+            driver_name_input = row["Driver"].strip().lower()
+            if driver_name_input:
+                normalized_name = name_alias_map.get(driver_name_input, None)
+                if normalized_name:
+                    position_number = str(idx + 1)
+                    if position_number in sprint_points_table:
+                        hypothetical_entries.append({
+                            "Driver": normalized_name,
+                            "Points": sprint_points_table[position_number]
+                        })
+                else:
+                    st.warning(f"Unrecognized driver name: {row['Driver']}")
 
-    #hypothetical entries wdc
-    hypothetical_entries = []
-    for idx, row in edited_data.iterrows():
-        driver_name_input = row["Driver"].strip().lower()
-        if driver_name_input:
-            normalized_name = name_alias_map.get(driver_name_input, None)
-            if normalized_name:
-                position_number = str(idx + 1)
-                if position_number in gp_points_table:
-                    hypothetical_entries.append({
-                        "Driver": normalized_name,
-                        "Points": gp_points_table[position_number]
-                    })
+        if hypothetical_entries:
+            hypothetical_df = pd.DataFrame(hypothetical_entries)
+
+            if hypothetical_df["Driver"].duplicated().any():
+                st.warning("Each driver should only appear once")
             else:
-                st.warning(f"Unrecognized driver name: {row['Driver']}")
+                full_leaderboard_copy = full_leaderboard.copy()
+                combined = pd.concat([full_leaderboard_copy[["Driver", "Points", "Track"]], hypothetical_df])
+                full_combined_with_track = combined.copy()
+                combined = combined.groupby("Driver", as_index=False)["Points"].sum()
+                combined = combined.sort_values(by="Points", ascending=False).reset_index(drop=True)
+                combined["Position"] = combined.index + 1
+                combined["Position"] = combined["Position"].apply(
+                    lambda x: f"{x}{'st' if x == 1 else 'nd' if x == 2 else 'rd' if x == 3 else 'th'}"
+                )
 
-    if hypothetical_entries:
-        hypothetical_df = pd.DataFrame(hypothetical_entries)
-
-        if hypothetical_df["Driver"].duplicated().any():
-            st.warning("Each driver should only appear once")
+                combined = combined[["Position", "Driver", "Points"]]
+                
+                st.markdown(f"<h3 style='text-align: center;'>Projected World Drivers Championship</h3>", unsafe_allow_html=True)
+                render_leaderboard(combined)
+                
         else:
-            full_leaderboard_copy = full_leaderboard.copy()
-            combined = pd.concat([full_leaderboard_copy[["Driver", "Points", "Track"]], hypothetical_df])
-            full_combined_with_track = combined.copy()
-            combined = combined.groupby("Driver", as_index=False)["Points"].sum()
-            combined = combined.sort_values(by="Points", ascending=False).reset_index(drop=True)
-            combined["Position"] = combined.index + 1
-            combined["Position"] = combined["Position"].apply(
+            st.info("Enter at least one driver to see the leaderboard.")
+
+        
+
+        #hypothetical entries cc
+
+        if hypothetical_entries:
+            st.markdown(f"<h3 style='text-align: center;'>Projected Constructors Championship</h3>", unsafe_allow_html=True)
+    
+            alpine_only = combined[combined["Driver"].isin(alpine_drivers)]
+            alpine_points = alpine_only["Points"].sum()
+
+            aston_martin_only = combined[combined["Driver"].isin(aston_martin_drivers)]
+            aston_martin_points = aston_martin_only["Points"].sum()
+
+            ferrari_only = combined[combined["Driver"].isin(ferrari_drivers)]
+            ferrari_points = ferrari_only["Points"].sum()
+
+            haas_only = combined[combined["Driver"].isin(haas_drivers)]
+            haas_points = haas_only["Points"].sum()
+
+            kick_sauber_only = combined[combined["Driver"].isin(kick_sauber_drivers)]
+            kick_sauber_points = kick_sauber_only["Points"].sum()
+
+            mclaren_only = combined[combined["Driver"].isin(mclaren_drivers)]
+            mclaren_points = mclaren_only["Points"].sum()
+
+            mercedes_only = combined[combined["Driver"].isin(mercedes_drivers)]
+            mercedes_points = mercedes_only["Points"].sum()
+
+            red_bull_racing_australia_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(red_bull_racing_australia_drivers)) &
+                (full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            red_bull_racing_australia_points = red_bull_racing_australia_only["Points"].sum()
+            red_bull_racing_japan_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(red_bull_racing_japan_drivers)) &
+                (~full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            red_bull_racing_japan_points = red_bull_racing_japan_only["Points"].sum()
+            red_bull_racing_points = red_bull_racing_australia_points + red_bull_racing_japan_points
+
+            racing_bulls_australia_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(racing_bulls_australia_drivers)) &
+                (full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            racing_bulls_australia_points = racing_bulls_australia_only["Points"].sum()
+            racing_bulls_japan_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(racing_bulls_japan_drivers)) &
+                (~full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            racing_bulls_japan_points = racing_bulls_japan_only["Points"].sum()
+            racing_bulls_points = racing_bulls_australia_points + racing_bulls_japan_points
+
+            williams_only = combined[combined["Driver"].isin(williams_drivers)]
+            williams_points = williams_only["Points"].sum()
+            
+            cc_leaderboard = pd.DataFrame([
+                {"Constructor": "Alpine", "Points": alpine_points},
+                {"Constructor": "Aston Martin", "Points": aston_martin_points},
+                {"Constructor": "Ferrari", "Points": ferrari_points},
+                {"Constructor": "Haas", "Points": haas_points},
+                {"Constructor": "Kick Sauber", "Points": kick_sauber_points},
+                {"Constructor": "McLaren", "Points": mclaren_points},
+                {"Constructor": "Mercedes", "Points": mercedes_points},
+                {"Constructor": "Red Bull Racing", "Points": red_bull_racing_points},
+                {"Constructor": "Racing Bulls", "Points": racing_bulls_points},
+                {"Constructor": "Williams", "Points": williams_points}
+            ])
+
+            cc_leaderboard["Points"] = pd.to_numeric(cc_leaderboard["Points"], errors="coerce").fillna(0)
+            cc_leaderboard = cc_leaderboard.sort_values(by="Points", ascending=False).reset_index(drop=True)
+            cc_leaderboard["Position"] = cc_leaderboard.index + 1
+            cc_leaderboard["Position"] = cc_leaderboard["Position"].apply(
                 lambda x: f"{x}{'st' if x == 1 else 'nd' if x == 2 else 'rd' if x == 3 else 'th'}"
             )
 
-            combined = combined[["Position", "Driver", "Points"]]
-            
-            st.markdown(f"<h3 style='text-align: center;'>Projected World Drivers Championship</h3>", unsafe_allow_html=True)
-            render_leaderboard(combined)
-            
-    else:
-        st.info("Enter at least one driver to see the leaderboard.")
+            render_leaderboard(cc_leaderboard)
+        else:
+            st.write("")
 
-    
+    if race_type == "Main Race":
+        st.write("Type the names of 2025 drivers in the position you predict they'll finish in")
+        # Create an editable table for 10 positions
+        pos_labels = [f"{i+1}{'st' if i+1 == 1 else 'nd' if i+1 == 2 else 'rd' if i+1 == 3 else 'th'}" for i in range(10)]
+        hypothetical_input = pd.DataFrame({"Position": pos_labels, "Driver": [""] * 10})
+        edited_data = st.data_editor(hypothetical_input, num_rows="fixed", use_container_width=True, hide_index=True)
 
-    #hypothetical entries cc
+        #hypothetical entries wdc
+        hypothetical_entries = []
+        for idx, row in edited_data.iterrows():
+            driver_name_input = row["Driver"].strip().lower()
+            if driver_name_input:
+                normalized_name = name_alias_map.get(driver_name_input, None)
+                if normalized_name:
+                    position_number = str(idx + 1)
+                    if position_number in gp_points_table:
+                        hypothetical_entries.append({
+                            "Driver": normalized_name,
+                            "Points": gp_points_table[position_number]
+                        })
+                else:
+                    st.warning(f"Unrecognized driver name: {row['Driver']}")
 
-    if hypothetical_entries:
-        st.markdown(f"<h3 style='text-align: center;'>Projected Constructors Championship</h3>", unsafe_allow_html=True)
- 
-        alpine_only = combined[combined["Driver"].isin(alpine_drivers)]
-        alpine_points = alpine_only["Points"].sum()
+        if hypothetical_entries:
+            hypothetical_df = pd.DataFrame(hypothetical_entries)
 
-        aston_martin_only = combined[combined["Driver"].isin(aston_martin_drivers)]
-        aston_martin_points = aston_martin_only["Points"].sum()
+            if hypothetical_df["Driver"].duplicated().any():
+                st.warning("Each driver should only appear once")
+            else:
+                full_leaderboard_copy = full_leaderboard.copy()
+                combined = pd.concat([full_leaderboard_copy[["Driver", "Points", "Track"]], hypothetical_df])
+                full_combined_with_track = combined.copy()
+                combined = combined.groupby("Driver", as_index=False)["Points"].sum()
+                combined = combined.sort_values(by="Points", ascending=False).reset_index(drop=True)
+                combined["Position"] = combined.index + 1
+                combined["Position"] = combined["Position"].apply(
+                    lambda x: f"{x}{'st' if x == 1 else 'nd' if x == 2 else 'rd' if x == 3 else 'th'}"
+                )
 
-        ferrari_only = combined[combined["Driver"].isin(ferrari_drivers)]
-        ferrari_points = ferrari_only["Points"].sum()
+                combined = combined[["Position", "Driver", "Points"]]
+                
+                st.markdown(f"<h3 style='text-align: center;'>Projected World Drivers Championship</h3>", unsafe_allow_html=True)
+                render_leaderboard(combined)
+                
+        else:
+            st.info("Enter at least one driver to see the leaderboard.")
 
-        haas_only = combined[combined["Driver"].isin(haas_drivers)]
-        haas_points = haas_only["Points"].sum()
-
-        kick_sauber_only = combined[combined["Driver"].isin(kick_sauber_drivers)]
-        kick_sauber_points = kick_sauber_only["Points"].sum()
-
-        mclaren_only = combined[combined["Driver"].isin(mclaren_drivers)]
-        mclaren_points = mclaren_only["Points"].sum()
-
-        mercedes_only = combined[combined["Driver"].isin(mercedes_drivers)]
-        mercedes_points = mercedes_only["Points"].sum()
-
-        red_bull_racing_australia_only = full_combined_with_track[
-            (full_combined_with_track["Driver"].isin(red_bull_racing_australia_drivers)) &
-            (full_combined_with_track["Track"].isin(redbull1_tracks))
-        ]
-        red_bull_racing_australia_points = red_bull_racing_australia_only["Points"].sum()
-        red_bull_racing_japan_only = full_combined_with_track[
-            (full_combined_with_track["Driver"].isin(red_bull_racing_japan_drivers)) &
-            (~full_combined_with_track["Track"].isin(redbull1_tracks))
-        ]
-        red_bull_racing_japan_points = red_bull_racing_japan_only["Points"].sum()
-        red_bull_racing_points = red_bull_racing_australia_points + red_bull_racing_japan_points
-
-        racing_bulls_australia_only = full_combined_with_track[
-            (full_combined_with_track["Driver"].isin(racing_bulls_australia_drivers)) &
-            (full_combined_with_track["Track"].isin(redbull1_tracks))
-        ]
-        racing_bulls_australia_points = racing_bulls_australia_only["Points"].sum()
-        racing_bulls_japan_only = full_combined_with_track[
-            (full_combined_with_track["Driver"].isin(racing_bulls_japan_drivers)) &
-            (~full_combined_with_track["Track"].isin(redbull1_tracks))
-        ]
-        racing_bulls_japan_points = racing_bulls_japan_only["Points"].sum()
-        racing_bulls_points = racing_bulls_australia_points + racing_bulls_japan_points
-
-        williams_only = combined[combined["Driver"].isin(williams_drivers)]
-        williams_points = williams_only["Points"].sum()
         
-        cc_leaderboard = pd.DataFrame([
-            {"Constructor": "Alpine", "Points": alpine_points},
-            {"Constructor": "Aston Martin", "Points": aston_martin_points},
-            {"Constructor": "Ferrari", "Points": ferrari_points},
-            {"Constructor": "Haas", "Points": haas_points},
-            {"Constructor": "Kick Sauber", "Points": kick_sauber_points},
-            {"Constructor": "McLaren", "Points": mclaren_points},
-            {"Constructor": "Mercedes", "Points": mercedes_points},
-            {"Constructor": "Red Bull Racing", "Points": red_bull_racing_points},
-            {"Constructor": "Racing Bulls", "Points": racing_bulls_points},
-            {"Constructor": "Williams", "Points": williams_points}
-        ])
 
-        cc_leaderboard["Points"] = pd.to_numeric(cc_leaderboard["Points"], errors="coerce").fillna(0)
-        cc_leaderboard = cc_leaderboard.sort_values(by="Points", ascending=False).reset_index(drop=True)
-        cc_leaderboard["Position"] = cc_leaderboard.index + 1
-        cc_leaderboard["Position"] = cc_leaderboard["Position"].apply(
-            lambda x: f"{x}{'st' if x == 1 else 'nd' if x == 2 else 'rd' if x == 3 else 'th'}"
-        )
+        #hypothetical entries cc
 
-        render_leaderboard(cc_leaderboard)
-    else:
-        st.write("")
+        if hypothetical_entries:
+            st.markdown(f"<h3 style='text-align: center;'>Projected Constructors Championship</h3>", unsafe_allow_html=True)
+    
+            alpine_only = combined[combined["Driver"].isin(alpine_drivers)]
+            alpine_points = alpine_only["Points"].sum()
+
+            aston_martin_only = combined[combined["Driver"].isin(aston_martin_drivers)]
+            aston_martin_points = aston_martin_only["Points"].sum()
+
+            ferrari_only = combined[combined["Driver"].isin(ferrari_drivers)]
+            ferrari_points = ferrari_only["Points"].sum()
+
+            haas_only = combined[combined["Driver"].isin(haas_drivers)]
+            haas_points = haas_only["Points"].sum()
+
+            kick_sauber_only = combined[combined["Driver"].isin(kick_sauber_drivers)]
+            kick_sauber_points = kick_sauber_only["Points"].sum()
+
+            mclaren_only = combined[combined["Driver"].isin(mclaren_drivers)]
+            mclaren_points = mclaren_only["Points"].sum()
+
+            mercedes_only = combined[combined["Driver"].isin(mercedes_drivers)]
+            mercedes_points = mercedes_only["Points"].sum()
+
+            red_bull_racing_australia_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(red_bull_racing_australia_drivers)) &
+                (full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            red_bull_racing_australia_points = red_bull_racing_australia_only["Points"].sum()
+            red_bull_racing_japan_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(red_bull_racing_japan_drivers)) &
+                (~full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            red_bull_racing_japan_points = red_bull_racing_japan_only["Points"].sum()
+            red_bull_racing_points = red_bull_racing_australia_points + red_bull_racing_japan_points
+
+            racing_bulls_australia_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(racing_bulls_australia_drivers)) &
+                (full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            racing_bulls_australia_points = racing_bulls_australia_only["Points"].sum()
+            racing_bulls_japan_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(racing_bulls_japan_drivers)) &
+                (~full_combined_with_track["Track"].isin(redbull1_tracks))
+            ]
+            racing_bulls_japan_points = racing_bulls_japan_only["Points"].sum()
+            racing_bulls_points = racing_bulls_australia_points + racing_bulls_japan_points
+
+            williams_only = combined[combined["Driver"].isin(williams_drivers)]
+            williams_points = williams_only["Points"].sum()
+            
+            cc_leaderboard = pd.DataFrame([
+                {"Constructor": "Alpine", "Points": alpine_points},
+                {"Constructor": "Aston Martin", "Points": aston_martin_points},
+                {"Constructor": "Ferrari", "Points": ferrari_points},
+                {"Constructor": "Haas", "Points": haas_points},
+                {"Constructor": "Kick Sauber", "Points": kick_sauber_points},
+                {"Constructor": "McLaren", "Points": mclaren_points},
+                {"Constructor": "Mercedes", "Points": mercedes_points},
+                {"Constructor": "Red Bull Racing", "Points": red_bull_racing_points},
+                {"Constructor": "Racing Bulls", "Points": racing_bulls_points},
+                {"Constructor": "Williams", "Points": williams_points}
+            ])
+
+            cc_leaderboard["Points"] = pd.to_numeric(cc_leaderboard["Points"], errors="coerce").fillna(0)
+            cc_leaderboard = cc_leaderboard.sort_values(by="Points", ascending=False).reset_index(drop=True)
+            cc_leaderboard["Position"] = cc_leaderboard.index + 1
+            cc_leaderboard["Position"] = cc_leaderboard["Position"].apply(
+                lambda x: f"{x}{'st' if x == 1 else 'nd' if x == 2 else 'rd' if x == 3 else 'th'}"
+            )
+
+            render_leaderboard(cc_leaderboard)
+        else:
+            st.write("")
 
             
 
@@ -1560,8 +1690,9 @@ if option == "**Words of Wisdom**  ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.2.1")
+    st.subheader("1.2.2")
     st.markdown("""
             Added more information about advantages and disadvantages at the Miami GP.
             Added constructor information about SF25, F1 W16, RB21, MCL39.
+            Added a hypothetical chaos mode for sprint races
         """)
