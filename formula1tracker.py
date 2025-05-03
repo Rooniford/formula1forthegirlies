@@ -727,6 +727,7 @@ driver_info = {
         - Second youngest driver to score points in a formula 1 race
         - Youngest driver to lead an F1 race
         - Youngest driver to score the fastest lap in an F1 race
+        - Youngest driver to hold pole position for a formula one race in any format
      
         **Fun Facts**:
         - He chose the number 12 as a nod to his idol, Ayrton Senna
@@ -1133,6 +1134,7 @@ driver_info = {
         **Awards**
         - FIA Rookie of the Year: 2021, 2023
         - Autosport Awards Rookie of the Year: 2020, 2021, 2023
+        - March 2025 Overtake of the Month Award 
         
         **Records**:
         - Only driver in history to win Formula Renault, Formula 3, and Formula 2 championships in consecutive seasons
@@ -1671,9 +1673,7 @@ if option == "**Words of Wisdom**  ***NEW***":
         "nothing just an inchident on the race",
         "BRAAAAAKE",
         "Yabba dabba doo!",
-        "ive just had a little scream in my helmet. well done",
-        "https://pbs.twimg.com/media/Gn1KCVAWMAAXxQd?format=png&name=medium",
-        "https://x.com/i/status/1914042712644333629"
+        "ive just had a little scream in my helmet. well done"
     ]
 
     words_of_wisdom = st.button("click for some words of wisdom")
@@ -1690,9 +1690,11 @@ if option == "**Words of Wisdom**  ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.2.2")
+    st.subheader("1.2.4")
     st.markdown("""
             Added more information about advantages and disadvantages at the Miami GP.
             Added constructor information about SF25, F1 W16, RB21, MCL39.
             Added a hypothetical chaos mode for sprint races
+            Added updated sprint results from Miami 2025. 
+            Added revised fun facts for Kimi Antonelli driver information. 
         """)
