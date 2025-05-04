@@ -1386,6 +1386,7 @@ williams_valid_names = ("Williams", "williams")
 
 if option == "**Construction Information**":
     #specific team information cont. 
+    text_input = st.text_input("enter a constructor")
     if text_input in alpine_valid_names:
         st.write("coming soon")
     elif text_input in aston_martin_valid_names:
@@ -1733,6 +1734,7 @@ if option == "**Construction Information**":
     st.markdown("""
         coming soon
         """)
+ 
 
 ##WORDS OF WISDOM
 if option == "**Words of Wisdom**  ***NEW***":
