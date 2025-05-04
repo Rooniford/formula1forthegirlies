@@ -1861,7 +1861,7 @@ if option == "**Words of Wisdom**  ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.3.2")
+    st.subheader("1.3.4")
     st.markdown("""
         Updated sprint results from Miami 2025 (but for real this time)
         Added additional construction information about general formula one cars.
