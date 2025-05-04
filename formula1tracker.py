@@ -1373,16 +1373,79 @@ if option == "**Track Information**":
 ##CONSTRUCTION INFORMATION
 
 alpine_valid_names = ("Alpine", "alpine", "renault")
+aston_martin_valid_names = ("Aston Martin", "aston martin", "Aston", "aston", "Aston martin")
 ferrari_valid_names = ("Ferrari", "ferrari", "Scuderia Ferrari", "scuderia ferrari", "SF25")
+kick_sauber_valid_names = ("Kick Sauber" "Kick sauber", "kick sauber", "Kick", "kick")
 haas_valid_names = ("Haas", "haas")
 mclaren_valid_names = ("McLaren", "mclaren", "Mclaren", "McLaren Mercedes", "mclaren mercedes", "MCL39", "MCL38")
 mercedes_valid_names = ("Mercedes", "mercedes", "Merc", "merc", "F1 W16", "W16")
 redbull_valid_names = ("Red Bull", "Redbull", "redbull", "Red bull", "red bull", "RB21")
+racing_bulls_valid_names = ("Racing Bulls", "Racing bulls", "racing bulls", "VCARB", "vcarb")
+williams_valid_names = ("Williams", "williams")
+
 
 if option == "**Construction Information**":
+    #specific team information
+    st.caption("scroll down to look at specific construction information for the 2025 teams")
+    #all car information
+    st.markdown("""
+        :red-background[**Front Wing Elements**]
+        """)
+    st.markdown(""" 
+        Prior to recent years, the popular front-wing nose connection style was a main-plane nose, with the nose of the chassis extending to the main plane of the front wing.  
+        """)
+    st.image("https://www.formulaonehistory.com/wp-content/uploads/2024/01/Ferrari-F1-Front-Wing.webp")
+    st.caption("Main-plane front wing on the F1-75 from the 2022 season")
+    st.markdown("""
+        This was a simpler style that allowed the car's suspension to be altered easier throughout the season, however it lessens the amount of air that moves through the planes of the front wing to add to the venturi channels of the car.  
+        Most 2025 teams are running a second-element connection design, but a few teams have brought an additional main-plane front wing. Notably this was used by Liam Lawson in the opening Australian grand prix. 
+        """)
+    st.markdown("""
+        In 2003, the second-element front wing was added with the McLaren MP4-18.
+        """)
+    st.image("https://i.ytimg.com/vi/obvT9Nt1-84/maxresdefault.jpg")
+    st.caption("The McLaren MP4-18, notably the first car to feature a second-element front nose design.")
+    st.markdown("""
+        The second-element front nose configuration at the time reduced the amount of air hitting the front nose, maximizing the redirection of the airflow around the side-cars to contribute to downforce.  
+        Since the original design on the MP4-18, the front wing has further been re-engineered to include Y250 vortices to contribute to the venturi-channels below the car's floor. This would further contribute to downforce and improve the grip of the car. 
+        """)
+    st.caption("Current typical design of a second-element front nose.")
+    st.markdown("""
+        :red-background[Suspension Configuration]
+        """)
+    st.markdown("""
+        coming soon
+        """)
+    st.markdown("""
+        :red-background[Side-pod Configuration]
+        """)
+    st.markdown("""
+        coming soon
+        """)
+    st.markdown("""
+        :red-background[**Venturi Channels**]
+        """)
+    st.markdown("""
+        coming soon
+        """)
+    st.markdown("""
+        :red-background[Rear Wing DRS Configuration]
+        """)
+    st.markdown("""
+        coming soon
+        """)
+    st.markdown("""
+        :red-background[Manual Override Mode]
+        """)
+    st.markdown("""
+        coming soon
+        """)
+    #specific team information cont. 
     text_input = st.text_input("enter a constructor")
-    if text_input == "":
-        st.write("pls enter a constructor")
+    if text_input in alpine_valid_names:
+        st.write("coming soon")
+    elif text_input in aston_martin_valid_names:
+        st.write("coming soon")
     elif text_input in ferrari_valid_names:
         st.markdown("**Scuderia Ferrari HP**")
         st.markdown('''
@@ -1435,6 +1498,10 @@ if option == "**Construction Information**":
         st.markdown('''
                 Overall, it appears the SF25 will show some dominance in clean air, as seen by Lewis Hamilton's sprint win in China. In China it was also exhibited just how much of the downforce is dependent on this reaction, as Charles Leclerc was able to drive a functional and still advantageous car with a broken front wing.
             ''')
+    elif text_input in haas_valid_names:
+        st.write("coming soon")
+    elif text_input in kick_sauber_valid_names:
+        st.write("coming soon")
     elif text_input in mclaren_valid_names:
         st.markdown("**McLaren Mercedes**")
         st.markdown('''
@@ -1635,6 +1702,10 @@ if option == "**Construction Information**":
             The main-plane nose design's largest advantage is its structural integrety, allowing the driver more errors without greatly compromising the front wing aerodynamics. The structural integrity also allows for greater stability in turbulent conditions, making it less sensitive to dirty air or wind changes. However, it does not push as much air into the venturi channels and plays the dual role of aerodynamics and structural stability, leading it to be subpar in both areas. 
             This nose design is also not very adaptable, as none of the front wing can be adjusted without adjusting the entire nose structure.
             ''')
+    elif text_input == racing_bulls_valid_names:
+        st.write("coming soon")
+    elif text_input == williams_valid_names:
+        st.write("coming soon")
         
 
 
@@ -1692,9 +1763,4 @@ if option == "**Words of Wisdom**  ***NEW***":
 if option == "Patch Notes":
     st.subheader("1.2.4")
     st.markdown("""
-            Added more information about advantages and disadvantages at the Miami GP.
-            Added constructor information about SF25, F1 W16, RB21, MCL39.
-            Added a hypothetical chaos mode for sprint races
-            Added updated sprint results from Miami 2025. 
-            Added revised fun facts for Kimi Antonelli driver information. 
         """)
