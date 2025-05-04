@@ -1385,9 +1385,314 @@ williams_valid_names = ("Williams", "williams")
 
 
 if option == "**Construction Information**":
-    #specific team information
-    st.caption("scroll down to look at specific construction information for the 2025 teams")
+    #specific team information cont. 
+    text_input = st.text_input("enter a constructor")
+    if text_input in alpine_valid_names:
+        st.write("coming soon")
+    elif text_input in aston_martin_valid_names:
+        st.write("coming soon")
+    elif text_input in ferrari_valid_names:
+        st.markdown("**Scuderia Ferrari HP**")
+        st.markdown('''
+                    Constructor: Ferrari  
+                    Engine: Ferrari  
+                    2025 Car Name: SF25
+            ''')
+        st.markdown('''
+                    :gray[Suspension Configuration: Pullrod-pullrod]  
+                    :gray[Sidepod Configuration: Overbite]  
+                    :gray[Sidepod Inlet: P shape]  
+                    :gray[Nose Configuration: Second-element]
+            ''')
+        st.image("https://cdn.ferrari.com/cms/network/media/img/resize/67c83837d12cab001f5ef82d-ferrari-sf-25-social-card-esp?width=1080")
+        st.markdown('''
+                    :red-background[Significant Changes to the 2025 Car:]  
+                    :gray[Changed from a pushrod-pullrod to a dual pullrod suspension]  
+                    :gray[Altered the floor and venturi-channel design]
+            ''')
+        st.divider()
+        st.markdown('''
+                :red-background[2025 Car]  
+                The SF25 chassis includes the same overbite side pod design used in the second half of 2024 and used by most constructors in 2025.
+                Their overbite has a sharp, p-shaped inlet for more a more aggressive undercut. It directs the air quickly onto the floor of the car to increase downforce. This is only also seen on the Ferrari car for the 2025 season.  
+                  
+                Both cars have pushed the inlet right inside the overbite, which allows for a midwing that is more available for utilization. However, these changes make the ride-height of the car incredibly important, meaning any excessive damage to the skid block of the car could greatly affect the side-pod aerodynamics.
+                The SF25 is less sensitive than the MCL39, because their inlet is less aggressive, allowing for a more dynamic car. It's also less of a committment, and much more easily adaptable throughout the season.
+            ''')
+        st.image("https://cdn-3.motorsport.com/images/amp/0RrXg7V0/s6/ferrari-sf-25-technical-detail.jpg")
+        st.divider()
+        st.markdown('''
+                One of the biggest shifts from the SF24 is a change from a pushrod to a pullrod configuration in the front suspension, maintaining the pullrod configuration in the rear.
+                Ferrari also uses a pullrod in their rear suspension, and is one of only three constructors to do so. Ferrari is the only constructor currently using a pullrod-pullrod front-rear suspension configuration, with more teams using a pullrod-pushrod or pushrod-pushrod configuration.
+            ''')
+        st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/2025-preseason-tech/2025-ferrari-suspension-f1.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.markdown('''  
+                A pullrod suspension will pull the suspension backwards when the car goes over a kerb or bump. This will generate more downforce when the car is met with resistance.
+                Pullrods also face the rear of the car, meaning they will help with aerodynamics and pushing the airflow as it comes through the front wing.  
+                However, while it physically and aerodynamically produces downforce, the pullrod can make mechanical downforce incredibly sensitive, and going over kerbs can be detrimental (as seen at the Saudi GP with Lando Norris' pullrod MCL39). Having a pullrod-pullrod configuration will only make this effect more dramatic.
+            ''')
+        st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/pullrod-pushrod-2025/tr-comparison-pullrod-pushrod--1-1-1.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.caption("pullrod vs pushrod configurations in formula 1 car front suspension. the pullrod front suspension configuration is currently being run by ferrari, mclaren, redbull, racing bulls, and kick sauber")
+        st.divider()
+        st.markdown('''
+                The team has also altered their floor and venturi-channel design to generate greater downforce. The Venturi channel is an aerodynamically-generated low pressure zone which pulls the car closer to the ground, creating the bobbing up and down visual and also allowing the cars to drive on the ceiling at top speeds. This will improve the cars grip in all circuits, but the improved venturi channels will give the car an advantage in banked corners.
+                However, a car that relies too much on the venturi effect will struggle in the dirty air of a car it's trailing.  
+            ''')
+        st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/2025-preseason-tech/side-view-f1-ferrari-2025.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.divider()
+        st.markdown('''
+                Overall, it appears the SF25 will show some dominance in clean air, as seen by Lewis Hamilton's sprint win in China. In China it was also exhibited just how much of the downforce is dependent on this reaction, as Charles Leclerc was able to drive a functional and still advantageous car with a broken front wing.
+            ''')
+    elif text_input in haas_valid_names:
+        st.write("coming soon")
+    elif text_input in kick_sauber_valid_names:
+        st.write("coming soon")
+    elif text_input in mclaren_valid_names:
+        st.markdown("**McLaren Mercedes**")
+        st.markdown('''
+                    Constructor: Mclaren  
+                    Engine: Mercedes  
+                    2025 Car Name: MCL39
+            ''')
+        st.markdown('''
+            :gray[Suspension Configuration: Pullrod-pushrod]  
+            :gray[Sidepod Configuration: Overbite]  
+            :gray[Sidepod Inlet: P shape]  
+            :gray[Nose Configuration: Second-element]
+            ''')
+        st.image("https://mclaren.bloomreach.io/cdn-cgi/image/format=webp,quality=80/delivery/resources/content/gallery/mclaren-racing/formula-1/2025/nsr/f1-75-live-m/web/mcl39-papaya-pr-inline-7.jpg")
+        st.caption("MCL39 livery as presented by McLaren")
+        st.markdown('''
+            :red-background[Significant Changes to the 2025 Car:]  
+            :gray[Changed the traditional overbite inlet to a P shaped inlet and raised the overbite]
+            :gray[Loss of the flexi-wing mini-DRS system]
+            :gray[Minor changes in vaning to conduct low pressure zones]
+            :gray[Changes to brake cooling]
+            ''')
+        st.divider()
+        st.markdown('''
+                    :red-background[2024 Car]  
+                    The McLaren car sported what was called "mini DRS", a flexible rear wing that allowed the car to gain an aerodynamic advantage in non-DRS zones such as high speed corners or short straightaways. 
+                    This allowed them to easily gain an advantage against other cars.
+                    While legal in 2024, it was eventually banned due to safety concerns, with strict restrictions on the flexibility of the rear wing being in place for 2025 and onward.  
+                    The system worked by making an extremely flexible rear wing, which flexed downwards in top speeds, opening small spaces between the wing and the edge to allow more air flow beneath the wing, reducing drag and giving the car a few mph advantage.
+            ''')
+        st.image("https://autoracer.it/wp-content/uploads/2024/12/McLaren-mini-DRS-1024x705.webp")
+        st.caption("image render of the mini DRS system used by McLaren in 2024")
+        st.divider()
+        st.markdown("In 2024, the McLaren also famously sported a spike on the front wing, which was meant to discourage close quarter battles with passing cars as it threatened easy tire punctures." \
+        "This was seen as too aggressive and heavier regulations were put in place by the FIA to prevent these spikes.")
+        with st.container():
+            st.markdown("""
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://cdn-5.motorsport.com/images/amp/Y99DgD8Y/s6/mclaren-mcl38-front-wing-endpl.jpg" width="100%">
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmUWcPxLvZgie5rKpi_kmmmZycfHXjXDoYIA&s" width="37.5%">
+                    </div>
+                </div>
+            """, unsafe_allow_html=True) 
+        st.write("")
+        st.divider()
+        st.markdown('''
+                :red-background[2025 Car]  
+                Overall the car is optimized for aerodynamic efficency, giving them an advantage in circuits with many high speed corners but leaving them vulnerable in low-speed high-downforce corners.    
+                      
+                The MCL39 chassis includes the same overbite side pod design used in the MCL38 and used by most constructors in 2025.
+                Their overbite has a sharp, p-shaped inlet for more a more aggressive undercut. It directs the air quickly onto the floor of the car to increase downforce. This is only also seen on the Ferrari car for the 2025 season.  
+                Both cars have pushed the inlet right inside the overbite, which allows for a midwing that is more available for utilization. However, these changes make the ride-height of the car incredibly important, meaning any excessive damage to the skid block of the car could greatly affect the side-pod aerodynamics.
+            ''')
+        st.image("https://preview.redd.it/mcl38-vs-mcl39-sidepods-comparison-v0-8k7nppezxwie1.jpeg?auto=webp&s=4cbcbc03d9f4cdf84d03022eac69e3cfe8a8e7ae")
+        st.caption("The inlet is highlighted in green. This is the 'stealth livery' used in Bahrain testing for the 2025 McLaren, which is why it's difficult to see")
+        st.divider()
+        st.markdown('''
+                    Despite the loss of mini DRS, the McLaren car has started the season with a clear advantage over other cars.  
+                      
+                    While the regulations around rear wing flexing were tightened during the 2025 season, teams were allowed rear wing flexing up to 2mm until the Suzuka grand prix, where it was limited to 0.5mm due to exploiting by teams. McLaren claims to have not needed to change their rear wing due to this regulation change.
+                    However, the flow vis demonstrated during testing appeared to show altered aerodynamics around the rear wing, which appear similar to that seen with a flexi-wing system.
+            ''')
+        st.image("https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/02/26140009/McLaren-MCL39-flo-viz-rear-end.jpg")
+        st.caption("Green flow vis paint patterns on the McLaren car in Bahrain preseason testing, used to visualize aerodynamics")
+        st.markdown('''
+                    However, this could also be explained by the slightly raised main-plane trailing edge, which would not be flexible but still exhibit similar effects as mini-DRS. It is not the same part of the car that would flex in a traditional mini-DRS system, and is technically legal for the 2025 season.
+            ''')
+        with st.container():
+            st.markdown("""
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/03/11142959/McLaren-MCL39-rear-wing-tip.jpg" width="100%">
+                        <p style="font-size: 0.9em;">MCL39 Rear Wing System</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/03/14092909/RED-BULL-RB21-REAR-WING-COMPARISON.jpg" width="100%">
+                        <p style="font-size: 0.9em;">RB21 Rear Wing System</p>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+        st.divider()
+        st.markdown('''
+                    Other improvements higlighted in the image below include:  
+                    Anti-diving front wing suspension to prevent the car diving forward under braking (blue).  
+                    A changed vane on the sidepod of the car, meant to change how the aerodynamics work surrounding the cockpit. Oftentimes these will help create low pressure zones close to the car (purple).  
+                    Changes to the sidepod inlet, brake ducts, and airbox (yellow)
+            ''')
+        st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/2025-preseason-tech/2024-mclaren-vs-2025-mclaren-f1-car.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.caption("Differences between MCL38 (2024) and MCL39")
+        st.markdown('''      
+                    Due to some problems with the water system (Piastri in Bahrain), there is speculation that McLaren has moved their drink system to sit in front of the driver in the nose of the car rather than behind, a move they would have copied from Redbull.
+                    The advantage to this is that throughout the race, the weight of the drink will move back out of the nose further into the rear of the car, allowing for real time weight adjustment throughout the race, which typically is not allowed due to Park Ferme rules. 
+                    At the beginning of the race, the drink is in the front of the car, pushing the front nose and wing downwards to improve downforce early on. Later, as the drink is used and the weight is shifted to the back of the car, it can add downforce to the rear, improving rear tyre grip. It also brings the weight away from the front tyres, which will deteriorate quicker with added weight.
+                    It also just keeps their drink colder since it is further away from the engine, as the cockpit of the car can get as high as 140oF
+            ''')
+    elif text_input in mercedes_valid_names:
+        st.markdown("**Mercedes-AMG Petronas F1 Team**")
+        st.markdown('''
+                    Constructor: Mercedes  
+                    Engine: Mercedes  
+                    2025 Car Name: F1 W16
+            ''')
+        st.markdown('''
+            :gray[Suspension Configuration: Pushrod-pushrod]  
+            :gray[Sidepod Configuration: Overbite]  
+            :gray[Sidepod Inlet: Shark]  
+            :gray[Nose Configuration: Mainplane and second element front noses available. Using second-element nose]
+            ''')
+        st.image("https://cdn-3.motorsport.com/images/amp/Yv8yOnj0/s6/mercedes-f1-w16-technical-deta.jpg")
+        st.markdown('''
+            Mercedes seems to have taken heavy inspiration from the RB20 sidepod design, which Redbull appeared to have success with. Splitting the overbite's inlet into a horizontal and vertical inlet (nicknamed the shark inlet) allows the car to have a much larger undercut.  
+                      
+            The shark inlet itself has high aerodynamic capabilities, but is less effective in hotter races as it limits space for cooling. This could be why the W16 struggled more than we typically see in Jeddah, with the first non-podium finish for the primary driver, George Russell.
+            ''')
+        st.markdown("""
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYDsiu7z70eRmbn2rHgHKqLvXxDhqSlWaLNQ&s" width="100%">
+                        <p style="font-size: 0.9em;">2025 Mercedes Shark Inlet compared to 2024 Red Bull</p>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRHxF8wKhz2FrubqTOg17uEHXdmRm8PnMYHg&s" width="100%">
+                        <p style="font-size: 0.9em;">W15 and W16 inlet design, from vertical to shark</p>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+        st.markdown('''
+            An aggressive undercut allows the car to have enhanced rearwing downforce and grip. It also cleanly and quickly directs a lot of air at once into the venturi channels. However, deep undercuts take away a lot of space for cooling systems. In addition, it can make the car incredibly sensitive to ride height. 
+            ''')
+        st.divider()
+        st.markdown('''
+            The dual push-rod configuration is currently being used by Mercedes, Aston Martin, Alpine, and Williams. It's the second-most popular configuration, behind the pullrod-pushrod configuration used by five teams.   
+            It's possible this is another inspiration from Red bull, who used a pushrod-pushrod configuration in the championship winning RB19 and the RB20. However, for the 2025 season, most top contenders sport a pullrod front suspension, which makes the W16 unique.  
+            The front suspension pushrod allows greater flexibility in adjusting the frontwing throughout the season. The configuration will push the suspension towards the tires when the car is met with resistance such as a kerb or bump. The rod configuration will allow the car to be more durable to changes in the airflow, but can harm aerodynamics if they push the air towards the center of the car, in theory.            
+            ''')
+        st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/pullrod-pushrod-2025/tr-comparison-pullrod-pushrod--1-1-1.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.caption("pull rod vs push rod design in the front suspension")
+        
+        st.markdown('''
+            If engineered correctly, it's possible that the placement of the pushrods would push some air towards the front nose of the car, which on the surface would seem aerodynamically disadventageous. However, they could contribute more airflow into the Y250 vortices, generating an even stronger venturi effect than can be achieved with the front wing alone.
+            ''')
+    elif text_input in redbull_valid_names:
+        st.markdown("**Oracle Red Bull Racing**")
+        st.markdown('''
+                    Constructor: Redbull  
+                    Engine: Honda  
+                    2025 Car Name: RB21. 
+            ''')
+        st.markdown('''
+            :gray[Suspension Configuration: Pullrod-pushrod]  
+            :gray[Sidepod Configuration: Overbite]  
+            :gray[Sidepod Inlet: Vertical]   
+            :gray[Nose Configuration: Both main-plane and second-element available]
+            ''')  
+        st.markdown('''
+            :red-background[2025 Car]
+            ''')
+        st.markdown('''
+            With the RB21 aerodynamically struggling in the beginning of 2025, speculation has arisen that there have been troubles with Redbull's wind tunnel, which may have given faulty data during the construction process.
+            ''')
+        st.markdown('''
+            Redbull confirmed 12 changes to the car for the 2025 season, including a front wing, nose, front suspension, floor body, floor fences, floor edge, engine cover, cooling louvres, rear suspension, beam wing, rear wing, and rear-wing endplate.
+            Since starting the season, they've used mulitple front noses and multiple rear wings.
+            The cooling changes in particular have been changed from the novel design in the 2024 design to a more traditional cooling system. The novel approach had too much aerodynamic withdraws, it's unclear how the traditional cooling system has been behaving.
+            ''')
+        st.divider()
+        st.markdown('''
+            Redbull kept the overbite side-pod concept that they adopted in 2024 for the RB20, after winning three world championships with an underbit car.
+            ''')
+        st.image("https://pbs.twimg.com/media/GG25QHEWgAA9ggc.jpg:large")
+        st.caption("(top) an underbit side-pod concept on the RB19. (bottom) an overbit side-pod concept on the RB20")
+        st.markdown('''
+            Flow vis patterns at the Bahrain testing suggested some early difficulties with the overbite pattern, with some flow vis spalshing up above the sidepod. However with the less aggressive inlet style, it's possible this was expected by the redbull team, and may not be related to their aerodynamic instability in early races.
+            However, this flow pattern coupled with the second-element nose indicates the second-element code isn't directing all the air into the ground-effect capabilities.
+            ''')
+        st.image("https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/02/26113013/RED-BULL-RB21-flo-viz-on-floor.jpg")
+        st.divider()
+        st.markdown('''
+            The RB21 actually features multiple different front nose designs, with different drivers running different designs depending on the race or desired driving style.  
+            One front wing has a wider nose attaching to the second element of the wing, with the main plane protruding underneath and forward. Here this will be called the second-element nose. This design is new to the RB21.  
+            The older front wing, recognized as extremely similar to the RB20, has a narrow nose extending all the way to the main plane of the car. This will be called a main-plane nose.  
+            ''')
+        st.image("https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/04/01113933/Red-Bull-RB21-front-wing-comparison.jpg")
+        st.caption("(top) second-element nose configuration. (bottom) main-plane nose configuration")
+        st.image("https://www.raceteq.com/-/jssmedia/raceteq/articles/2025/03/2025-preseason-tech/rbr-front-wings-2025-f1.jpg?cx=0.5&cy=0.5&cw=1440&ch=670")
+        st.caption("(top) main-plane nose configuration. (bottom) second-element nose configuration")
+        st.markdown('''
+            A second-element nose design allows more air to hit the main-plane of the front wing, better directing the aerodynamics around the car, especially into the venturi channels which are important for downforce of the car. In 2025 where ground effect is largely important, it seems the adventageous design.
+            The venturi-effect largely comes from the contribution of Y250 vortices from a complex-wing shape. These vortices are not preset on main-plane front wings. 
+            The formation also can make the front-tire wake more adventageous because of the way the air flow is directed around the main plane. However, it's much more structurally complex than a main-plane nose. 
+            ''')
+        st.image("https://ichef.bbci.co.uk/ace/standard/624/cpsprodpb/15318/production/_113180868_f1car'sfrontnoseshowingthey250vortexairflowoverthefrontwing.jpg")
+        st.caption("Y250 vortices incorportated in non-mainplane front wing designs, contributing greatly to venturi effect")
+        st.markdown('''                 
+            The main-plane nose design's largest advantage is its structural integrety, allowing the driver more errors without greatly compromising the front wing aerodynamics. The structural integrity also allows for greater stability in turbulent conditions, making it less sensitive to dirty air or wind changes. However, it does not push as much air into the venturi channels and plays the dual role of aerodynamics and structural stability, leading it to be subpar in both areas. 
+            This nose design is also not very adaptable, as none of the front wing can be adjusted without adjusting the entire nose structure.
+            ''')
+    elif text_input == racing_bulls_valid_names:
+        st.write("coming soon")
+    elif text_input == williams_valid_names:
+        st.write("coming soon")
+    
     #all car information
+    st.write("")
+    st.subheader("**General Formula One Car Construction**")
+    st.markdown("""
+        :red-background[**Front and Rear Wing Aerodynamics**]
+        """)
+    st.markdown("""
+        **Drag Reduction System (DRS)**  
+            DRS was introduced in 2011 and is continuing until it's replaced by MOM in 2026.  
+            When the car is on a safe straightaway, the driver can open the rear wing, greatly decreasing the amount of drag they experience and giving their cars and extra 3-4 kph.
+            The DRS was introduced to encourage overtaking and can be used within one second of the car in front of them.  
+        """)
+    st.image("https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2022/07/13143940/ferrari-carlos-sainz-drs-open-closed-spanish-grand-prix-planet-f11-1024x577.jpg")
+    st.caption("DRS being deployed on the SF22")
+    st.markdown("""
+        DRS failures can cause severe crashes very quickly. This is because the car is travelling at top speed and the aerodynamic effeciency of the open rear wing makes the car incredibly difficult to steer.
+        This combination means that if a car fails to disable DRS before turning into a corner, they can very easily continue straight into the wall at high speeds.  
+        A typical DRS can close in one of three ways; the driver putting pressure on the brakes, the driver lifting off the accelerator, or the driver pressing a manual close button. 
+        """)
+    st.image("https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/29a7/live/3db79830-1130-11f0-ac9f-c37d6fd89579.jpg")
+    st.caption("Jack Doohan's crash at the 2025 Japanese grand prix after the DRS was open into a highspeed corner. It's unclear whether this was a DRS failure or Doohan intentionally left the DRS open, but the open rear-wing was what led to him losing control and resulted in a high-speed crash into the wall. Doohan suffered only minor injuries.")
+    st.markdown("""
+        **Dynamic Low-Drag Reduction and High-Drag Reduction**  
+         Starting in 2026, drivers will be able to adjust the elements of both the front and rear wing throughout the race into low-drag reduction modes and high-drag reduction modes. It's assumed that these will correlate to the current DRS activation zones.
+        """)
+    st.markdown("""
+        :red-background[**Engines**]
+        """)
+    st.markdown("""
+        **Manual Override Mode**  
+        With DRS being unavailable in 2026 due to the dynamic wing configurations, it will be replaced by MOM to encourage overtaking in straightaways.   
+        In close battles when two cars are within 1 second of each other, the trailing car will be allowed to use additional electrical energy on straights to aid in overtaking.  
+        The car in front will use the typical electrical power, which will accelerate to 290 kph and then begin to fall. The trailing car can use MOM, drawing maximum electrical power of 350 kw up to 337 kph before dropping. A car using MOM can also recuperate 0.5MJ more energy per lap to use in ERS, which will further aide in overtaking.  
+        Essentially, MOM should mimic the effect of DRS while being a bit more safe, and allowing the front and rear wing to participate in the dynamic system.
+        """)
+    st.image("https://media.formula1.com/image/upload/f_auto,c_limit,w_960,q_auto/t_16by9Centre/f_auto/q_auto/fom-website/2024/2026%20regulations/2")
+    st.caption("An example of the 2026 F1 car as presented by the FIA")
+    st.markdown("""
+        **x - Current: V6 hybrid**
+        In 2025, the power in the unit is 560 kw with the battery element at 120 kw. In the 2026 season, the power unit will use 400 kw and the battery element increasing to 350 kw. 
+        """)  
     st.markdown("""
         :red-background[**Front Wing Elements**]
         """)
@@ -1409,7 +1714,8 @@ if option == "**Construction Information**":
         The second-element front nose configuration at the time reduced the amount of air hitting the front nose, maximizing the redirection of the airflow around the side-cars to contribute to downforce.  
         Since the original design on the MP4-18, the front wing has further been re-engineered to include Y250 vortices to contribute to the venturi-channels below the car's floor. This would further contribute to downforce and improve the grip of the car. 
         """)
-    st.caption("Current typical design of a second-element front nose.")
+    st.image("https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/fom-website/2023/Miscellaneous/ferrari-sf-24-7")
+    st.caption("Current typical design of a second-element front nose. Image is of the SF24")
     st.markdown("""
         :red-background[Suspension Configuration]
         """)
@@ -1424,18 +1730,6 @@ if option == "**Construction Information**":
         """)
     st.markdown("""
         :red-background[**Venturi Channels**]
-        """)
-    st.markdown("""
-        coming soon
-        """)
-    st.markdown("""
-        :red-background[Rear Wing DRS Configuration]
-        """)
-    st.markdown("""
-        coming soon
-        """)
-    st.markdown("""
-        :red-background[Manual Override Mode]
         """)
     st.markdown("""
         coming soon
@@ -1761,6 +2055,8 @@ if option == "**Words of Wisdom**  ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.2.4")
+    st.subheader("1.3.1")
     st.markdown("""
+        Updated sprint results from Miami 2025 (but for real this time)
+        Added additional construction information about general formula one cars.
         """)
