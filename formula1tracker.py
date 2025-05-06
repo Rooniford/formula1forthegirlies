@@ -1744,7 +1744,7 @@ if option == "**Construction Information**":
     st.video("https://youtu.be/O0WTlEmWwng?si=aYKYSn5E4sHRLIPS")
     st.caption("The Honda V10 RA100E driven by Ayrton Senna at the 1991 Australian Grand Prix")
     st.markdown("""
-        **2006 - 2013: 2.4 Litre V8 Mandate**
+        **2006 - 2013: 2.4 Litre V8 Mandate**  
         The cars were mandated to use a V8 engine configuration, with a slight power-output decrease to 750 hp.  
         The most famous engines of this era were the Mercedes FO108Z V8, Renault RS27 V8, and Ferrari 056 V8 engines. 
         """)
@@ -1790,6 +1790,22 @@ if option == "**Construction Information**":
     st.caption("Current typical design of a second-element front nose. Image is of the SF24")
     st.markdown("""
         :red-background[Suspension Configuration]
+        The suspension of an F1 car is very important, as it must deal with the weight of the car and driver as well as the enormous amounts of downforce in the car. At maximum speed, the suspension can experience about four times the car's weight.  
+          
+        **Inboard Elements**  
+        The inboard elements of the suspension are hidden under the bodywork of the car and include the springs, dampers, rockers, and anti-roll bars. Cars can use physical or gas springs. 
+          
+        **Airflow Elements**  
+        The airflow elements are what experience the most airflow and need to be accounted for in the aerodynamic design of the car. They include wishbones, push or pullrods, and track rods.  
+          
+        Pushrod Suspension:
+        A pushrod can be on either the front or rear suspension. It's a more common and simpler design for the airflow elements. The push rod will transfer force from the lower wheel diagonally to a high-point on the chassis.
+        When experiencing resistence, the wheel will push against the airflow elements, offering stability in certain scenarios. It's also simpler and allows the engineers greater access to make adjustments throughout the season.
+                    
+        Pullrod Suspension:
+        A pullrod can also be on either the front or rear suspension. 
+        **Outboard Elements*  
+        The outboard elements of the suspension are connected to the inboard elements via the airflow elements and include the uprights, axels, and bearings.  
         """)
     st.markdown("""
         coming soon
@@ -1861,8 +1877,8 @@ if option == "**Words of Wisdom**  ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.3.4")
+    st.subheader("1.3.5")
     st.markdown("""
-        Updated sprint results from Miami 2025 (but for real this time)
+        Updated results from the Miami GP weekend
         Added additional construction information about general formula one cars.
         """)

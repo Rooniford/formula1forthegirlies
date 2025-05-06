@@ -1,6 +1,6 @@
 Track ,Team,Driver,No,Pos,Gap,Points,Track
 Australia,Average,Average,Average,,,,Australia
-Australia,McLaren,Lando Norris,4,1,0.000,25,Australia
+Australia,McLaren,Lando Norris,4,1,0,25,Australia
 Australia,Red Bull Racing,Max Verstappen,1,2,0.895,18,Australia
 Australia,Mercedes,George Russell,63,3,8.481,15,Australia
 Australia,Mercedes,Kimi Antonelli,12,4,10.135,12,Australia
@@ -100,3 +100,23 @@ Saudi Arabia,Alpine,Jack Doohan,7,17,,0,Saudi Arabia
 Saudi Arabia,Kick Sauber,Gabriel Bortoleto,5,18,,0,Saudi Arabia
 Saudi Arabia,Red Bull Racing,Yuki Tsunoda,22,19,,0,Saudi Arabia
 Saudi Arabia,Alpine,Pierre Gasley,10,20,,0,Saudi Arabia
+Miami,McLaren,Oscar Piastri,81,1,,25,Miami
+Miami,McLaren,Lando Norris,4,2,,18,Miami
+Miami,Mercedes,George Russell,63,3,,15,Miami
+Miami,Red Bull Racing,Max Verstappen,1,4,,12,Miami
+Miami,Williams,Alexander Albon,23,5,,10,Miami
+Miami,Mercedes,Kimi Antonelli,12,6,,8,Miami
+Miami,Ferrari,Charles Leclerc,16,7,,6,Miami
+Miami,Ferrari,Lewis Hamilton ,44,8,,4,Miami
+Miami,Williams,Carlos Sainz,55,9,,2,Miami
+Miami,Red Bull Racing,Yuki Tsunoda,22,10,,1,Miami
+Miami,Racing Bulls,Isack Hadjar,6,11,,0,Miami
+Miami,Haas,Esteban Ocon,31,12,,0,Miami
+Miami,Alpine,Pierre Gasley,10,13,,0,Miami
+Miami,Kick Sauber,Nico Hulkenberg,27,14,,0,Miami
+Miami,Aston Martin,Fernando Alonso,14,15,,0,Miami
+Miami,Aston Martin,Lance Stroll,18,16,,0,Miami
+Miami,Racing Bulls,Liam Lawson,30,17,,0,Miami
+Miami,Kick Sauber,Gabriel Bortoleto,5,18,,0,Miami
+Miami,Haas,Oliver Bearman,87,19,,0,Miami
+Miami,Alpine,Jack Doohan,7,20,,0,Miami
