@@ -5,6 +5,9 @@ import random
 import streamlit.components.v1 as components
 import warnings
 warnings.filterwarnings("ignore", category=pd.errors.SettingWithCopyWarning)
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from datetime import datetime
 
 
 
@@ -97,7 +100,7 @@ def render_leaderboard(df):
 
 
 
-option = st.sidebar.radio("Pages",["**Home**", "**Grand Prix Positions**", "**Current Leaderboard**", "**Hypothetical Chaos Mode**", "**Interesting Factoid**", "**Construction Information**", "**Track Information**", "**Words of Wisdom**  ***NEW***", "Patch Notes"])
+option = st.sidebar.radio("Pages",["**Home**", "**Revvy** ***NEW***", "**Grand Prix Positions**", "**Current Leaderboard**", "**Hypothetical Chaos Mode**", "**Interesting Factoid**", "**Construction Information**", "**Track Information**", "**Words of Wisdom**", "Patch Notes"])
 
 if option == "**Home**":
     st.title("kiley's f1 2025 season track: for the girls by the girls")
@@ -1735,8 +1738,8 @@ if option == "**Construction Information**":
         """)
     st.video("https://youtu.be/0oUjvjq3TSE?si=ExXwowroy3z1iiSl")
     st.caption("Renault RS10 Twin Turbo V6 Engine, 1979")
-    st.markdown("""
-        **1989 - 2005: 3.5 Litre Atmospheric Engines**
+    st.markdown(""" 
+        **1989 - 2005: 3.5 Litre Atmospheric Engines**  
         Constructors could choose between different cylinder numbers; the V8, V10, or V12. Most teams opted for the V10, which saw 600-900 hp between 1989 and 2005. Nicknamed the "screaming" engines, the V10s had a distinct sound.
         The Honda V10 RA109E powered McLaren to both championship titles in 1989 with Alain Prost and successed by the RA100E which won both titles in 1990 and 1991 with Ayrton Senna.  
         The Renault RS01 V10 debuted in 1992 and won the next six constructors championships in a row with the Williams and Benneton cars. 
@@ -1789,7 +1792,7 @@ if option == "**Construction Information**":
     st.image("https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/fom-website/2023/Miscellaneous/ferrari-sf-24-7")
     st.caption("Current typical design of a second-element front nose. Image is of the SF24")
     st.markdown("""
-        :red-background[Suspension Configuration]
+        :red-background[Suspension Configuration]  
         The suspension of an F1 car is very important, as it must deal with the weight of the car and driver as well as the enormous amounts of downforce in the car. At maximum speed, the suspension can experience about four times the car's weight.  
           
         **Inboard Elements**  
@@ -1807,9 +1810,8 @@ if option == "**Construction Information**":
         **Outboard Elements*  
         The outboard elements of the suspension are connected to the inboard elements via the airflow elements and include the uprights, axels, and bearings.  
         """)
-    st.markdown("""
-        coming soon
-        """)
+    st.image("https://images.ctfassets.net/1fvlg6xqnm65/6D1WeClRc8256mPhCsPDH/98196333fea0df75a3c6acf3635bbdfe/MQ7-0-image-20191104195321-2_4252.jpg?w=3840&q=75&fm=webp")
+    st.caption("Mercedes F1 car's rear suspension, featuring a pull-rod. For the 2025 season, Mercedes uses a push-rod for both their front and rear-suspension.")
     st.markdown("""
         :red-background[Side-pod Configuration]
         """)
@@ -1825,7 +1827,7 @@ if option == "**Construction Information**":
  
 
 ##WORDS OF WISDOM
-if option == "**Words of Wisdom**  ***NEW***":
+if option == "**Words of Wisdom**":
     st.write("wouldnt this look nicer centered? im not that smart, but just pretend it is")
 
     quotes = [
@@ -1843,7 +1845,7 @@ if option == "**Words of Wisdom**  ***NEW***":
         "THANK YOU BRYAN",
         "I value my life and my limbs...he says as hes a formula one driver",
         "Oh no.. I've caused a scene",
-        "'How do you manage to stay calm when max is right behind you?' 'I dont know, i dont'",
+        "'How do you manage to stay calm when max is right behind you?'   'I dont know, i dont'",
         "ok mate, we got a few hard ons today. we got kyvat and the two willies have gone hard. everybody else with a free choice is medium apart from giovinazzi, whos gone soft",
         "like a winner",
         "'he's been told to give back the position' 'maybe try in spanish'",
@@ -1859,8 +1861,9 @@ if option == "**Words of Wisdom**  ***NEW***":
         "nothing just an inchident on the race",
         "BRAAAAAKE",
         "Yabba dabba doo!",
-        "ive just had a little scream in my helmet. well done"
-        "'No Charles, we are not interested, we know.', 'That's rude'"
+        "ive just had a little scream in my helmet. well done",
+        "'No Charles, we are not interested, we know.'   'That's rude'",
+        "Break everything. This is an opportunity you'll never have again. Break. Everything."
     ]
 
     words_of_wisdom = st.button("click for some words of wisdom")
@@ -1874,11 +1877,107 @@ if option == "**Words of Wisdom**  ***NEW***":
                 f"<h2 style='text-align: center;'>{random_quote}</h2>",
                 unsafe_allow_html=True
         )
+##CHATBOT
+if option == "**Revvy** ***NEW***":
+    password = st.text_input("please input the password")
+    if password == "":
+        st.write("")
+    elif password == "revvypw":
+        greeting_data = [
+            ("hello", "what can i do ya for"),
+            ("hey", "hi!"),
+            ("what's up", "hello! do you like the cars? the cars that go vroom?"),
+            ("howdy", "howdy partner!"),
+            ("good morning", "hidy ho!"),
+            ("goodbye", "later skater!"),
+            ("bye", "bye bye! have a good day"),
+            ("bye", "bye, thanks for chatting with me!"),
+            ("sorry", "no worries, pal"),
+            ("what", "sorry, i dont understand. can you rephrase that?"),
+            ("i asked about something else", "sorry, i mustve gotten things mixed up. can you ask again?"),
+            ("not what i meant", "im sorry, i'm doing my best but some things i just have trouble understanding. if you try rephrasing maybe that will help me"),
+
+            # Car-related questions
+            ("whats cool about f1 cars?", "the aerodynamics of a formula one car are so efficient, that at top speeds the car could drive on the ceiling without falling off!"),
+            ("how does the car drive on the ceiling?", "this is possible mostly because of the venturi channels, the low pressure zones between the car and the floor (or this case, the sky). it sucks the car down (or up) into the surface it's driving on, making it possible for f1 cars to join elphaba in defying gravity"),
+            ("front wing on f1 cars", "there's a lot of cool features on the front wing. which one do you want to know about?"),
+            ("front wing features", "the features on the front wing that i can tell you about are the wing elements, the front nose configuration, and the contribution to the venturi channels. I could also tell you the history. which one do you want to know more about?"),
+            ("wing elements", "a lot of different f1 cars have a different amount of wing elements. currently, the rules is they can't have more than four. this is mostly because if there were more elements, the car would go faster, but it would also be harder to control. in 2026, only two elements will be allowed"),
+            ("hard to control", "a few things can make the car difficult to control. if the front wing is too complicated, the aerodynamics might be so efficent that it's hard to break the car out of the air it's passing through. the same goes for if DRS was open all the time."),
+            ("history", "im sorry, my memory isn't so great. what do you want to know the history about?"),
+            ("history front wing", "the first front wing was added to the Lotus-Ford 49 in 1969 and it looked like doo doo. but hey, it worked, so more and more people started copying it. they realized if they added more elements then the front wing would be even more effective, with the maximum being five, but tighter regulations are making that number less and less."),
+            ("rear wing", "if you want to know about rear wing aerodynamics, i'm sure you want to talk about the DRS, am i right?"),
+            ("mini DRS mini-drs flexi-wing", "mini-DRS was something that some teams used in 2024, most famously the mclaren team. this system is actually known as a flexi-wing. at high speeds, the rear wing element would flex. that gave the cars effects similar to the actual DRS but made them difficult to control. for safety reasons, these are no longer allowed in the 2025 season. the rear wing cannot flex open more than 0.5mm."),
+            ("DRS", "the DRS, or drag reduction system, is one of the coolest things in f1. it's such a shame it's being taken out of the sport in 2026, but it will live on through us!"),
+            ("why DRS removed", "DRS is being removed from F1 after the 2025 season because the front and rear wings will be used in active aerodynamic systems. it's also speculated that they're changing this due to the cars being so incredibly difficult to control with DRS open and because of DRS exploits found in 2024"),
+            ("DRS exploit", "the most famous DRS exploit is the mini-DRS system"),
+            ("what is DRS", "the drag reduction system is a system in which the driver can open up the rear wing element, allowing crazy amounts of air that was once being restricted flow right through. this makes the aerodynamics incredibly efficient, speeding the car up around 10-12 kph and giving the drivers an extra couple of seconds. this system is incredibly strict though, and can only be used in certain situations"),
+            ("when DRS used", "DRS can be used during a race if a car is within one second of the car in front of them and in an active DRS zone. these zones are usually straightaways or incredibly high speed-low angle turns, as it's near impossible to make a turn with DRS open due to the aerodynamic efficencly. it can also be used in active DRS zones during free practices and qualifying at any time."),
+            ("why within one second", "this is because DRS was initially added to make overtaking easier. when a car is within one second of the car in front, the leading car cannot use DRS, but the trailing car can. this gives the trailing car the speed advantage, making overtaking a little less impossible. but the car in front can still defend by moving slightly or braking late at the end of the DRS zone"),
+            ("DRS crash", "DRS failures or mistakes can easily cause crashes. most recently, Jack Doohan didnt close his DRS at the Japanese grand prix, causing him to lick it and send it straight into the wall, completely destroying his car."),
+            ("why didnt jack doohan close his drs", "it's controversial, we don't actually know the real reason. some people say the DRS closure system failed, and others say he deliberitely left it open as he had made the turn with DRS open in the simulation"),
+
+            #mclaren related questions
+            ("what's cool about the mclaren MCL39?", "i LOVE the mclaren car. i think the coolest feature was actually on their car from 2024, the MCL38. that car had a spike on the front wing to gently discourage people from bumping them"),
+            ("describe the mclaren car", "it's really designed for aerodynamics, with arguably one of the best rear wings in the game. the mclaren car is so good this year, that red-bull team principal has already accused them of cheating, twice!"),
+            ("what makes the mclaren car so good?", "part of the reason the mclaren car is performing so well is because of their rear tyre managment. no one quite knows how (yet), but their rear tyres just dont overheat as fast as everyone elses"),
+            ("is the mclaren car legal?", "while redbull has accused mclaren of cheating several times already in 2025, the mclaren car is currently up to code!"),
+            ("why was mclaren accused of cheating?", "redbull thought that mclaren was possibly still using mini-DRS in the 2025 season, which would be against FIA regulations"),
+            ("is a car spike legal?", "not anymore. however, in 2024, when mclaren implimented it for the first time, it was within regulations"),
+            ("mclaren MCL39 suspension", "mclaren uses a pull-rod front suspension and a push-rod rear suspension"),
+            ("whats the mclaren car?", "in 2025, the mclaren team is using the MCL39"),
+
+            #redbull related questions
+            ("what's cool about the redbull?", "nothing, its dogwater")
+        ]
+
+
+        X = [item[0] for item in greeting_data]  # input phrases
+        y = [item[1] for item in greeting_data]  # appropriate responses
+
+        vectorizer = TfidfVectorizer()
+        X_vec = vectorizer.fit_transform(X)
+
+        def get_best_response(user_input):
+            user_vec = vectorizer.transform([user_input])
+            similarities = cosine_similarity(user_vec, X_vec)
+            best_match_index = similarities.argmax()
+            return y[best_match_index]
+
+        st.markdown(f"<h2 style='text-align: center;'>Revvy</h2>", unsafe_allow_html=True)
+        st.markdown(f"<h6 style='text-align: center;'>hi! im revvy, i love the f1 stuffs and im here fOR the girls. think of me as kiley's right hand man. please let me know if you want to talk about this stuff!</h6>", unsafe_allow_html=True)
+        st.markdown(f"<h6 style ='text-align: center;'>if you have any problems with me, please send a report. kiley would love some help in teaching me! you know how kids can be</h2>", unsafe_allow_html=True)
+        if st.button("Report a Problem with the Bot"):
+            with open("bot_reports.txt", "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                f.write(f"{timestamp} - Issue reported: '{user_input}'\n")
+            st.success("Your issue has been reported. Thank you!")
+        if "messages" not in st.session_state:
+            st.session_state.messages = []
+
+        user_input = st.chat_input("i love talking about f1!")
+
+        #response
+        if user_input:
+            st.session_state.messages.append({"role": "user", "content": user_input})
+            response = get_best_response(user_input)
+            st.session_state.messages.append({"role": "assistant", "content": response})
+
+        #chat history
+        for msg in st.session_state.messages:
+            with st.chat_message(msg["role"]):
+                st.write(msg["content"])
+    else:
+        st.write("this is the bot that kiley is currently making. it's not quite ready yet though! please come back another time.")
+
+
+
+
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.3.5")
+    st.subheader("1.4.1")
     st.markdown("""
-        Updated results from the Miami GP weekend
-        Added additional construction information about general formula one cars.
+        Added more information about cars
+        Added the Revvy bot
         """)
