@@ -1976,8 +1976,9 @@ if option == "**Revvy** ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.4.1")
+    st.subheader("1.4.2")
     st.markdown("""
         Added more information about cars
         Added the Revvy bot
+        fixed the error with sklearn
         """)
