@@ -16,27 +16,30 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #ffd5e3;  /* Light pink background */
-        color: #000000;  /* Black text color for contrast */
+        background-color: #ffffff;  /* white background */
+        color: #ffffff;  /* Black text color for contrast */
     }
     .stApp {
-        background-color: #ffd5e3; /* Background for entire app */
+        background-color: #ffffff; /* Background for entire app */
     }
     .css-1lcbz5j {
-        color: #ff7da7;  /* Change the color of streamlit header */
+        color: #aa1316;  /* Change the color of streamlit header */
+    }
+     section[data-testid="stSidebar"] * {
+        color: white !important;
     }
     .stButton>button {
-        background-color: #ffd5e3; /* Pink button */
+        background-color: #ffffff; /* white button */
         color: white;
     }
     .stButton>button:hover {
-        background-color: #ff7da7;  /* Darker pink on hover */
+        background-color: #aa1316;  /* Darker red on hover */
     }
     .stSidebar {
-        background-color: #ff7da7;  /* Sidebar color */
+        background-color: #aa1316;  /* Sidebar color */
     }
     .stAppHeader {
-        background-color: #ff7da7;
+        background-color: #aa1316;
     }
     </style>
     """,
@@ -1375,7 +1378,7 @@ if option == "**Track Information**":
 
 ##CONSTRUCTION INFORMATION
 
-alpine_valid_names = ("Alpine", "alpine", "renault")
+alpine_valid_names = ("Alpine", "alpine", "renault", "A525")
 aston_martin_valid_names = ("Aston Martin", "aston martin", "Aston", "aston", "Aston martin")
 ferrari_valid_names = ("Ferrari", "ferrari", "Scuderia Ferrari", "scuderia ferrari", "SF25")
 kick_sauber_valid_names = ("Kick Sauber" "Kick sauber", "kick sauber", "Kick", "kick")
@@ -1391,9 +1394,38 @@ if option == "**Construction Information**":
     #specific team information cont. 
     text_input = st.text_input("enter a constructor")
     if text_input in alpine_valid_names:
-        st.write("coming soon")
+        st.markdown("**BWT Alpine**")
+        st.markdown('''
+                    Constructor: Alpine  
+                    Engine: Renault  
+                    2025 Car Name: A525
+            ''')
+        st.markdown('''
+                    :gray[Suspension Configuration: Pushrod-pushrod]  
+                    :gray[Sidepod Configuration: Underbite]  
+                    :gray[Sidepod Inlet: N/A]  
+                    :gray[Nose Configuration: Second-element]
+            ''')
+        st.image("https://cdn-8.motorsport.com/images/amp/0qXxlBy6/s6/alpine-a524.jpg")
+        st.caption("The A525 with its unconventional underbite sidepod design")
     elif text_input in aston_martin_valid_names:
-        st.write("coming soon")
+        st.markdown("**Aston Martin Aramco**")
+        st.markdown('''
+                    Constructor: Aston Martin  
+                    Engine: Mercedes-AMG  
+                    2025 Car Name: AMR25
+            ''')
+        st.markdown('''
+                    :gray[Suspension Configuration: Pushrod-pushrod]  
+                    :gray[Sidepod Configuration: Overbite]  
+                    :gray[Sidepod Inlet: High rectangular]  
+                    :gray[Nose Configuration: Second-element]
+            ''')
+        st.image("https://www.racefans.net/wp-content/uploads/2025/02/racefansdotnet-24-02-23-17-29-33-3-racefansdotnet_aston_martin_amr25_34.jpg")
+        st.markdown('''
+                :red-background[2026]
+                In 2026, the Aston Martin team will take over the Honda engine manufactorer, which is currently working with the Red bull teams. 
+            ''')
     elif text_input in ferrari_valid_names:
         st.markdown("**Scuderia Ferrari HP**")
         st.markdown('''
@@ -1447,7 +1479,18 @@ if option == "**Construction Information**":
                 Overall, it appears the SF25 will show some dominance in clean air, as seen by Lewis Hamilton's sprint win in China. In China it was also exhibited just how much of the downforce is dependent on this reaction, as Charles Leclerc was able to drive a functional and still advantageous car with a broken front wing.
             ''')
     elif text_input in haas_valid_names:
-        st.write("coming soon")
+        st.markdown("**Moneygram Haas F1 Team**")
+        st.markdown('''
+                    Constructor: Haas 
+                    Engine: Mercedes-AMG  
+                    2025 Car Name: VF25
+            ''')
+        st.markdown('''
+                    :gray[Suspension Configuration: Pushrod-pullrod]  
+                    :gray[Sidepod Configuration: Overbite]  
+                    :gray[Sidepod Inlet: Hooped]  
+                    :gray[Nose Configuration: Main-plane]
+            ''')
     elif text_input in kick_sauber_valid_names:
         st.write("coming soon")
     elif text_input in mclaren_valid_names:
@@ -1547,6 +1590,11 @@ if option == "**Construction Information**":
                     The advantage to this is that throughout the race, the weight of the drink will move back out of the nose further into the rear of the car, allowing for real time weight adjustment throughout the race, which typically is not allowed due to Park Ferme rules. 
                     At the beginning of the race, the drink is in the front of the car, pushing the front nose and wing downwards to improve downforce early on. Later, as the drink is used and the weight is shifted to the back of the car, it can add downforce to the rear, improving rear tyre grip. It also brings the weight away from the front tyres, which will deteriorate quicker with added weight.
                     It also just keeps their drink colder since it is further away from the engine, as the cockpit of the car can get as high as 140oF
+            ''')
+        st.markdown('''
+                    :red-background[The Mclaren Mystery]  
+                    In the 2025 season, McLaren seems to have a heavy advantage over it's competitors in regards to it's rear tyre temperature management.
+                    This has led to accusations of using water in the tyres to keep them cool, but after an FIA investigation it has been revealed that the cars are up to regulation. However, it's still a mystery what exactly the MCL39 is doing to optimize tyre management.
             ''')
     elif text_input in mercedes_valid_names:
         st.markdown("**Mercedes-AMG Petronas F1 Team**")
@@ -1650,9 +1698,9 @@ if option == "**Construction Information**":
             The main-plane nose design's largest advantage is its structural integrety, allowing the driver more errors without greatly compromising the front wing aerodynamics. The structural integrity also allows for greater stability in turbulent conditions, making it less sensitive to dirty air or wind changes. However, it does not push as much air into the venturi channels and plays the dual role of aerodynamics and structural stability, leading it to be subpar in both areas. 
             This nose design is also not very adaptable, as none of the front wing can be adjusted without adjusting the entire nose structure.
             ''')
-    elif text_input == racing_bulls_valid_names:
+    elif text_input in racing_bulls_valid_names:
         st.write("coming soon")
-    elif text_input == williams_valid_names:
+    elif text_input in williams_valid_names:
         st.write("coming soon")
     
     #all car information
@@ -1816,7 +1864,8 @@ if option == "**Construction Information**":
         :red-background[Side-pod Configuration]
         """)
     st.markdown("""
-        coming soon
+        There are two main configurations of the side pod in play in 2025, with several subsets of side-pod inlet designs for each type.
+        The more popular overbite design can have a P-shaped, hooped, shark, or rectangular shaped inlet. The only car sporting an underbite has a shallow inlet.
         """)
     st.markdown("""
         :red-background[**Venturi Channels**]
@@ -1896,6 +1945,18 @@ if option == "**Revvy** ***NEW***":
             ("what", "sorry, i dont understand. can you rephrase that?"),
             ("i asked about something else", "sorry, i mustve gotten things mixed up. can you ask again?"),
             ("not what i meant", "im sorry, i'm doing my best but some things i just have trouble understanding. if you try rephrasing maybe that will help me"),
+            ("do you like", "i like all the cars and teams and drivers... heh..."),
+            ("test testing", "i work!"),
+            
+            #grand prix results
+            ("australia grand prix", "lando norris won the australian grand prix this year after leading from pole position. he fought briefly with oscar piastri before he fell to the back of the pack due to a heavy rain patch. in the end, max verstappen took second and george russell took third"),
+            ("china chinese shanghai grand prix", "oscar piastri won the chinese grand prix, marking his first pole position and his first win from pole position in a main race. with a brake failure in the last stint of the race, it was impressive to see lando norris finish second, but he wasn't satisfied and tried to fight oscar to the end. george russell did nothing and somehow ended up third"),
+            ("japan suzuka grand prix", "max verstappen took his first win of the season in japan, and boy was he excited. his reaction at the end was enough to convince everyone how hard he's had to work to find pace in the redbull car. lando norris and oscar piastri fought with their engineers about papaya rules before finally finishing second and third respectively."),
+            ("bahrain grand prix", "oscar piastri took his second win of the season in bahrain after once again taking pole position, keeping his 100% pole conversion rate alive. george russell toook second place, with lando norris in third place. this was the best race for ferrari so far, with them finishing 4th and 5th."),
+            ("saudi arabia arabian jeddah grand prix", "oscar piastri won for the third time this year in jeddah after a controversial turn 1 incident with max verstappen, who ultimately suffered a five second penalty and finished second. charles leclerc fought hard and ended up third place, for the first ferrari podium this seaosn."),
+            ("sprint miami", "rookie kimi antonelli took pole position in the miami sprint, but lack of experience and an iffy strategy saw him falling to the midfield. the race was ultimately won by lando norris in his disco ball helmet, with his teammate oscar piastri finishing right behind"),
+            ("miami grand prix", "oscar piastri continued into a three-win streak for his fourth win of the season in miami. his teammate lando norris finished second after struggling to pass an angry max verstappen, who ultimately was passed by george russell as well and finished in fourth. the diamond of the race was certainly one alex albon, who shot up to fifth place in his williams"),
+            ("grand prix", "i know a few grand prix results! which one do you want to know about?"),
 
             # Car-related questions
             ("whats cool about f1 cars?", "the aerodynamics of a formula one car are so efficient, that at top speeds the car could drive on the ceiling without falling off!"),
@@ -1916,50 +1977,134 @@ if option == "**Revvy** ***NEW***":
             ("why within one second", "this is because DRS was initially added to make overtaking easier. when a car is within one second of the car in front, the leading car cannot use DRS, but the trailing car can. this gives the trailing car the speed advantage, making overtaking a little less impossible. but the car in front can still defend by moving slightly or braking late at the end of the DRS zone"),
             ("DRS crash", "DRS failures or mistakes can easily cause crashes. most recently, Jack Doohan didnt close his DRS at the Japanese grand prix, causing him to lick it and send it straight into the wall, completely destroying his car."),
             ("why didnt jack doohan close his drs", "it's controversial, we don't actually know the real reason. some people say the DRS closure system failed, and others say he deliberitely left it open as he had made the turn with DRS open in the simulation"),
+            ("what are venturi channels?", "venturi channels are vital in increasing the downforce of an f1 car, and are what sucks the car into the ground so it can even drive upside down! if you want more information, visit 'construction information'"),
+            ("second element front nose", "a second element front nose will push more air underneath the car to add to the ground effect, increasing the downforce of the cars"),
+            ("front nose", "front noses in f1 cars right now are either main-plane integrated or second element integrated"),
+            ("car downforce best", "'best' is relative.. the car that seems to be utilizing downforce the best is mercedes. the car that has the MOST downforce is ferrari, who have so much downforce that they've seen their car go faster if they remove some of that downforce"),
 
+            #ferrari related questions
+            ("ferrari downforce", "it seems ferrari's car this year has the most downforce. but that might not be a good thing. downforce makes cars faster in corners, but slows them down in straightaways. they paid the price of this in the chinese grand prix where charles leclerc was moving faster with a broken front wing that caused him to lose downforce"),
+            
             #mclaren related questions
             ("what's cool about the mclaren MCL39?", "i LOVE the mclaren car. i think the coolest feature was actually on their car from 2024, the MCL38. that car had a spike on the front wing to gently discourage people from bumping them"),
             ("describe the mclaren car", "it's really designed for aerodynamics, with arguably one of the best rear wings in the game. the mclaren car is so good this year, that red-bull team principal has already accused them of cheating, twice!"),
             ("what makes the mclaren car so good?", "part of the reason the mclaren car is performing so well is because of their rear tyre managment. no one quite knows how (yet), but their rear tyres just dont overheat as fast as everyone elses"),
-            ("is the mclaren car legal?", "while redbull has accused mclaren of cheating several times already in 2025, the mclaren car is currently up to code!"),
+            ("mclaren car legal", "while redbull has accused mclaren of cheating several times already in 2025, the mclaren car is currently up to code!"),
             ("why was mclaren accused of cheating?", "redbull thought that mclaren was possibly still using mini-DRS in the 2025 season, which would be against FIA regulations"),
             ("is a car spike legal?", "not anymore. however, in 2024, when mclaren implimented it for the first time, it was within regulations"),
             ("mclaren MCL39 suspension", "mclaren uses a pull-rod front suspension and a push-rod rear suspension"),
             ("whats the mclaren car?", "in 2025, the mclaren team is using the MCL39"),
+            ("mclaren overbite underbite sidepod", "the mclaren is using an overbite sidepod design this year, along with the rest of the grid except for alpine, who has stuck with the underbite design"),
+            ("mclaren inlet sidepod", "the mclaren is using an aggressive p shaped inlet in 2025. it's especially adventageous in cooling and airflow but also carries a risk of increasing drag if not executed perfectly"),
+            ("mclaren car name", "this year osc and lando are driving the mcl39!"),
+            ("mclaren engine", "mclaren are continuing their partnership with mercedes and using the mercedes-AMG engine in 2025"),
+            ("mclaren nose", "mclaren, along with most teams, is utilizing a second-element front nose"),
+            ("mclaren good fast bad advantages disadvantages downsides", "this year the mclaren car has a heavy advantage in high speed corners and in rear-tyre cooling. they may be slightly vulnerable in low speed corners, as the team focused on the car's aerodynamics more than mechanical downforce generation"),
+            ("mclaren tyre water tire water", "redbull accused the mclaren team of using water in their rear tyres to help with temperature management, an illegal tactic that redbull themselves have used in the past"),
+
+            #mercedes related questions
+            ("what's cool about the mercedes W16?", "The coolest thing about the Mercedes F1 W16 is that it uses a dual-push rod suspension configuration as well as a second-element front nose. their extreme amounts of downforce despite the pushrod suspension suggests that they're using the pushrods to direct air into the venturi channels"),
+            ("mercedes W16 suspension", "in 2025 the mercedes is using a dual pushrod suspension configuration"),
+            ("mercedes overbite underbite sidepod", "the mercedes car is using an overbite sidepod design along with the rest of the grid this year except for alpine, who has stuck with the underbite design"),
+            ("mercedes", "the mercedes car in 2025 has really focused on increasing their downforces, giving the car so much grip that other drivers are commenting on it during races"),
 
             #redbull related questions
             ("what's cool about the redbull?", "nothing, its dogwater")
+
         ]
 
-
-        X = [item[0] for item in greeting_data]  # input phrases
-        y = [item[1] for item in greeting_data]  # appropriate responses
-
-        vectorizer = TfidfVectorizer()
-        X_vec = vectorizer.fit_transform(X)
-
-        def get_best_response(user_input):
-            user_vec = vectorizer.transform([user_input])
-            similarities = cosine_similarity(user_vec, X_vec)
-            best_match_index = similarities.argmax()
-            return y[best_match_index]
-
-        st.markdown(f"<h2 style='text-align: center;'>Revvy</h2>", unsafe_allow_html=True)
-        st.markdown(f"<h6 style='text-align: center;'>hi! im revvy, i love the f1 stuffs and im here fOR the girls. think of me as kiley's right hand man. please let me know if you want to talk about this stuff!</h6>", unsafe_allow_html=True)
-        st.markdown(f"<h6 style ='text-align: center;'>if you have any problems with me, please send a report. kiley would love some help in teaching me! you know how kids can be</h2>", unsafe_allow_html=True)
-        if st.button("Report a Problem with the Bot"):
-            with open("bot_reports.txt", "a") as f:
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                f.write(f"{timestamp} - Issue reported: '{user_input}'\n")
-            st.success("Your issue has been reported. Thank you!")
         if "messages" not in st.session_state:
             st.session_state.messages = []
 
-        user_input = st.chat_input("i love talking about f1!")
+        if "current_view" not in st.session_state:
+            st.session_state.current_view = "chat"
 
-        #response
+        def switch_to_report():
+            st.session_state.current_view = "report"
+
+        def switch_to_chat():
+            st.session_state.current_view = "chat"
+
+        # --- Chat View ---
+        if st.session_state.current_view == "chat":
+             X = [item[0] for item in greeting_data]  # input phrases
+             y = [item[1] for item in greeting_data]  # appropriate responses
+
+             vectorizer = TfidfVectorizer()
+             X_vec = vectorizer.fit_transform(X)
+
+             def get_best_response(user_input):
+                 user_vec = vectorizer.transform([user_input])
+                 similarities = cosine_similarity(user_vec, X_vec)
+                 best_match_index = similarities.argmax()
+                 return y[best_match_index]
+
+             st.markdown(f"<h2 style='text-align: center;'>Revvy</h2>", unsafe_allow_html=True)
+             st.markdown(f"<h6 style='text-align: center;'>hi! im revvy, i love the f1 stuffs and im here fOR the girls. think of me as kiley's right hand man. please let me know if you want to talk about this stuff!</h6>", unsafe_allow_html=True)
+             st.markdown(f"<h6 style ='text-align: center;'>if you have any problems with me, please send a report. kiley would love some help in teaching me! you know how kids can be</h2>", unsafe_allow_html=True)
+
+             user_input = st.chat_input("i love talking about f1!")
+            
+             if st.button("report a problem with revvy"):
+                switch_to_report()
+
+        # --- Report View ---
+        elif st.session_state.current_view == "report":
+            user_input = ()
+            st.title("Report an Issue with Revvy")
+
+            report_text = st.text_area("Describe the issue you're having with Revvy:")
+
+            if st.button("Submit Report"):
+                if report_text.strip():
+                    with open("bot_reports.txt", "a") as f:
+                        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        f.write(f"{timestamp} - Reported issue: {report_text.strip()}\n")
+                    st.success("Your issue has been reported. Thank you! I'll try to teach Revvy a little more about this.")
+                else:
+                    st.warning("Please describe the issue before submitting.")
+
+            if st.button("Back to Chat"):
+                switch_to_chat()
+
         if user_input:
-            st.session_state.messages.append({"role": "user", "content": user_input})
+            lowered = user_input.lower()
+            original_user_input = user_input
+
+            # --- Context Tracking ---
+            if "context_topic" not in st.session_state:
+                 st.session_state.context_topic = None
+            elif "alpine" in lowered:
+                st.session_state.context_topic = "alpine"
+            elif "aston martin" in lowered:
+                st.session_state.context_topic = "aston martin"
+            elif "ferrari" in lowered or "sf25" in lowered:
+                st.session_state.context_topic = "ferrari"
+            elif "haas" in lowered:
+                st.session_state.context_topic = "haas"
+            elif "kick sauber" in lowered or "sauber" in lowered:
+                st.session_state.context_topic = "kick sauber"
+            elif "mclaren" in lowered or "mcl39" in lowered:
+                st.session_state.context_topic = "mclaren"
+            elif "mercedes" in lowered:
+                st.session_state.context_topic = "mercedes"
+            elif "redbull" in lowered or "red bull" in lowered:
+                st.session_state.context_topic = "redbull"
+            elif "vcarb" in lowered or "racing bulls" in lowered:
+                st.session_state.context_topic = "vcarb"
+            elif "williams" in lowered:
+                st.session_state.context_topic = "williams"
+
+
+            if st.session_state.context_topic:
+                user_input = (
+                    user_input.replace("it", st.session_state.context_topic)
+                            .replace("this car", st.session_state.context_topic)
+                            .replace("that car", st.session_state.context_topic)
+                            .replace("the car", st.session_state.context_topic)
+                )
+
+            st.session_state.messages.append({"role": "user", "content": original_user_input})
             response = get_best_response(user_input)
             st.session_state.messages.append({"role": "assistant", "content": response})
 
@@ -1976,9 +2121,10 @@ if option == "**Revvy** ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.4.2")
+    st.subheader("1.4.3")
     st.markdown("""
-        Added more information about cars
-        Added the Revvy bot
+        Added more information about cars in general and some specific cars
+        Added the Revvy bot as well as a report button if there are any issues.
         fixed the error with sklearn
+        changed the colors of the overall site to match more of the f1 vibe
         """)
