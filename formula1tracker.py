@@ -30,7 +30,7 @@ st.markdown(
     }
     .stButton>button {
         background-color: #ffffff; /* white button */
-        color: white;
+        color: red;
     }
     .stButton>button:hover {
         background-color: #aa1316;  /* Darker red on hover */
@@ -365,7 +365,7 @@ elif option == "**Hypothetical Chaos Mode**":
         "Yuki Tsunoda": ["yuki tsunoda", "Yuki", "yuki", "Tsunoda", "tsunoda"],
         "Isack Hadjar": ["isack hadjar", "Isack", "isack", "Hadjar", "hadjar"],
         "Liam Lawson": ["liam lawson", "liam", "Liam", "Lawson", "lawson"],
-        "Carlos Sainz": ["carlos sainz", "carlos seinz", "Carlos Seinz", "Carlos", "carlos", "Sainz", "sainz", "Seinz", "seinz"],
+        "Carlos Sainz": ["Carlos Sainz", "carlos sainz", "carlos seinz", "Carlos Seinz", "Carlos", "carlos", "Sainz", "sainz", "Seinz", "seinz"],
         "Alexander Albon": ["alexander albon", "Alex Albon", "alex albon", "Alexander", "alexander", "Alex", "alex", "Albon", "albon"]
     }
 
@@ -1204,7 +1204,7 @@ if option == "**Interesting Factoid**":
     AA23_valid_names = ("Alex Albon", "Albon", "alex albon", "albon", "23")
     AKA12_valid_names = ("Andrea Kimi Antonelli", "Antonelli", "Kimi Antonelli", "andrea kimi antonelli", "antonelli", "kimi antonelli", "12")
     CL16_valid_names = ("Charles Leclerc", "Leclerc", "charles leclerc", "leclerc", "16")
-    CS55_valid_names = ("Carlos Sainz", "Sainz", "carlos Sainz", "Sainz", "55")
+    CS55_valid_names = ("Carlos Sainz", "carlos sainz", "Sainz", "carlos Sainz", "Sainz", "55")
     EO31_valid_names = ("Esteban Ocon", "Ocon", "esteban ocon", "ocon", "31")
     FA14_valid_names = ("Fernando Alonso", "Alonso", "The Rookie", "Fernando", "fernando alonso", "alonso", "fernando", "the rookie", "14")
     GB5_valid_names = ("Gabriel Bortoleto", "Bortoleto", "gabriel bortoleto", "bortoleto")
@@ -1218,7 +1218,7 @@ if option == "**Interesting Factoid**":
     MV33_valid_names = ("Max Verstappen", "Verstappen", "max verstappen", "verstappen", "1", "33", "2024 World Champion", "2024 world champion")
     NH27_valid_names = ("Nico Hulkenberg", "Hulkenberg", "nico hulkenberg", "hulkenberg", "27")
     OB87_valid_names = ("Oliver Bearman", "oliver bearman", "Ollie Bearman", "ollie bearman", "Ollie in the Wallie", "ollie in the wallie", "87")
-    OP81_valid_names = ("Oscar Piastri", "oscar piastri", "Piastri", "piastri", "Pastry", "pastry", "Great Barrier Chief", "great barrier chief", "Wizard of Aus", "wizard of aus", "81")
+    OP81_valid_names = ("Oscar Piastri", "oscar piastri", "Piastri", "piastri", "Pastry", "pastry", "Great Barrier Chief", "great barrier chief", "Wizard of Aus", "wizard of aus", "oscar", "Oscar", "81")
     PG10_valid_names = ("Pierre Gasley", "pierre gasley", "Gasley", "gasley", "10", "Pierre Gasly", "pierre gasly", "gasly")
     YT22_valid_names = ("Yuki Tsunoda", "Tsunoda", "yuki tsunoda", "tsunoda", "22")
     valid_driver_names = set(AA23_valid_names + AKA12_valid_names + CL16_valid_names + CS55_valid_names + EO31_valid_names + FA14_valid_names + GB5_valid_names + GR63_valid_names + IH6_valid_names + JD7_valid_names + LH44_valid_names + LL30_valid_names + LN4_valid_names + LS18_valid_names + MV33_valid_names + NH27_valid_names + OB87_valid_names + OP81_valid_names + PG10_valid_names + YT22_valid_names)
@@ -1928,192 +1928,252 @@ if option == "**Words of Wisdom**":
         )
 ##CHATBOT
 if option == "**Revvy** ***NEW***":
-    password = st.text_input("please input the password")
-    if password == "":
-        st.write("")
-    elif password == "revvypw":
-        greeting_data = [
-            ("hello", "what can i do ya for"),
-            ("hey", "hi!"),
-            ("what's up", "hello! do you like the cars? the cars that go vroom?"),
-            ("howdy", "howdy partner!"),
-            ("good morning", "hidy ho!"),
-            ("goodbye", "later skater!"),
-            ("bye", "bye bye! have a good day"),
-            ("bye", "bye, thanks for chatting with me!"),
-            ("sorry", "no worries, pal"),
-            ("what", "sorry, i dont understand. can you rephrase that?"),
-            ("i asked about something else", "sorry, i mustve gotten things mixed up. can you ask again?"),
-            ("not what i meant", "im sorry, i'm doing my best but some things i just have trouble understanding. if you try rephrasing maybe that will help me"),
-            ("do you like", "i like all the cars and teams and drivers... heh..."),
-            ("test testing", "i work!"),
-            
-            #grand prix results
-            ("australia grand prix", "lando norris won the australian grand prix this year after leading from pole position. he fought briefly with oscar piastri before he fell to the back of the pack due to a heavy rain patch. in the end, max verstappen took second and george russell took third"),
-            ("china chinese shanghai grand prix", "oscar piastri won the chinese grand prix, marking his first pole position and his first win from pole position in a main race. with a brake failure in the last stint of the race, it was impressive to see lando norris finish second, but he wasn't satisfied and tried to fight oscar to the end. george russell did nothing and somehow ended up third"),
-            ("japan suzuka grand prix", "max verstappen took his first win of the season in japan, and boy was he excited. his reaction at the end was enough to convince everyone how hard he's had to work to find pace in the redbull car. lando norris and oscar piastri fought with their engineers about papaya rules before finally finishing second and third respectively."),
-            ("bahrain grand prix", "oscar piastri took his second win of the season in bahrain after once again taking pole position, keeping his 100% pole conversion rate alive. george russell toook second place, with lando norris in third place. this was the best race for ferrari so far, with them finishing 4th and 5th."),
-            ("saudi arabia arabian jeddah grand prix", "oscar piastri won for the third time this year in jeddah after a controversial turn 1 incident with max verstappen, who ultimately suffered a five second penalty and finished second. charles leclerc fought hard and ended up third place, for the first ferrari podium this seaosn."),
-            ("sprint miami", "rookie kimi antonelli took pole position in the miami sprint, but lack of experience and an iffy strategy saw him falling to the midfield. the race was ultimately won by lando norris in his disco ball helmet, with his teammate oscar piastri finishing right behind"),
-            ("miami grand prix", "oscar piastri continued into a three-win streak for his fourth win of the season in miami. his teammate lando norris finished second after struggling to pass an angry max verstappen, who ultimately was passed by george russell as well and finished in fourth. the diamond of the race was certainly one alex albon, who shot up to fifth place in his williams"),
-            ("grand prix", "i know a few grand prix results! which one do you want to know about?"),
 
-            # Car-related questions
-            ("whats cool about f1 cars?", "the aerodynamics of a formula one car are so efficient, that at top speeds the car could drive on the ceiling without falling off!"),
-            ("how does the car drive on the ceiling?", "this is possible mostly because of the venturi channels, the low pressure zones between the car and the floor (or this case, the sky). it sucks the car down (or up) into the surface it's driving on, making it possible for f1 cars to join elphaba in defying gravity"),
-            ("front wing on f1 cars", "there's a lot of cool features on the front wing. which one do you want to know about?"),
-            ("front wing features", "the features on the front wing that i can tell you about are the wing elements, the front nose configuration, and the contribution to the venturi channels. I could also tell you the history. which one do you want to know more about?"),
-            ("wing elements", "a lot of different f1 cars have a different amount of wing elements. currently, the rules is they can't have more than four. this is mostly because if there were more elements, the car would go faster, but it would also be harder to control. in 2026, only two elements will be allowed"),
-            ("hard to control", "a few things can make the car difficult to control. if the front wing is too complicated, the aerodynamics might be so efficent that it's hard to break the car out of the air it's passing through. the same goes for if DRS was open all the time."),
-            ("history", "im sorry, my memory isn't so great. what do you want to know the history about?"),
-            ("history front wing", "the first front wing was added to the Lotus-Ford 49 in 1969 and it looked like doo doo. but hey, it worked, so more and more people started copying it. they realized if they added more elements then the front wing would be even more effective, with the maximum being five, but tighter regulations are making that number less and less."),
-            ("rear wing", "if you want to know about rear wing aerodynamics, i'm sure you want to talk about the DRS, am i right?"),
-            ("mini DRS mini-drs flexi-wing", "mini-DRS was something that some teams used in 2024, most famously the mclaren team. this system is actually known as a flexi-wing. at high speeds, the rear wing element would flex. that gave the cars effects similar to the actual DRS but made them difficult to control. for safety reasons, these are no longer allowed in the 2025 season. the rear wing cannot flex open more than 0.5mm."),
-            ("DRS", "the DRS, or drag reduction system, is one of the coolest things in f1. it's such a shame it's being taken out of the sport in 2026, but it will live on through us!"),
-            ("why DRS removed", "DRS is being removed from F1 after the 2025 season because the front and rear wings will be used in active aerodynamic systems. it's also speculated that they're changing this due to the cars being so incredibly difficult to control with DRS open and because of DRS exploits found in 2024"),
-            ("DRS exploit", "the most famous DRS exploit is the mini-DRS system"),
-            ("what is DRS", "the drag reduction system is a system in which the driver can open up the rear wing element, allowing crazy amounts of air that was once being restricted flow right through. this makes the aerodynamics incredibly efficient, speeding the car up around 10-12 kph and giving the drivers an extra couple of seconds. this system is incredibly strict though, and can only be used in certain situations"),
-            ("when DRS used", "DRS can be used during a race if a car is within one second of the car in front of them and in an active DRS zone. these zones are usually straightaways or incredibly high speed-low angle turns, as it's near impossible to make a turn with DRS open due to the aerodynamic efficencly. it can also be used in active DRS zones during free practices and qualifying at any time."),
-            ("why within one second", "this is because DRS was initially added to make overtaking easier. when a car is within one second of the car in front, the leading car cannot use DRS, but the trailing car can. this gives the trailing car the speed advantage, making overtaking a little less impossible. but the car in front can still defend by moving slightly or braking late at the end of the DRS zone"),
-            ("DRS crash", "DRS failures or mistakes can easily cause crashes. most recently, Jack Doohan didnt close his DRS at the Japanese grand prix, causing him to lick it and send it straight into the wall, completely destroying his car."),
-            ("why didnt jack doohan close his drs", "it's controversial, we don't actually know the real reason. some people say the DRS closure system failed, and others say he deliberitely left it open as he had made the turn with DRS open in the simulation"),
-            ("what are venturi channels?", "venturi channels are vital in increasing the downforce of an f1 car, and are what sucks the car into the ground so it can even drive upside down! if you want more information, visit 'construction information'"),
-            ("second element front nose", "a second element front nose will push more air underneath the car to add to the ground effect, increasing the downforce of the cars"),
-            ("front nose", "front noses in f1 cars right now are either main-plane integrated or second element integrated"),
-            ("car downforce best", "'best' is relative.. the car that seems to be utilizing downforce the best is mercedes. the car that has the MOST downforce is ferrari, who have so much downforce that they've seen their car go faster if they remove some of that downforce"),
+    greeting_data = [
+        ("hello", "what can i do ya for"),
+        ("hey", "hi!"),
+        ("what's up", "hello! do you like the cars? the cars that go vroom?"),
+        ("howdy", "howdy partner!"),
+        ("good morning", "hidy ho!"),
+        ("goodbye", "later skater!"),
+        ("bye", "bye bye! have a good day"),
+        ("bye", "bye, thanks for chatting with me!"),
+        ("sorry", "no worries, pal"),
+        ("what", "sorry, i dont understand. can you rephrase that?"),
+        ("i asked about something else", "sorry, i mustve gotten things mixed up. can you ask again?"),
+        ("not what i meant", "im sorry, i'm doing my best but some things i just have trouble understanding. if you try rephrasing maybe that will help me"),
+        ("do you like", "i like all the cars and teams and drivers... heh..."),
+        ("test testing", "i work!"),
 
-            #ferrari related questions
-            ("ferrari downforce", "it seems ferrari's car this year has the most downforce. but that might not be a good thing. downforce makes cars faster in corners, but slows them down in straightaways. they paid the price of this in the chinese grand prix where charles leclerc was moving faster with a broken front wing that caused him to lose downforce"),
-            
-            #mclaren related questions
-            ("what's cool about the mclaren MCL39?", "i LOVE the mclaren car. i think the coolest feature was actually on their car from 2024, the MCL38. that car had a spike on the front wing to gently discourage people from bumping them"),
-            ("describe the mclaren car", "it's really designed for aerodynamics, with arguably one of the best rear wings in the game. the mclaren car is so good this year, that red-bull team principal has already accused them of cheating, twice!"),
-            ("what makes the mclaren car so good?", "part of the reason the mclaren car is performing so well is because of their rear tyre managment. no one quite knows how (yet), but their rear tyres just dont overheat as fast as everyone elses"),
-            ("mclaren car legal", "while redbull has accused mclaren of cheating several times already in 2025, the mclaren car is currently up to code!"),
-            ("why was mclaren accused of cheating?", "redbull thought that mclaren was possibly still using mini-DRS in the 2025 season, which would be against FIA regulations"),
-            ("is a car spike legal?", "not anymore. however, in 2024, when mclaren implimented it for the first time, it was within regulations"),
-            ("mclaren MCL39 suspension", "mclaren uses a pull-rod front suspension and a push-rod rear suspension"),
-            ("whats the mclaren car?", "in 2025, the mclaren team is using the MCL39"),
-            ("mclaren overbite underbite sidepod", "the mclaren is using an overbite sidepod design this year, along with the rest of the grid except for alpine, who has stuck with the underbite design"),
-            ("mclaren inlet sidepod", "the mclaren is using an aggressive p shaped inlet in 2025. it's especially adventageous in cooling and airflow but also carries a risk of increasing drag if not executed perfectly"),
-            ("mclaren car name", "this year osc and lando are driving the mcl39!"),
-            ("mclaren engine", "mclaren are continuing their partnership with mercedes and using the mercedes-AMG engine in 2025"),
-            ("mclaren nose", "mclaren, along with most teams, is utilizing a second-element front nose"),
-            ("mclaren good fast bad advantages disadvantages downsides", "this year the mclaren car has a heavy advantage in high speed corners and in rear-tyre cooling. they may be slightly vulnerable in low speed corners, as the team focused on the car's aerodynamics more than mechanical downforce generation"),
-            ("mclaren tyre water tire water", "redbull accused the mclaren team of using water in their rear tyres to help with temperature management, an illegal tactic that redbull themselves have used in the past"),
+        #grand prix results
+        ("australia grand prix", "lando norris won the australian grand prix this year after leading from pole position. he fought briefly with oscar piastri before he fell to the back of the pack due to a heavy rain patch. in the end, max verstappen took second and george russell took third"),
+        ("china chinese shanghai grand prix", "oscar piastri won the chinese grand prix, marking his first pole position and his first win from pole position in a main race. with a brake failure in the last stint of the race, it was impressive to see lando norris finish second, but he wasn't satisfied and tried to fight oscar to the end. george russell did nothing and somehow ended up third"),
+        ("japan suzuka grand prix", "max verstappen took his first win of the season in japan, and boy was he excited. his reaction at the end was enough to convince everyone how hard he's had to work to find pace in the redbull car. lando norris and oscar piastri fought with their engineers about papaya rules before finally finishing second and third respectively."),
+        ("bahrain grand prix", "oscar piastri took his second win of the season in bahrain after once again taking pole position, keeping his 100% pole conversion rate alive. george russell toook second place, with lando norris in third place. this was the best race for ferrari so far, with them finishing 4th and 5th."),
+        ("saudi arabia arabian jeddah grand prix", "oscar piastri won for the third time this year in jeddah after a controversial turn 1 incident with max verstappen, who ultimately suffered a five second penalty and finished second. charles leclerc fought hard and ended up third place, for the first ferrari podium this seaosn."),
+        ("sprint miami", "rookie kimi antonelli took pole position in the miami sprint, but lack of experience and an iffy strategy saw him falling to the midfield. the race was ultimately won by lando norris in his disco ball helmet, with his teammate oscar piastri finishing right behind"),
+        ("miami grand prix", "oscar piastri continued into a three-win streak for his fourth win of the season in miami. his teammate lando norris finished second after struggling to pass an angry max verstappen, who ultimately was passed by george russell as well and finished in fourth. the diamond of the race was certainly one alex albon, who shot up to fifth place in his williams"),
+        ("grand prix", "i know a few grand prix results! which one do you want to know about?"),
 
-            #mercedes related questions
-            ("what's cool about the mercedes W16?", "The coolest thing about the Mercedes F1 W16 is that it uses a dual-push rod suspension configuration as well as a second-element front nose. their extreme amounts of downforce despite the pushrod suspension suggests that they're using the pushrods to direct air into the venturi channels"),
-            ("mercedes W16 suspension", "in 2025 the mercedes is using a dual pushrod suspension configuration"),
-            ("mercedes overbite underbite sidepod", "the mercedes car is using an overbite sidepod design along with the rest of the grid this year except for alpine, who has stuck with the underbite design"),
-            ("mercedes", "the mercedes car in 2025 has really focused on increasing their downforces, giving the car so much grip that other drivers are commenting on it during races"),
+        # Car-related questions
+        ("whats cool about f1 cars?", "the aerodynamics of a formula one car are so efficient, that at top speeds the car could drive on the ceiling without falling off!"),
+        ("how does the car drive on the ceiling?", "this is possible mostly because of the venturi channels, the low pressure zones between the car and the floor (or this case, the sky). it sucks the car down (or up) into the surface it's driving on, making it possible for f1 cars to join elphaba in defying gravity"),
+        ("front wing on f1 cars", "there's a lot of cool features on the front wing. which one do you want to know about?"),
+        ("front wing features", "the features on the front wing that i can tell you about are the wing elements, the front nose configuration, and the contribution to the venturi channels. I could also tell you the history. which one do you want to know more about?"),
+        ("wing elements", "a lot of different f1 cars have a different amount of wing elements. currently, the rules is they can't have more than four. this is mostly because if there were more elements, the car would go faster, but it would also be harder to control. in 2026, only two elements will be allowed"),
+        ("hard to control", "a few things can make the car difficult to control. if the front wing is too complicated, the aerodynamics might be so efficent that it's hard to break the car out of the air it's passing through. the same goes for if DRS was open all the time."),
+        ("history", "im sorry, my memory isn't so great. what do you want to know the history about?"),
+        ("history front wing", "the first front wing was added to the Lotus-Ford 49 in 1969 and it looked like doo doo. but hey, it worked, so more and more people started copying it. they realized if they added more elements then the front wing would be even more effective, with the maximum being five, but tighter regulations are making that number less and less."),
+        ("rear wing", "if you want to know about rear wing aerodynamics, i'm sure you want to talk about the DRS, am i right?"),
+        ("mini DRS mini-drs flexi-wing", "mini-DRS was something that some teams used in 2024, most famously the mclaren team. this system is actually known as a flexi-wing. at high speeds, the rear wing element would flex. that gave the cars effects similar to the actual DRS but made them difficult to control. for safety reasons, these are no longer allowed in the 2025 season. the rear wing cannot flex open more than 0.5mm."),
+        ("DRS", "the DRS, or drag reduction system, is one of the coolest things in f1. it's such a shame it's being taken out of the sport in 2026, but it will live on through us!"),
+        ("why DRS removed", "DRS is being removed from F1 after the 2025 season because the front and rear wings will be used in active aerodynamic systems. it's also speculated that they're changing this due to the cars being so incredibly difficult to control with DRS open and because of DRS exploits found in 2024"),
+        ("DRS exploit", "the most famous DRS exploit is the mini-DRS system"),
+        ("what is DRS", "the drag reduction system is a system in which the driver can open up the rear wing element, allowing crazy amounts of air that was once being restricted flow right through. this makes the aerodynamics incredibly efficient, speeding the car up around 10-12 kph and giving the drivers an extra couple of seconds. this system is incredibly strict though, and can only be used in certain situations"),
+        ("when DRS used", "DRS can be used during a race if a car is within one second of the car in front of them and in an active DRS zone. these zones are usually straightaways or incredibly high speed-low angle turns, as it's near impossible to make a turn with DRS open due to the aerodynamic efficencly. it can also be used in active DRS zones during free practices and qualifying at any time."),
+        ("why within one second", "this is because DRS was initially added to make overtaking easier. when a car is within one second of the car in front, the leading car cannot use DRS, but the trailing car can. this gives the trailing car the speed advantage, making overtaking a little less impossible. but the car in front can still defend by moving slightly or braking late at the end of the DRS zone"),
+        ("DRS crash", "DRS failures or mistakes can easily cause crashes. most recently, Jack Doohan didnt close his DRS at the Japanese grand prix, causing him to lick it and send it straight into the wall, completely destroying his car."),
+        ("why didnt jack doohan close his drs", "it's controversial, we don't actually know the real reason. some people say the DRS closure system failed, and others say he deliberitely left it open as he had made the turn with DRS open in the simulation"),
+        ("what are venturi channels?", "venturi channels are vital in increasing the downforce of an f1 car, and are what sucks the car into the ground so it can even drive upside down! if you want more information, visit 'construction information'"),
+        ("second element front nose", "a second element front nose will push more air underneath the car to add to the ground effect, increasing the downforce of the cars"),
+        ("front nose", "front noses in f1 cars right now are either main-plane integrated or second element integrated"),
+        ("car downforce best", "'best' is relative.. the car that seems to be utilizing downforce the best is mercedes. the car that has the MOST downforce is ferrari, who have so much downforce that they've seen their car go faster if they remove some of that downforce"),
+        ("who drivers", "what teams drivers do you want to know about?"),
 
-            #redbull related questions
-            ("what's cool about the redbull?", "nothing, its dogwater")
+        #alpine related questions
+        ("alpine drivers", "the current alpine drivers are former redbull driver pierre gasley and former williams driver franco colapinto, with rookie jack doohan racing the first six races and remaining in the reserve driver position"),
+        ("who is pierre gasley", "the frenchman fell victim to the redbull second seat curse before finding himself passed around low-tier teams on the f1 grid, but he holds the impressive record of not costing the team a single cent of repairs in his perfect 2024 season."),
+        ("who is franco colapinto", "i dont know who this man is, he could be walking down the street...i wouldn't know a thing"),
 
-        ]
+        #aston martin questions
+        ("aston martin drivers", "this year the aston martin drivers are 2-time world champion fernando alonso and nepo-baby lance stroll"),
+        ("who is lance stroll", "despite being called a nepo baby because his dad owns the aston martin team, lance once held the record for the youngest driver to score a podium finish, with his fellow podium finishers not even sure if he could legally drink the champagne. since then, however, lance is known for his many ridiculous race-exits including rear-ending a driver during a safety car and beaching himself in gravel during the formation lap"),
+        ("who is fernando alonso", "the 2-time world champion found his titles with the renault team before and during their cheating scandals, with crashgate helping lead to one of those titles. despite this, the spaniard is the only driver to be inducted into the FIA hall of fame twice"),
 
-        if "messages" not in st.session_state:
-            st.session_state.messages = []
+        #ferrari related questions
+        ("ferrari downforce", "it seems ferrari's car this year has the most downforce. but that might not be a good thing. downforce makes cars faster in corners, but slows them down in straightaways. they paid the price of this in the chinese grand prix where charles leclerc was moving faster with a broken front wing that caused him to lose downforce"),
+        ("ferrari engine", "ferrari manufactures their own engine! a few other teams also use this ferrari engine"),
+        ("ferrari car name", "in 2025 the ferrari's name is SF25"),
+        ("ferrari sf25 suspension", "this year the ferrari is using a dual pullrod suspension configuration. more information about that unique setup is in constructor information! search 'ferrari'"),
+        ("ferrari overbite underbite sidepod", "the sf25 is using an overbite design like every other team except for alpine"),
+        ("ferrari inlet sidepod", "the ferrari is using the same sidepod design as mclaren with an aggressive p-shaped inlet that can be described as high risk and high reward!"),
+        ("ferrari nose", "ferrari is following the popular second element nose wing integration design this year"),
+        ("ferrari drivers", "this year the ferrari drivers are il predestino charles leclerc and 7-time world champion with mercedes lewis hamilton"),
+        ("ferrari china grand prix disqualified", "both ferrari drivers were disqualified from the chinese grand prix after they suffered a collision with each other early into the race. however, the collision had nothing to do with the disqualifications. charles leclercs car was found to be under the minimum weight limit and lewis hamiltons car was found to have excessive wear indicating it was driving too close to the ground. both of these are likely due to the one-stop strategy the team used"),
+        ("ferrari drivers", "the current ferrari drivers are former merc driver and 7 time world champion lewis hamilton and loyal ferrari driver charles leclerc"),
+        ("who is charles leclerc", "charles leclerc, nicknamed il predestino by the italians for ending the ferrari's nine-year no-win drought, has been driving for ferrari since his third year in f1. hailing from monaco, he's the second youngest pole-sitter in f1 history and the first monegasque to win the monaco grand prix in almost 100 years. despite holding no drivers championships, he's been 4-time world champion max verstappen's rival since they were kids, terrorizing him and pushing him off the track and into puddles in their go kart days"),
+        ("who is lewis hamilton", "lewis hamilton won 7 world drivers championship titles before he was finally being dethroned by max verstappen. he tied the record for most championship wins and is in the hunt for his eighth with new team ferrari, after winning the previous seven with mercedes. he has also won the most grand prixs of any driver, with him and his then-teammate nico rosberg winning 51 out of 59 races over the course of three years."),
 
-        if "current_view" not in st.session_state:
-            st.session_state.current_view = "chat"
+        #haas related questions
+        ("haas drivers", "this year's haas drivers are veteran frenchman esteban ocon and rookie ollie bearman"),
+        ("who is ollie oliver bearman", "ollie bearman debuted with ferrari when carlos sainz required emergency surgery in 2024, scoring 7th place in his first ever race. since his amazing debut, he found himself on the haas team in a lackluster car, but still is exhibiting impressive overtakes and pace, moving from last place into the points twice already this season."),
+        ("who is esteban ocon", "perhaps most known for being punched by max verstappen, estie bestie has hopped around several teams and fallen to the back of the grid, but has been exhibiting some pace this year"),
 
-        def switch_to_report():
-            st.session_state.current_view = "report"
+        #kick sauber related questions
+        ("kick sauber drivers", "currently the kick sauber drivers are veteran nico hulkenberg and reigning f2 champion gabriel bortoleto"),
+        ("who is gabriel gabi bortoleto", "after winning f2 in 2024, gabi moved to the kick sauber f1 team which will be taken over by audi in 2025. he won the 2024 rookie of the year and is known as the first driver ever to win a race from last in the grid in either f2 or f1, winning that race in f2."),
+        ("who is nico hulkenberg", "the german has been racing in formula 1 since 2010 and known as one of the few drivers to ever win f2 in their rookie season"),
 
-        def switch_to_chat():
-            st.session_state.current_view = "chat"
+        #mclaren related questions
+        ("what's cool about the mclaren MCL39?", "i LOVE the mclaren car. i think the coolest feature was actually on their car from 2024, the MCL38. that car had a spike on the front wing to gently discourage people from bumping them"),
+        ("describe the mclaren car", "it's really designed for aerodynamics, with arguably one of the best rear wings in the game. the mclaren car is so good this year, that red-bull team principal has already accused them of cheating, twice!"),
+        ("what makes the mclaren car so good?", "part of the reason the mclaren car is performing so well is because of their rear tyre managment. no one quite knows how (yet), but their rear tyres just dont overheat as fast as everyone elses"),
+        ("mclaren car legal", "while redbull has accused mclaren of cheating several times already in 2025, the mclaren car is currently up to code!"),
+        ("why was mclaren accused of cheating?", "redbull thought that mclaren was possibly still using mini-DRS in the 2025 season, which would be against FIA regulations"),
+        ("is a car spike legal?", "not anymore. however, in 2024, when mclaren implimented it for the first time, it was within regulations"),
+        ("mclaren MCL39 suspension", "mclaren uses a pull-rod front suspension and a push-rod rear suspension"),
+        ("whats the mclaren car?", "in 2025, the mclaren team is using the MCL39"),
+        ("mclaren overbite underbite sidepod", "the mclaren is using an overbite sidepod design this year, along with the rest of the grid except for alpine, who has stuck with the underbite design"),
+        ("mclaren inlet sidepod", "the mclaren is using an aggressive p shaped inlet in 2025. it's especially adventageous in cooling and airflow but also carries a risk of increasing drag if not executed perfectly"),
+        ("mclaren car name", "this year osc and lando are driving the mcl39!"),
+        ("mclaren engine", "mclaren are continuing their partnership with mercedes and using the mercedes-AMG engine in 2025"),
+        ("mclaren nose", "mclaren, along with most teams, is utilizing a second-element front nose"),
+        ("mclaren good fast bad advantages disadvantages downsides", "this year the mclaren car has a heavy advantage in high speed corners and in rear-tyre cooling. they may be slightly vulnerable in low speed corners, as the team focused on the car's aerodynamics more than mechanical downforce generation"),
+        ("mclaren tyre water tire water", "redbull accused the mclaren team of using water in their rear tyres to help with temperature management, an illegal tactic that redbull themselves have used in the past"),
+        ("mclaren drivers", "this year the mclaren drivers are lando norris, who entered as the favorite for the world drivers championship, and underdog up-and-coming youngster oscar piastri"),
+        ("who is lando norris", "previously called lando 'no wins' for taking a record-breaking long time to score his first grand prix win, lando norris has shot up the rankings and is in contention for winning the world drivers championship in 2025. his impressive karting carreer named him as the youngest driver to set pole position at the national level and the youngest world champion ever. within formula 1, he's tied for the most podium finishes before taking home the biggest trophy"),
+        ("who is oscar piastri", "after two teams going to court over who got to take oscar in his debut f1 season, the ice man started driving at mclaren and in just a few short years has proven himself as a world champ contendor, surprising everyone who thought it was his teammates year to lose. but considering his record as the only driver to ever win formula renault, f3, and f2 consecutively in their rookie season, it's not surprising."),
 
-        # --- Chat View ---
-        if st.session_state.current_view == "chat":
-             X = [item[0] for item in greeting_data]  # input phrases
-             y = [item[1] for item in greeting_data]  # appropriate responses
+        #mercedes related questions
+        ("what's cool about the mercedes W16?", "The coolest thing about the Mercedes F1 W16 is that it uses a dual-push rod suspension configuration as well as a second-element front nose. their extreme amounts of downforce despite the pushrod suspension suggests that they're using the pushrods to direct air into the venturi channels"),
+        ("mercedes W16 suspension", "in 2025 the mercedes is using a dual pushrod suspension configuration"),
+        ("mercedes overbite underbite sidepod", "the mercedes car is using an overbite sidepod design along with the rest of the grid this year except for alpine, who has stuck with the underbite design"),
+        ("mercedes", "the mercedes car in 2025 has really focused on increasing their downforces, giving the car so much grip that other drivers are commenting on it during races"),
+        ("mercedes drivers", "the mercedes drivers are former-second seater george russell and star rookie kimi antonelli"),
+        ("who is george russell", "as only the second driver to win gp3 and f2 in his rookie season, george russell sat in the second seat of mercedes for years until he was finally promoted this year to first driver following hamilton's departure. as an instictive driver, his consistency gives him success as he wins the tortise and the hare race into the podium very often"),
+        ("who is andrea kimi antonelli", "the high schooler from italy is the youngest driver on the grid this year, and the youngest driver to achieve pole position in any format. taking lewis hamiltons seat, his very experienced engineer, bono, has helped guide him to find incredible pace, achieving fourth place in just his first grand prix race ever, in the RAIN"),
 
-             vectorizer = TfidfVectorizer()
-             X_vec = vectorizer.fit_transform(X)
+        #redbull related questions
+        ("what's cool about the redbull?", "nothing, its dogwater"),
+        ("redbull red bull drivers", "following an early swap the redbull drivers are 4-time world champion max verstappen and former sister-team driver yuki tsunoda"),
+        ("who is max verstappen", "the protegy from belgium had the longest-held lead in the drivers world championship, keeping ahead for over 1000 days. his records list goes on and on with the highest win percentage in a season (77.3%), the youngest f1 race winner, and the youngest driver to acheive a grand slam. no one can deny max's natural driving talent, as he even set a lap record in a gt3 car this season in testing."),
+        ("who is yuki tsunoda", "promoted at his home race in japan this year, many believe yuki is just the driver to break the red bull second seat curse. as the youngest japanese driver in f1 history, he raced on red bull's sister team for years and found incredible pace in a second-string car."),
+        ("second seat curse", "after the redbull car has been increasingly engineered in favor of driver protegy max verstappen, who has an incredibly unique driving style, the second driver of redbull famously does really really well until they sit in a redbull, where they struggle to even recieve a single point. victims of this curse are daniel ricciardo, alex albon, pierre gasly, liam lawson, yuki tsunoda, and sergio perez, who did the best out of all of them"),
 
-             def get_best_response(user_input):
-                 user_vec = vectorizer.transform([user_input])
-                 similarities = cosine_similarity(user_vec, X_vec)
-                 best_match_index = similarities.argmax()
-                 return y[best_match_index]
+        #vcarb related questions
+        ("vcarb racing bulls drivers", "after a swap in the third race of the season, the current vcarb drivers are rookie isack hadjar and rookie-former redbull second seater liam lawson"),
+        ("who is liam lawson", "the cars enthusiast credits lighning macqueen as his motivation to racing. after being demoted from the redbull team after just two races, the driver found himself on the redbull sister team in what is known as the fastest driver replacement in f1 history."),
+        ("who is isack hadjar", "known for his incredibly french radio outbursts, the parisian is called le petit prost after the multi-world champion alain prost. his helmet features several mathematical equations as a nod to his father who works in quantum mechanics. this season, he's most known for his kardashian lip-syncing videos he forces his teammates into participating in"),
 
-             st.markdown(f"<h2 style='text-align: center;'>Revvy</h2>", unsafe_allow_html=True)
-             st.markdown(f"<h6 style='text-align: center;'>hi! im revvy, i love the f1 stuffs and im here fOR the girls. think of me as kiley's right hand man. please let me know if you want to talk about this stuff!</h6>", unsafe_allow_html=True)
-             st.markdown(f"<h6 style ='text-align: center;'>if you have any problems with me, please send a report. kiley would love some help in teaching me! you know how kids can be</h2>", unsafe_allow_html=True)
+        #williams related questions
+        ("what's cool about williams", "the williams team has chosen to focus on the 2026 season. as their team principal has said, 'this is an opportunity we'll never have again, break everything'. with nowhere to go but up, they started the car from scratch and are starting to show some pace ahead of their target season."),
+        ("who is alex alexander albon", "the red-bull second seat curse victim has found himself leading williams out of a no-win drought, storming up to fifth place in the mid-to-low-tier car. known more famously for his WAG lily muni, he's the first thai driver to achieve a podium finish in f1 history."),
+        ("williams drivers", "the williams drivers this season are former redbull driver alex albon and former ferrari driver carlos sainz"),
+        ("who is carlos sainz seinz", "the smooth operator spent time on both mclaren and ferrari, most recently being let go from ferrari in favor of 7-time world champion merc driver lewis hamilton. the spaniard has moved to williams to play the long game, working alongside alex albon to help the team improve the car in hopes of being a top team in the new regulation 2026 season."),
 
-             user_input = st.chat_input("i love talking about f1!")
-            
-             if st.button("report a problem with revvy"):
-                switch_to_report()
+        #other driver related questions
+        ("who is sergio perez checo?", "the driver who raced alongside max verstappen for years and fought the hardest against the redbull second seat curse, sergio 'checo' perez is expected to make a comeback in 2026 with rumors circulating about a possible contract with debut team cadillac"),
+        ("who is daniel ricciardo?", "quite possibly the most loved driver in f1, daniel ricciardo is enjoying retirement after clinging onto spots all over the grid and struggling to produce results. he's still dearly beloved by all the fans and drivers"),
+        ("who is ayrton senna?", "an advocate for f1 safety in his lifetime, ayrton senna is a beloved world champion who raced primarily in the 90s. one of the greatest of all time, he still holds the record for most wins in monaco, the hardest f1 track. due to an unfortunate accident, he passed away in a crash in 1994 at the imola grand prix. his long-standing rival, alain prost, carried his legacy on in improving the safety for the drivers, and only one driver has passed racing since. his legacy still lives on in the drivers, with rookie kimi antonelli using senna's old number 12 and lewis hamilton modeling his helmet after senna's iconic bright yellow one in rememberance"),
+   
+        #basic
+        ("im new to f1", "welcome to f1! the top tier teams this year are mclaren, mercedes, redbull, and ferrari. but it's a close season, and teams williams, haas, racing bulls, kick sauber, aston martin, and alpine can't be counted out! next year an eleventh team will be added, cadillac"),
+        ("who is the best driver", "well that depends who youd ask... most people will answer max verstappen, lewis hamilton, or the late ayrton senna")
+    ]
 
-        # --- Report View ---
-        elif st.session_state.current_view == "report":
-            user_input = ()
-            st.title("Report an Issue with Revvy")
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
 
-            report_text = st.text_area("Describe the issue you're having with Revvy:")
+    if "current_view" not in st.session_state:
+        st.session_state.current_view = "chat"
 
-            if st.button("Submit Report"):
-                if report_text.strip():
-                    with open("bot_reports.txt", "a") as f:
-                        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                        f.write(f"{timestamp} - Reported issue: {report_text.strip()}\n")
-                    st.success("Your issue has been reported. Thank you! I'll try to teach Revvy a little more about this.")
-                else:
-                    st.warning("Please describe the issue before submitting.")
+    def switch_to_report():
+         st.session_state.current_view = "report"
 
-            if st.button("Back to Chat"):
-                switch_to_chat()
+    def switch_to_chat():
+         st.session_state.current_view = "chat"
 
-        if user_input:
-            lowered = user_input.lower()
-            original_user_input = user_input
+    # --- Chat View ---
+    if st.session_state.current_view == "chat":
+            X = [item[0] for item in greeting_data]  # input phrases
+            y = [item[1] for item in greeting_data]  # appropriate responses
 
-            # --- Context Tracking ---
-            if "context_topic" not in st.session_state:
-                 st.session_state.context_topic = None
-            elif "alpine" in lowered:
-                st.session_state.context_topic = "alpine"
-            elif "aston martin" in lowered:
-                st.session_state.context_topic = "aston martin"
-            elif "ferrari" in lowered or "sf25" in lowered:
-                st.session_state.context_topic = "ferrari"
-            elif "haas" in lowered:
-                st.session_state.context_topic = "haas"
-            elif "kick sauber" in lowered or "sauber" in lowered:
-                st.session_state.context_topic = "kick sauber"
-            elif "mclaren" in lowered or "mcl39" in lowered:
-                st.session_state.context_topic = "mclaren"
-            elif "mercedes" in lowered:
-                st.session_state.context_topic = "mercedes"
-            elif "redbull" in lowered or "red bull" in lowered:
-                st.session_state.context_topic = "redbull"
-            elif "vcarb" in lowered or "racing bulls" in lowered:
-                st.session_state.context_topic = "vcarb"
-            elif "williams" in lowered:
-                st.session_state.context_topic = "williams"
+            vectorizer = TfidfVectorizer()
+            X_vec = vectorizer.fit_transform(X)
+
+            def get_best_response(user_input):
+                user_vec = vectorizer.transform([user_input])
+                similarities = cosine_similarity(user_vec, X_vec)
+                best_match_index = similarities.argmax()
+                return y[best_match_index]
+
+            st.markdown(f"<h2 style='text-align: center;'>Revvy</h2>", unsafe_allow_html=True)
+            st.markdown(f"<h6 style='text-align: center;'>hi! im revvy, i love the f1 stuffs and im here fOR the girls. think of me as kiley's right hand man. please let me know if you want to talk about this stuff!</h6>", unsafe_allow_html=True)
+            st.markdown(f"<h6 style ='text-align: center;'>if you have any problems with me, please send a report. kiley would love some help in teaching me! you know how kids can be</h2>", unsafe_allow_html=True)
+
+            user_input = st.chat_input("i love talking about f1!")
+        
+            if st.button("report a problem with revvy"):
+                 switch_to_report()
+
+    # --- Report View ---
+    elif st.session_state.current_view == "report":
+        user_input = ()
+        st.title("Report an Issue with Revvy")
+
+        report_text = st.text_area("Describe the issue you're having with Revvy:")
+
+        if st.button("Submit Report"):
+            if report_text.strip():
+                with open("bot_reports.txt", "a") as f:
+                    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    f.write(f"{timestamp} - Reported issue: {report_text.strip()}\n")
+                st.success("Your issue has been reported. Thank you! I'll try to teach Revvy a little more about this.")
+            else:
+                st.warning("Please describe the issue before submitting.")
+
+        if st.button("Back to Chat"):
+            switch_to_chat()
+
+    if user_input:
+        lowered = user_input.lower()
+        original_user_input = user_input
+
+        # --- Context Tracking ---
+        if "context_topic" not in st.session_state:
+                st.session_state.context_topic = None
+        elif "alpine" in lowered:
+            st.session_state.context_topic = "alpine"
+        elif "aston martin" in lowered:
+            st.session_state.context_topic = "aston martin"
+        elif "ferrari" in lowered or "sf25" in lowered:
+            st.session_state.context_topic = "ferrari"
+        elif "haas" in lowered:
+            st.session_state.context_topic = "haas"
+        elif "kick sauber" in lowered or "sauber" in lowered:
+            st.session_state.context_topic = "kick sauber"
+        elif "mclaren" in lowered or "mcl39" in lowered:
+            st.session_state.context_topic = "mclaren"
+        elif "mercedes" in lowered:
+            st.session_state.context_topic = "mercedes"
+        elif "redbull" in lowered or "red bull" in lowered:
+            st.session_state.context_topic = "redbull"
+        elif "vcarb" in lowered or "racing bulls" in lowered:
+            st.session_state.context_topic = "vcarb"
+        elif "williams" in lowered:
+            st.session_state.context_topic = "williams"
 
 
-            if st.session_state.context_topic:
-                user_input = (
-                    user_input.replace("it", st.session_state.context_topic)
-                            .replace("this car", st.session_state.context_topic)
-                            .replace("that car", st.session_state.context_topic)
-                            .replace("the car", st.session_state.context_topic)
-                )
+        if st.session_state.context_topic:
+            user_input = (
+                user_input.replace("it", st.session_state.context_topic)
+                        .replace("this car", st.session_state.context_topic)
+                        .replace("that car", st.session_state.context_topic)
+                        .replace("the car", st.session_state.context_topic)
+                        .replace("they", st.session_state.context_topic)
+                        .replace("their", st.session_state.context_topic)
+                        .replace("them", st.session_state.context_topic)
+            )
 
-            st.session_state.messages.append({"role": "user", "content": original_user_input})
-            response = get_best_response(user_input)
-            st.session_state.messages.append({"role": "assistant", "content": response})
+        st.session_state.messages.append({"role": "user", "content": original_user_input})
+        response = get_best_response(user_input)
+        st.session_state.messages.append({"role": "assistant", "content": response})
 
-        #chat history
-        for msg in st.session_state.messages:
-            with st.chat_message(msg["role"]):
-                st.write(msg["content"])
-    else:
-        st.write("this is the bot that kiley is currently making. it's not quite ready yet though! please come back another time.")
+    #chat history
+    for msg in st.session_state.messages:
+        with st.chat_message(msg["role"]):
+            st.write(msg["content"])
+
 
 
 
@@ -2121,10 +2181,7 @@ if option == "**Revvy** ***NEW***":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.4.3")
+    st.subheader("1.4.5")
     st.markdown("""
-        Added more information about cars in general and some specific cars
-        Added the Revvy bot as well as a report button if there are any issues.
-        fixed the error with sklearn
-        changed the colors of the overall site to match more of the f1 vibe
+        fixed button color so it's actually readable
         """)
