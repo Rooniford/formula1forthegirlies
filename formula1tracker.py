@@ -103,7 +103,7 @@ def render_leaderboard(df):
 
 
 
-option = st.sidebar.radio("Pages",["**Home**", "**Revvy** ***NEW***", "**Grand Prix Positions**", "**Current Leaderboard**", "**Hypothetical Chaos Mode**", "**Interesting Factoid**", "**Construction Information**", "**Track Information**", "**Words of Wisdom**", "Patch Notes"])
+option = st.sidebar.radio("Pages",["**Home**", "**Revvy** ***NEW***", "**Grand Prix Positions**", "**Current Leaderboard**", "**Hypothetical Chaos Mode**", "**Driver Information**", "**Construction Information**", "**Track Information**", "**Words of Wisdom**", "**McLaren Loopholes**", "Patch Notes"])
 
 if option == "**Home**":
     st.title("kiley's f1 2025 season track: for the girls by the girls")
@@ -688,8 +688,6 @@ elif option == "**Hypothetical Chaos Mode**":
         else:
             st.write("")
 
-            
-
 
 ##Interesting Factoid
 
@@ -1071,6 +1069,7 @@ driver_info = {
         - Son of former Formula 1 driver Jos Verstappen and Belgian kart racr Sophie Kumpen
         - Very upsetty spaghetti about Liam Lawson being demoted
         - Bonus dad
+        - Under the fake name of "Franz Hermann", Max recently tested a ferrari GT3 car, setting the lap record on the track during this session on a full tank of gas
         
 
         """,
@@ -1326,7 +1325,7 @@ if option == "**Track Information**":
                   "Bahrain",
                   "Saudi Arabia",
                   "Miami",
-                  "Emilia-Romagna",
+                  "Imola",
                   "Monaco",
                   "Spain",
                   "Canada",
@@ -1372,7 +1371,19 @@ if option == "**Track Information**":
             ''')
         st.write("It's often compared to the Melbourne circuit because of their similarities, which Lando Norris won in 2025. Oscar Piastri exhibited great pace but a rain storm took him out of the running, and Max Verstappen put up a valiant effort for first place")
         st.write("Miami 2024 marks Lando Norris' first F1 race win, ending his streak as Lando 'No Wins' Norris")
-
+    elif track == "Imola":
+        st.image("https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Emilia_Romagna_Circuit")
+        st.markdown('''
+                :red-background[**2024 Winner:**] Max Verstappen
+                
+                :red-background[**Lap Record:**] 1:15.484 by Lewis Hamilton in a Mercedes
+                
+                **Important Information**
+                - Historically 100% rate of a safety car occurance
+                - As it's one of the two races in Italy, Ferrari will be looking to win this one for their home race!
+                - Despite being narrow, it's still an exciting race and many drivers are in love with the track
+                - Ayrton Senna still holds the record of most consecutive pole positions in Imola, which he scored before his tragic accident in Imola in 1994 alongside fellow driver Roland Ratzenberger
+            ''')
     else:
         st.write("be patient")
 
@@ -1912,7 +1923,8 @@ if option == "**Words of Wisdom**":
         "Yabba dabba doo!",
         "ive just had a little scream in my helmet. well done",
         "'No Charles, we are not interested, we know.'   'That's rude'",
-        "Break everything. This is an opportunity you'll never have again. Break. Everything."
+        "Break everything. This is an opportunity you'll never have again. Break. Everything.",
+        "should i let him pass as well?"
     ]
 
     words_of_wisdom = st.button("click for some words of wisdom")
@@ -1930,7 +1942,7 @@ if option == "**Words of Wisdom**":
 if option == "**Revvy** ***NEW***":
 
     greeting_data = [
-        ("hello", "what can i do ya for"),
+        ("hello", "hiiii what can i do ya for"),
         ("hey", "hi!"),
         ("what's up", "hello! do you like the cars? the cars that go vroom?"),
         ("howdy", "howdy partner!"),
@@ -1946,19 +1958,21 @@ if option == "**Revvy** ***NEW***":
         ("test testing", "i work!"),
 
         #grand prix results
+        ("track", "i know about the winners on each track so far this year, but kiley hasn't taught me about the track qualities yet. you can look on track information though!"),
         ("australia grand prix", "lando norris won the australian grand prix this year after leading from pole position. he fought briefly with oscar piastri before he fell to the back of the pack due to a heavy rain patch. in the end, max verstappen took second and george russell took third"),
-        ("china chinese shanghai grand prix", "oscar piastri won the chinese grand prix, marking his first pole position and his first win from pole position in a main race. with a brake failure in the last stint of the race, it was impressive to see lando norris finish second, but he wasn't satisfied and tried to fight oscar to the end. george russell did nothing and somehow ended up third"),
+        ("china chinese shanghai grand prix gp", "oscar piastri won the chinese grand prix, marking his first pole position and his first win from pole position in a main race. with a brake failure in the last stint of the race, it was impressive to see lando norris finish second, but he wasn't satisfied and tried to fight oscar to the end. george russell did nothing and somehow ended up third"),
+        ("sprint china chinese shanghai", "lewis hamilton took a hard fought sprint victory in the less adventagious ferrari car, giving a masterclass in how to race the shanghai circuit"),
         ("japan suzuka grand prix", "max verstappen took his first win of the season in japan, and boy was he excited. his reaction at the end was enough to convince everyone how hard he's had to work to find pace in the redbull car. lando norris and oscar piastri fought with their engineers about papaya rules before finally finishing second and third respectively."),
         ("bahrain grand prix", "oscar piastri took his second win of the season in bahrain after once again taking pole position, keeping his 100% pole conversion rate alive. george russell toook second place, with lando norris in third place. this was the best race for ferrari so far, with them finishing 4th and 5th."),
         ("saudi arabia arabian jeddah grand prix", "oscar piastri won for the third time this year in jeddah after a controversial turn 1 incident with max verstappen, who ultimately suffered a five second penalty and finished second. charles leclerc fought hard and ended up third place, for the first ferrari podium this seaosn."),
         ("sprint miami", "rookie kimi antonelli took pole position in the miami sprint, but lack of experience and an iffy strategy saw him falling to the midfield. the race was ultimately won by lando norris in his disco ball helmet, with his teammate oscar piastri finishing right behind"),
-        ("miami grand prix", "oscar piastri continued into a three-win streak for his fourth win of the season in miami. his teammate lando norris finished second after struggling to pass an angry max verstappen, who ultimately was passed by george russell as well and finished in fourth. the diamond of the race was certainly one alex albon, who shot up to fifth place in his williams"),
+        ("miami grand prix gp", "oscar piastri continued into a three-win streak for his fourth win of the season in miami. his teammate lando norris finished second after struggling to pass an angry max verstappen, who ultimately was passed by george russell as well and finished in fourth. the diamond of the race was certainly one alex albon, who shot up to fifth place in his williams"),
         ("grand prix", "i know a few grand prix results! which one do you want to know about?"),
 
         # Car-related questions
-        ("whats cool about f1 cars?", "the aerodynamics of a formula one car are so efficient, that at top speeds the car could drive on the ceiling without falling off!"),
+        ("whats cool?", "the aerodynamics of a formula one car are so efficient, that at top speeds the car could drive on the ceiling without falling off!"),
         ("how does the car drive on the ceiling?", "this is possible mostly because of the venturi channels, the low pressure zones between the car and the floor (or this case, the sky). it sucks the car down (or up) into the surface it's driving on, making it possible for f1 cars to join elphaba in defying gravity"),
-        ("front wing on f1 cars", "there's a lot of cool features on the front wing. which one do you want to know about?"),
+        ("front wing", "there's a lot of cool features on the front wing. which one do you want to know about?"),
         ("front wing features", "the features on the front wing that i can tell you about are the wing elements, the front nose configuration, and the contribution to the venturi channels. I could also tell you the history. which one do you want to know more about?"),
         ("wing elements", "a lot of different f1 cars have a different amount of wing elements. currently, the rules is they can't have more than four. this is mostly because if there were more elements, the car would go faster, but it would also be harder to control. in 2026, only two elements will be allowed"),
         ("hard to control", "a few things can make the car difficult to control. if the front wing is too complicated, the aerodynamics might be so efficent that it's hard to break the car out of the air it's passing through. the same goes for if DRS was open all the time."),
@@ -1976,19 +1990,33 @@ if option == "**Revvy** ***NEW***":
         ("why didnt jack doohan close his drs", "it's controversial, we don't actually know the real reason. some people say the DRS closure system failed, and others say he deliberitely left it open as he had made the turn with DRS open in the simulation"),
         ("what are venturi channels?", "venturi channels are vital in increasing the downforce of an f1 car, and are what sucks the car into the ground so it can even drive upside down! if you want more information, visit 'construction information'"),
         ("second element front nose", "a second element front nose will push more air underneath the car to add to the ground effect, increasing the downforce of the cars"),
-        ("front nose", "front noses in f1 cars right now are either main-plane integrated or second element integrated"),
+        ("mainplane main plane front nose", "a mainplane front wing integrated nose has the nose of the car extend all the way to the bottom plane of the front wing. it's a more simplistic design but tried and true!"),
+        ("front nose configuration", "front noses in f1 cars right now are either main-plane integrated or second element integrated"),
         ("car downforce best", "'best' is relative.. the car that seems to be utilizing downforce the best is mercedes. the car that has the MOST downforce is ferrari, who have so much downforce that they've seen their car go faster if they remove some of that downforce"),
         ("who drivers", "what teams drivers do you want to know about?"),
+        ("sidepod inlet p-shape shark high rectangle", "if you want more information on a specific shape of inlet you can go to 'construction information' and search what team uses it! do you want to know what inlet a specific team uses?"),
+        ("y250", "the y250 vortices are air currents that come off the nose of a car with a second element front wing connection. these air currents typically travel to the underside of the car and contribute to low pressure zones, enhancing the car's downforce and grip"),
+        ("engine engines", "in 2025, all cars use a V6 turbo-hybrid engine. would you like to know more about a specific team's engine?"),
 
         #alpine related questions
-        ("alpine drivers", "the current alpine drivers are former redbull driver pierre gasley and former williams driver franco colapinto, with rookie jack doohan racing the first six races and remaining in the reserve driver position"),
-        ("who is pierre gasley", "the frenchman fell victim to the redbull second seat curse before finding himself passed around low-tier teams on the f1 grid, but he holds the impressive record of not costing the team a single cent of repairs in his perfect 2024 season."),
+        ("alpine drivers", "the current alpine drivers are former redbull driver pierre gasly and former williams driver franco colapinto, with rookie jack doohan racing the first six races and remaining in the reserve driver position"),
+        ("who is pierre gasly", "the frenchman fell victim to the redbull second seat curse before finding himself passed around low-tier teams on the f1 grid, but he holds the impressive record of not costing the team a single cent of repairs in his perfect 2024 season."),
         ("who is franco colapinto", "i dont know who this man is, he could be walking down the street...i wouldn't know a thing"),
+        ("alpine coach team principal flavio braitore", "current acting-team principal for alpine, flavio briatore, was previously banned from f1 associated events for race fixing. after overturning this rule and turning it to he just couldnt lead a team, he rejoined his old team alpine (then renault) as an executive. after a surprise resignation of alpine team principal oliver oakes following suspected embezzlement charges, flavio took back over the team"),
+        ("alpine engine", "alpine utilizes a renault engine, but in 2026 they will switch to the mercedes engine along with several top teams on the grid"),
+        ("alpine suspension push pull rod", "alpine uses a dual pushrod suspension configuration"),
+        ("alpine overbite underbite sidepod side pod", "alpine is the only team on the 2025 grid utilizing an underbite sidepod"),
+        ("alpine nose", "the alpine front nose is using the popular second element design for the 2025 season"),
+        ("alpine downforce", "the alpine downforce could struggle if the little bit of air coming off the pushrods disrupt the y250 forces generated by the second element front nose"),
 
         #aston martin questions
         ("aston martin drivers", "this year the aston martin drivers are 2-time world champion fernando alonso and nepo-baby lance stroll"),
         ("who is lance stroll", "despite being called a nepo baby because his dad owns the aston martin team, lance once held the record for the youngest driver to score a podium finish, with his fellow podium finishers not even sure if he could legally drink the champagne. since then, however, lance is known for his many ridiculous race-exits including rear-ending a driver during a safety car and beaching himself in gravel during the formation lap"),
         ("who is fernando alonso", "the 2-time world champion found his titles with the renault team before and during their cheating scandals, with crashgate helping lead to one of those titles. despite this, the spaniard is the only driver to be inducted into the FIA hall of fame twice"),
+        ("aston martin engine", "the aston martin team is using a mercedes-amg engine in 2025. in 2026 they will take over redbull's agreement with honda and use honda engines"),
+        ("aston martin suspension push pull rod", "the aston martin team uses a dual push rod suspension configuration"),
+        ("aston martin overbite underbite sidepod", "aston martin uses an overbite side pod with a high rectangular sidepod inlet"),
+        ("aston martin nose", "aston uses a second element front wing nose connection"),
 
         #ferrari related questions
         ("ferrari downforce", "it seems ferrari's car this year has the most downforce. but that might not be a good thing. downforce makes cars faster in corners, but slows them down in straightaways. they paid the price of this in the chinese grand prix where charles leclerc was moving faster with a broken front wing that caused him to lose downforce"),
@@ -2005,6 +2033,11 @@ if option == "**Revvy** ***NEW***":
         ("who is lewis hamilton", "lewis hamilton won 7 world drivers championship titles before he was finally being dethroned by max verstappen. he tied the record for most championship wins and is in the hunt for his eighth with new team ferrari, after winning the previous seven with mercedes. he has also won the most grand prixs of any driver, with him and his then-teammate nico rosberg winning 51 out of 59 races over the course of three years."),
 
         #haas related questions
+        ("haas engine", "the haas team uses the mercedes-amg team's engine"),
+        ("haas car name", "in 2025 the haas car is the VF25"),
+        ("haas suspension push pull rod", "the haas team uses a pushrod front suspension and a pullrod rear suspension"),
+        ("haas overbite underbite sidepod", "the haas team uses an overbite side pod design with hooped inlets"),
+        ("haas nose", "the haas team is one of the only teams on the grid to be using a main-plane integrated front nose of their car"),
         ("haas drivers", "this year's haas drivers are veteran frenchman esteban ocon and rookie ollie bearman"),
         ("who is ollie oliver bearman", "ollie bearman debuted with ferrari when carlos sainz required emergency surgery in 2024, scoring 7th place in his first ever race. since his amazing debut, he found himself on the haas team in a lackluster car, but still is exhibiting impressive overtakes and pace, moving from last place into the points twice already this season."),
         ("who is esteban ocon", "perhaps most known for being punched by max verstappen, estie bestie has hopped around several teams and fallen to the back of the grid, but has been exhibiting some pace this year"),
@@ -2035,16 +2068,23 @@ if option == "**Revvy** ***NEW***":
         ("who is oscar piastri", "after two teams going to court over who got to take oscar in his debut f1 season, the ice man started driving at mclaren and in just a few short years has proven himself as a world champ contendor, surprising everyone who thought it was his teammates year to lose. but considering his record as the only driver to ever win formula renault, f3, and f2 consecutively in their rookie season, it's not surprising."),
 
         #mercedes related questions
+        ("mercedes engine", "the mercedes team manufactures their own mercedes engine for their f1 team"),
         ("what's cool about the mercedes W16?", "The coolest thing about the Mercedes F1 W16 is that it uses a dual-push rod suspension configuration as well as a second-element front nose. their extreme amounts of downforce despite the pushrod suspension suggests that they're using the pushrods to direct air into the venturi channels"),
         ("mercedes W16 suspension", "in 2025 the mercedes is using a dual pushrod suspension configuration"),
         ("mercedes overbite underbite sidepod", "the mercedes car is using an overbite sidepod design along with the rest of the grid this year except for alpine, who has stuck with the underbite design"),
+        ("mercedes inlet", "mercedes uses the unique shark sidepod inlet that redbull found success with in previous years"),
+        ("mercedes nose", "the mercedes car has multiple front wings available, one with a mainplane nose integration and one with a second element nose integration. so far, it seems they're using the second-element front wing more"),
         ("mercedes", "the mercedes car in 2025 has really focused on increasing their downforces, giving the car so much grip that other drivers are commenting on it during races"),
         ("mercedes drivers", "the mercedes drivers are former-second seater george russell and star rookie kimi antonelli"),
         ("who is george russell", "as only the second driver to win gp3 and f2 in his rookie season, george russell sat in the second seat of mercedes for years until he was finally promoted this year to first driver following hamilton's departure. as an instictive driver, his consistency gives him success as he wins the tortise and the hare race into the podium very often"),
         ("who is andrea kimi antonelli", "the high schooler from italy is the youngest driver on the grid this year, and the youngest driver to achieve pole position in any format. taking lewis hamiltons seat, his very experienced engineer, bono, has helped guide him to find incredible pace, achieving fourth place in just his first grand prix race ever, in the RAIN"),
 
         #redbull related questions
-        ("what's cool about the redbull?", "nothing, its dogwater"),
+        ("redbull engine", "the redbull teams manufacture their own engines with honda. in 2026, they will continue to make their own engines but without the help of honda"),
+        ("redbull car name", "in 2025 the oracle redbull team is driving the RB21"),
+        ("redbull suspension push pull rod", "the redbull team is using a pullrod front suspension and a pushrod rear suspension"),
+        ("redbull overbite underbite sidepod", "the redbull team uses an overbite sidepod design with a conventional vertical inlet, a stark comparison to previous years where they found success with their novel shark inlet design"),
+        ("redbull nose", "the redbull team has both mainplane and second element integrated front wings and seem to use both depending on the track and driver, sometimes with drivers even running different front wing setups"),
         ("redbull red bull drivers", "following an early swap the redbull drivers are 4-time world champion max verstappen and former sister-team driver yuki tsunoda"),
         ("who is max verstappen", "the protegy from belgium had the longest-held lead in the drivers world championship, keeping ahead for over 1000 days. his records list goes on and on with the highest win percentage in a season (77.3%), the youngest f1 race winner, and the youngest driver to acheive a grand slam. no one can deny max's natural driving talent, as he even set a lap record in a gt3 car this season in testing."),
         ("who is yuki tsunoda", "promoted at his home race in japan this year, many believe yuki is just the driver to break the red bull second seat curse. as the youngest japanese driver in f1 history, he raced on red bull's sister team for years and found incredible pace in a second-string car."),
@@ -2174,14 +2214,66 @@ if option == "**Revvy** ***NEW***":
         with st.chat_message(msg["role"]):
             st.write(msg["content"])
 
-
-
-
-
+##MCLAREN LOOPHOLES
+if option == "**McLaren Loopholes**":
+    st.markdown(f"<h5 style='text-align: center;'>McLaren has a habit of....pushing the boundaries. Here's some iconic tricks they've added to their cars that have since been banned</h5>", unsafe_allow_html=True)
+    st.markdown(f"<h5 style='text-align:center;'>2025</h5>", unsafe_allow_html=True)
+    st.markdown(f"<h6 style='text-align:center;'>since the season is ongoing, none of these are confirmed by mclaren or other teams, but they have prompted fia investigations</h6>", unsafe_allow_html=True)
+    st.markdown('''
+        :red-background[**Phase Changing Tyre Cooling System**]   
+                  
+        Redbull has been the main accuser of McLaren using illegal tactics to cool their rear tyres, with Christian Horner even submitting thermal camera footage of the tires in use to the FIA and prompting an investigation.   
+        One of such accusations was that McLaren was using water in their tyres, something explicitly against the rules after Redbull themselves tried the practice.   
+        Several FIA investigations, including one after the dominant performance in the extremely hot Miami grand prix, where the McLarens finishes over 30 seconds ahead of any other car, the FIA has been clear that as of right now the car is within regulations.  
+          
+        One theory of what the McLarens are using is phase changing materials. These would be materials within the brakes that use the heat-generated energy to change phase (gas, solid, liquid) at a certain temperature. This converts the energy entirely to the phase change, stopping the material from using any remaining energy in the form of heat. 
+        Essentially, this caps the brakes at a certain temperature.   
+        If this is the case, the FIA has decided that this does not count as liquid cooling, which is explicitly banned, but maybe we will see a rule change in the future to cover this loophole.
+        ''')
+    st.caption("the thermal images taken by redbulla are not yet publically available.")
+    st.markdown('''
+        :red-background[**Flexi Wing miniDRS pt2**]  
+                  
+        After the miniDRS recieved scrutiny in 2024, the FIA tightened regulations to only a maximum of 13mm gap in the rear wing.
+        Quick into the 2025 season, it appeared this was not nearly enough and stricter regulations were put in place, allowing only a maximum of 0.5mm flex.
+        Several teams had to change their rear wings. McLaren allegedly had to change this, due to flow vis patterns observed in Bahrain testing, but denied having to change their rear wing to fit the new regulations.   
+        Coincidentally, the first race after regulation changes was the first McLaren loss of the year.
+        ''')
+    st.image("https://media.discordapp.net/attachments/1364657259849711637/1369149985073004666/IMG_5150.png?ex=68240a4a&is=6822b8ca&hm=cec8debcf81aa57d95afb9b012145fad73ab9896e80f773054664d6f55d85245&=&format=webp&quality=lossless&width=1342&height=1338")
+    st.caption("flow vis patterns on the MCL39 at the beginning of the 2025 season in testing vs after the stricter regulations were put in place during the chinese GP.")
+    st.markdown(f"<h5 style='text-align:center;'>2024</h5>", unsafe_allow_html=True)
+    st.markdown('''
+        :red-background[**The Front Wing Wake Control Spike**]  
+                  
+        The spike added on the rear of the front wing on the MCL38 was added for two reasons. One was obvious, which was discouraging cars from driving too close to the McLaren for fear of tire punctures or scraping on the body.   
+        The second was wake control. This spike disrupted the smooth airflow coming off the car and hitting the car behind them, making dirty air dirtier and disrupting the slipstream. In a sense, it weaponized the dirty air.   
+        At the time, this was fully within regulations. Immediately after the completion of the season, the FIA placed stricter rules around wake control.
+        ''')
+    st.image("https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1p3Dh7.img?w=768&h=512&m=4&q=84")
+    st.markdown('''
+        :red-background[**Flexi Wing miniDRS**]  
+                  
+        During the 2024 season, McLaren unveiled what was later coined the miniDRS. 
+        ''')
+    st.markdown(f"<h5 style='text-align:center;'>2011</h5>", unsafe_allow_html=True)
+    st.markdown('''
+        :red-background[**Extreme Blown Diffuser**]
+        ''')
+    st.markdown(f"<h5 style='text-align:center;'>2010</h5>", unsafe_allow_html=True)
+    st.markdown('''
+        :red-background[**F-duct**]
+        ''')
+    st.markdown(f"<h5 style='text-align:center;'>1998</h5>", unsafe_allow_html=True)
+    st.markdown('''
+        :red-background[**Brake Steering**]
+        ''')
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.4.5")
+    st.subheader("1.5.1")
     st.markdown("""
         fixed button color so it's actually readable
+        taught revvy a bit more
+        added information about the imola track
+        added mclaren loopholes
         """)
