@@ -11,7 +11,9 @@ from datetime import datetime
 import fastf1
 import fastf1.plotting
 import seaborn as sns
-fastf1.Cache.enable_cache('/workspaces/formula1forthegirlies/__pycache__') 
+cache_dir = '/tmp/fastf1_cache'  # ✅ This works on Streamlit Cloud and similar environments
+os.makedirs(cache_dir, exist_ok=True)
+fastf1.Cache.enable_cache(cache_dir)
 import matplotlib.pyplot as plt
 
 
