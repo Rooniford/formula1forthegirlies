@@ -6,4 +6,3 @@ datetime
 fastf1
 seaborn
 matplotlib
-os
