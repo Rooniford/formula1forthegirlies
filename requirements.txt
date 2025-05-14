@@ -4,6 +4,5 @@ numpy
 pandas
 datetime
 fastf1
-fastf1.plotting
 seaborn
-matplotlib.pyplot
+matplotlib
