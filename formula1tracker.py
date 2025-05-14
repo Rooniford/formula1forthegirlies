@@ -1197,7 +1197,7 @@ driver_info = {
         """,
 }
 
-if option == "**Interesting Factoid**":
+if option == "**Driver Information**":
     text_input = st.text_input("enter a driver")
     driverstats = None
     AA23_valid_names = ("Alex Albon", "Albon", "alex albon", "albon", "23")
@@ -2253,7 +2253,13 @@ if option == "**McLaren Loopholes**":
     st.markdown('''
         :red-background[**Flexi Wing miniDRS**]  
                   
-        During the 2024 season, McLaren unveiled what was later coined the miniDRS. 
+        During the 2024 season, McLaren unveiled what was later coined the miniDRS. The mechanism consisted of an abnormally flexible rear wing flap, that bent excessively under force. 
+        This caused the DRS flap to open slightly at high speeds, giving drivers DRS advantages in zones where DRS would otherwise be illegal. This system did not violate any rules or regulations.
+        ''')
+    st.image("https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1w24cI.img?w=768&h=432&m=6")
+    st.caption("data of the mclaren using miniDRS (pia) showing consistent pace and then a clear advantage in a straightaway with no DRS active. this is Oscar Piastri (McLaren, second season) against Charles Leclerc (Ferrari, sixth season)")
+    st.markdown('''
+        Tighter regulations were placed upon the rear wing flexibility immediately after the 2024 season.
         ''')
     st.markdown(f"<h5 style='text-align:center;'>2011</h5>", unsafe_allow_html=True)
     st.markdown('''
