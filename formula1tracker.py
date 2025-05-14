@@ -2501,11 +2501,12 @@ if option == "**McLaren Loopholes**":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.5.3")
+    st.subheader("1.5.4")
     st.markdown("""
         fixed button color so it's actually readable
         taught revvy a bit more
         added information about the imola track
         added mclaren loopholes
         added telemetry graph generation
+        fixed script downloads
         """)
