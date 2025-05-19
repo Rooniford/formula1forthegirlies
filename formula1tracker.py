@@ -118,7 +118,10 @@ if option == "**Home**":
     st.image("https://steamuserimages-a.akamaihd.net/ugc/1914618053679846010/5E74EF96A5A44D3DD1266F77DFA85ED77770D675/")
     
 ##File Uploads
-alpine_drivers = ("Pierre Gasley", "Jack Doohan")
+alpine_australia_drivers = ("Pierre Gasly", "Jack Doohan")
+alpine_imola_drivers = ("Pierre Gasly", "Franco Colapinto")
+alpine1_tracks = ("Australia", "China", "Japan", "Bahrain", "Saudi Arabia", "Miami")
+alpine2_tracks = ("Imola", "Monaco")
 aston_martin_drivers = ("Fernando Alonso", "Lance Stroll")
 ferrari_drivers = ("Charles Leclerc", "Lewis Hamilton")
 haas_drivers = ("Esteban Ocon", "Oliver Bearman")
@@ -128,7 +131,7 @@ mercedes_drivers = ("George Russell", "Kimi Antonelli")
 red_bull_racing_australia_drivers = ("Max Verstappen", "Liam Lawson")
 red_bull_racing_japan_drivers = ("Max Verstappen", "Yuki Tsunoda")
 redbull1_tracks = ("Australia", "China")
-redbull2_tracks = ("Japan", "Bahrain", "Saudi Arabia")
+redbull2_tracks = ("Japan", "Bahrain", "Saudi Arabia", "Miami", "Imola")
 racing_bulls_australia_drivers = ("Yuki Tsunoda", "Isack Hadjar")
 racing_bulls_japan_drivers = ("Liam Lawson", "Isack Hadjar")
 williams_drivers = ("Carlos Sainz", "Alexander Albon")
@@ -154,7 +157,7 @@ OB87_valid_names = ("Oliver Bearman", "oliver bearman", "Ollie Bearman", "ollie 
 OP81_valid_names = ("Oscar Piastri", "oscar piastri", "Piastri", "piastri", "Pastry", "pastry", "Great Barrier Chief", "great barrier chief", "Wizard of Aus", "wizard of aus", "oscar", "Oscar", "81")
 PG10_valid_names = ("Pierre Gasley", "pierre gasley", "Gasley", "gasley", "10", "Pierre Gasly", "pierre gasly", "gasly")
 YT22_valid_names = ("Yuki Tsunoda", "Tsunoda", "yuki tsunoda", "tsunoda", "22")
-valid_driver_names = set(AA23_valid_names + AKA12_valid_names + CL16_valid_names + CS55_valid_names + EO31_valid_names + FA14_valid_names + GB5_valid_names + GR63_valid_names + IH6_valid_names + JD7_valid_names + LH44_valid_names + LL30_valid_names + LN4_valid_names + LS18_valid_names + MV33_valid_names + NH27_valid_names + OB87_valid_names + OP81_valid_names + PG10_valid_names + YT22_valid_names)
+valid_driver_names = set(AA23_valid_names + AKA12_valid_names + CL16_valid_names + CS55_valid_names + EO31_valid_names + FA14_valid_names + FC43_valid_names + GB5_valid_names + GR63_valid_names + IH6_valid_names + JD7_valid_names + LH44_valid_names + LL30_valid_names + LN4_valid_names + LS18_valid_names + MV33_valid_names + NH27_valid_names + OB87_valid_names + OP81_valid_names + PG10_valid_names + YT22_valid_names)
 invalid_driver_names = set()
 
 
@@ -298,8 +301,17 @@ elif option == "**Current Leaderboard**":
 
     #CC_retry
 
-    alpine_only = combined[combined["Driver"].isin(alpine_drivers)]
-    alpine_points = alpine_only["Points"].sum()
+    alpine_australia_only = full_combined_with_track[
+        (full_combined_with_track["Driver"].isin(alpine_australia_drivers)) &
+        (full_combined_with_track["Track"].isin(alpine1_tracks))
+    ]
+    alpine_australia_points = alpine_australia_only["Points"].sum()
+    alpine_imola_only = full_combined_with_track[
+        (full_combined_with_track["Driver"].isin(alpine_imola_drivers)) &
+        (full_combined_with_track["Track"].isin(alpine2_tracks))
+    ]
+    alpine_imola_points = alpine_imola_only["Points"].sum()
+    alpine_points = alpine_australia_points + alpine_imola_points 
 
     aston_martin_only = combined[combined["Driver"].isin(aston_martin_drivers)]
     aston_martin_points = aston_martin_only["Points"].sum()
@@ -2504,12 +2516,8 @@ if option == "**McLaren Loopholes**":
 
 ##PATCH NOTES
 if option == "Patch Notes":
-    st.subheader("1.5.4")
+    st.subheader("1.5.5")
     st.markdown("""
-        fixed button color so it's actually readable
-        taught revvy a bit more
-        added information about the imola track
-        added mclaren loopholes
-        added telemetry graph generation
-        fixed script downloads
+        added imola race results  
+        fixed inconsistencies with lewis hamilton's points by removing added spaces in bahrain and miami.
         """)
