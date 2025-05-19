@@ -1,4 +1,4 @@
-Track ,Team,Driver,No,Pos,Gap,Points,Track
+Track,Team,Driver,No,Pos,Gap,Points,Track
 Australia,Average,Average,Average,,,,Australia
 Australia,McLaren,Lando Norris,4,1,0,25,Australia
 Australia,Red Bull Racing,Max Verstappen,1,2,0.895,18,Australia
@@ -64,7 +64,7 @@ Bahrain,McLaren,Oscar Piastri,81,1,,25,Bahrain
 Bahrain,Mercedes,George Russell,63,2,,18,Bahrain
 Bahrain,McLaren,Lando Norris,4,3,,15,Bahrain
 Bahrain,Ferrari,Charles Leclerc,16,4,,12,Bahrain
-Bahrain,Ferrari,Lewis  Hamilton,44,5,,10,Bahrain
+Bahrain,Ferrari,Lewis Hamilton,44,5,,10,Bahrain
 Bahrain,Red Bull Racing,Max Verstappen,1,6,,8,Bahrain
 Bahrain,Alpine,Pierre Gasley,10,7,,6,Bahrain
 Bahrain,Haas,Esteban Ocon,31,8,,4,Bahrain
@@ -107,7 +107,7 @@ Miami,Red Bull Racing,Max Verstappen,1,4,,12,Miami
 Miami,Williams,Alexander Albon,23,5,,10,Miami
 Miami,Mercedes,Kimi Antonelli,12,6,,8,Miami
 Miami,Ferrari,Charles Leclerc,16,7,,6,Miami
-Miami,Ferrari,Lewis Hamilton ,44,8,,4,Miami
+Miami,Ferrari,Lewis Hamilton,44,8,,4,Miami
 Miami,Williams,Carlos Sainz,55,9,,2,Miami
 Miami,Red Bull Racing,Yuki Tsunoda,22,10,,1,Miami
 Miami,Racing Bulls,Isack Hadjar,6,11,,0,Miami
