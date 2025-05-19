@@ -1,41 +1,41 @@
-Track,Team,Driver,No,Pos,Gap,Points,Track
-China,Ferrari,Lewis Hamilton,44,1,TBA,8,China
-China,McLaren,Oscar Piastri,81,2,TBA,7,China
-China,Red Bull Racing,Max Verstappen,1,3,TBA,6,China
-China,Mercedes,George Russell,63,4,TBA,5,China
-China,Ferrari,Charles Leclerc,16,5,TBA,4,China
-China,Racing Bulls,Yuki Tsunoda,22,6,TBA,3,China
-China,Mercedes,Kimi Antonelli,12,7,TBA,2,China
-China,McLaren,Lando Norris,4,8,TBA,1,China
-China,Aston Martin,Lance Stroll,18,9,TBA,0,China
-China,Aston Martin,Fernando Alonso,14,10,TBA,0,China
-China,Williams,Alexander Albon,23,11,TBA,0,China
-China,Alpine,Pierre Gasley,10,12,TBA,0,China
-China,Racing Bulls,Isack Hadjar,6,13,TBA,0,China
-China,Red Bull Racing,Liam Lawson,30,14,TBA,0,China
-China,Haas,Oliver Bearman,87,15,TBA,0,China
-China,Haas,Esteban Ocon,31,16,TBA,0,China
-China,Williams,Carlos Sainz,55,17,TBA,0,China
-China,Kick Sauber,Gabriel Bortoleto,5,18,TBA,0,China
-China,Kick Sauber,Nico Hulkenberg,27,19,TBA,0,China
-China,Alpine,Jack Doohan,7,20,TBA,0,China
-Miami,McLaren,Lando Norris,4,1,TBA,8,Miami
-Miami,McLaren,Oscar Piastri,81,2,TBA,7,Miami
-Miami,Ferrari,Lewis Hamilton,44,3,TBA,6,Miami
-Miami,Mercedes,George Russell,63,4,TBA,5,Miami
-Miami,Aston Martin,Lance Stroll,18,5,TBA,4,Miami
-Miami,Red Bull Racing,Yuki Tsunoda,22,6,TBA,3,Miami
-Miami,Mercedes,Kimi Antonelli,12,7,TBA,2,Miami
-Miami,Alpine,Pierre Gasley,10,8,TBA,1,Miami
-Miami,Kick Sauber,Nico Hulkenberg,27,9,TBA,0,Miami
-Miami,Racing Bulls,Isack Hadjar,6,10,TBA,0,Miami
-Miami,Williams,Alexander Albon,23,11,TBA,0,Miami
-Miami,Haas,Esteban Ocon,31,12,TBA,0,Miami
-Miami,Racing Bulls,Liam Lawson,30,13,TBA,0,Miami
-Miami,Haas,Oliver Bearman,87,14,TBA,0,Miami
-Miami,Kick Sauber,Gabriel Bortoleto,5,15,TBA,0,Miami
-Miami,Alpine,Jack Doohan,7,16,TBA,0,Miami
-Miami,Red Bull Racing,Max Verstappen,1,17,TBA,0,Miami
-Miami,Aston Martin,Fernando Alonso,14,18,TBA,0,Miami
-Miami,Williams,Carlos Sainz,55,19,TBA,0,Miami
-Miami,Ferrari,Charles Leclerc,16,20,TBA,0,Miami
+Nom,Track,Constructor,Driver,No,Pos,Gap,Points
+1,China,Ferrari,Lewis Hamilton,44,1,TBA,8
+2,China,McLaren,Oscar Piastri,81,2,TBA,7
+3,China,Red Bull Racing,Max Verstappen,1,3,TBA,6
+4,China,Mercedes,George Russell,63,4,TBA,5
+5,China,Ferrari,Charles Leclerc,16,5,TBA,4
+6,China,Racing Bulls,Yuki Tsunoda,22,6,TBA,3
+7,China,Mercedes,Kimi Antonelli,12,7,TBA,2
+8,China,McLaren,Lando Norris,4,8,TBA,1
+9,China,Aston Martin,Lance Stroll,18,9,TBA,0
+10,China,Aston Martin,Fernando Alonso,14,10,TBA,0
+11,China,Williams,Alexander Albon,23,11,TBA,0
+12,China,Alpine,Pierre Gasly,10,12,TBA,0
+13,China,Racing Bulls,Isack Hadjar,6,13,TBA,0
+14,China,Red Bull Racing,Liam Lawson,30,14,TBA,0
+15,China,Haas,Oliver Bearman,87,15,TBA,0
+16,China,Haas,Esteban Ocon,31,16,TBA,0
+17,China,Williams,Carlos Sainz,55,17,TBA,0
+18,China,Kick Sauber,Gabriel Bortoleto,5,18,TBA,0
+19,China,Kick Sauber,Nico Hulkenberg,27,19,TBA,0
+20,China,Alpine,Jack Doohan,7,20,TBA,0
+1,Miami,McLaren,Lando Norris,4,1,TBA,8
+2,Miami,McLaren,Oscar Piastri,81,2,TBA,7
+3,Miami,Ferrari,Lewis Hamilton,44,3,TBA,6
+4,Miami,Mercedes,George Russell,63,4,TBA,5
+5,Miami,Aston Martin,Lance Stroll,18,5,TBA,4
+6,Miami,Red Bull Racing,Yuki Tsunoda,22,6,TBA,3
+7,Miami,Mercedes,Kimi Antonelli,12,7,TBA,2
+8,Miami,Alpine,Pierre Gasly,10,8,TBA,1
+9,Miami,Kick Sauber,Nico Hulkenberg,27,9,TBA,0
+10,Miami,Racing Bulls,Isack Hadjar,6,10,TBA,0
+11,Miami,Williams,Alexander Albon,23,11,TBA,0
+12,Miami,Haas,Esteban Ocon,31,12,TBA,0
+13,Miami,Racing Bulls,Liam Lawson,30,13,TBA,0
+14,Miami,Haas,Oliver Bearman,87,14,TBA,0
+15,Miami,Kick Sauber,Gabriel Bortoleto,5,15,TBA,0
+16,Miami,Alpine,Jack Doohan,7,16,TBA,0
+17,Miami,Red Bull Racing,Max Verstappen,1,17,TBA,0
+18,Miami,Aston Martin,Fernando Alonso,14,18,TBA,0
+19,Miami,Williams,Carlos Sainz,55,19,TBA,0
+20,Miami,Ferrari,Charles Leclerc,16,20,TBA,0
