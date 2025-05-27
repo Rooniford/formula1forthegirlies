@@ -12,7 +12,7 @@ import fastf1
 import fastf1.plotting
 import seaborn as sns
 import os
-cache_dir = '/tmp/fastf1_cache'  # ✅ This works on Streamlit Cloud and similar environments
+cache_dir = '/tmp/fastf1_cache'  
 os.makedirs(cache_dir, exist_ok=True)
 fastf1.Cache.enable_cache(cache_dir)
 import matplotlib.pyplot as plt
@@ -131,7 +131,7 @@ mercedes_drivers = ("George Russell", "Kimi Antonelli")
 red_bull_racing_australia_drivers = ("Max Verstappen", "Liam Lawson")
 red_bull_racing_japan_drivers = ("Max Verstappen", "Yuki Tsunoda")
 redbull1_tracks = ("Australia", "China")
-redbull2_tracks = ("Japan", "Bahrain", "Saudi Arabia", "Miami", "Imola")
+redbull2_tracks = ("Japan", "Bahrain", "Saudi Arabia", "Miami", "Imola", "Monaco")
 racing_bulls_australia_drivers = ("Yuki Tsunoda", "Isack Hadjar")
 racing_bulls_japan_drivers = ("Liam Lawson", "Isack Hadjar")
 williams_drivers = ("Carlos Sainz", "Alexander Albon")
@@ -753,8 +753,17 @@ elif option == "**Hypothetical Chaos Mode**":
         if hypothetical_entries:
             st.markdown(f"<h3 style='text-align: center;'>Projected Constructors Championship</h3>", unsafe_allow_html=True)
     
-            alpine_only = combined[combined["Driver"].isin(alpine_drivers)]
-            alpine_points = alpine_only["Points"].sum()
+            alpine_australia_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(alpine_australia_drivers)) &
+                (full_combined_with_track["Track"].isin(alpine1_tracks))
+            ]
+            alpine_australia_points = alpine_australia_only["Points"].sum()
+            alpine_imola_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(alpine_imola_drivers)) &
+                (full_combined_with_track["Track"].isin(alpine2_tracks))
+            ]
+            alpine_imola_points = alpine_imola_only["Points"].sum()
+            alpine_points = alpine_australia_points + alpine_imola_points 
 
             aston_martin_only = combined[combined["Driver"].isin(aston_martin_drivers)]
             aston_martin_points = aston_martin_only["Points"].sum()
@@ -2518,6 +2527,6 @@ if option == "**McLaren Loopholes**":
 if option == "Patch Notes":
     st.subheader("1.5.5")
     st.markdown("""
-        added imola race results  
-        fixed inconsistencies with lewis hamilton's points by removing added spaces in bahrain and miami.
+        added monaco race results.  
+        fixed error on hypothetical chaos mode that was causing alpine to not be unable to be calculated.  
         """)
