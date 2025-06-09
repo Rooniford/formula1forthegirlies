@@ -888,8 +888,17 @@ elif option == "**Hypothetical Chaos Mode**":
         if hypothetical_entries:
             st.markdown(f"<h3 style='text-align: center;'>Projected Constructors Championship</h3>", unsafe_allow_html=True)
     
-            alpine_only = combined[combined["Driver"].isin(alpine_drivers)]
-            alpine_points = alpine_only["Points"].sum()
+            alpine_australia_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(alpine_australia_drivers)) &
+                (full_combined_with_track["Track"].isin(alpine1_tracks))
+            ]
+            alpine_australia_points = alpine_australia_only["Points"].sum()
+            alpine_imola_only = full_combined_with_track[
+                (full_combined_with_track["Driver"].isin(alpine_imola_drivers)) &
+                (full_combined_with_track["Track"].isin(alpine2_tracks))
+            ]
+            alpine_imola_points = alpine_imola_only["Points"].sum()
+            alpine_points = alpine_australia_points + alpine_imola_points
 
             aston_martin_only = combined[combined["Driver"].isin(aston_martin_drivers)]
             aston_martin_points = aston_martin_only["Points"].sum()
