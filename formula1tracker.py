@@ -2536,6 +2536,5 @@ if option == "**McLaren Loopholes**":
 if option == "Patch Notes":
     st.subheader("1.5.5")
     st.markdown("""
-        added monaco race results.  
-        fixed error on hypothetical chaos mode that was causing alpine to not be unable to be calculated.  
+        added spanish grand prix results 
         """)
