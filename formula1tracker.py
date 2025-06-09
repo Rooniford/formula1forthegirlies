@@ -121,7 +121,7 @@ if option == "**Home**":
 alpine_australia_drivers = ("Pierre Gasly", "Jack Doohan")
 alpine_imola_drivers = ("Pierre Gasly", "Franco Colapinto")
 alpine1_tracks = ("Australia", "China", "Japan", "Bahrain", "Saudi Arabia", "Miami")
-alpine2_tracks = ("Imola", "Monaco")
+alpine2_tracks = ("Imola", "Monaco", "Spain", "Canada", "Austria", "Great Britain", "Belgium", "Hungary", "Netherlands", "Italy", "Azerbaijan", "Singapore", "United States", "Mexico", "Brazil", "Las Vegas", "Qatar", "Abu Dhabi")
 aston_martin_drivers = ("Fernando Alonso", "Lance Stroll")
 ferrari_drivers = ("Charles Leclerc", "Lewis Hamilton")
 haas_drivers = ("Esteban Ocon", "Oliver Bearman")
@@ -131,7 +131,7 @@ mercedes_drivers = ("George Russell", "Kimi Antonelli")
 red_bull_racing_australia_drivers = ("Max Verstappen", "Liam Lawson")
 red_bull_racing_japan_drivers = ("Max Verstappen", "Yuki Tsunoda")
 redbull1_tracks = ("Australia", "China")
-redbull2_tracks = ("Japan", "Bahrain", "Saudi Arabia", "Miami", "Imola", "Monaco")
+redbull2_tracks = ("Japan", "Bahrain", "Saudi Arabia", "Miami", "Imola", "Monaco", "Spain", "Canada", "Austria", "Great Britain", "Belgium", "Hungary", "Netherlands", "Italy", "Azerbaijan", "Singapore", "United States", "Mexico", "Brazil", "Las Vegas", "Qatar", "Abu Dhabi")
 racing_bulls_australia_drivers = ("Yuki Tsunoda", "Isack Hadjar")
 racing_bulls_japan_drivers = ("Liam Lawson", "Isack Hadjar")
 williams_drivers = ("Carlos Sainz", "Alexander Albon")
@@ -195,6 +195,8 @@ gp_clean = gp.dropna(subset=["Track", "Pos"])
 tracks = gp_clean["Track"].unique()
 
 if option == "**Grand Prix Positions**":
+    st.write(gp_clean.tail(20))
+
     for track in tracks:
         race_data = gp_clean[gp_clean["Track"] == track] 
 
